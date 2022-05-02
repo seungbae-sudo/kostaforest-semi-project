@@ -4,16 +4,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.sql.DataSource;
 
-public class CommunityBoardDAO {
-	private static CommunityBoardDAO instance = new CommunityBoardDAO();
+
+
+public class CategoryDAO {
+	private static CategoryDAO instance = new CategoryDAO();
 	private DataSource  dataSource;
-	private CommunityBoardDAO() {
+	private CategoryDAO() {
 		this.dataSource = DataSourceManager.getInstance().getDataSource();
 	}
-	public static CommunityBoardDAO getInstance() {
+	public static CategoryDAO getInstance() {
 		return instance;
 	}
 	
@@ -30,21 +33,26 @@ public class CommunityBoardDAO {
 		closeAll(pstmt, con);
 	}
 	
-	public void posting(CommunityPostVO cvo) throws SQLException {
+	public ArrayList<CategoryVO> list() throws SQLException{
+		ArrayList<CategoryVO> list = new ArrayList<CategoryVO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		try {
-			con= dataSource.getConnection();
-			StringBuilder sql = new StringBuilder("INSERT INTO CMU_BOARD(board_no,title,car_no,content,time_posted,id) ");					
-			sql.append("values(cmu_board_seq.nextval,?,?,?,sysdate,'samsung')");
-			pstmt = con.prepareStatement(sql.toString());
-			pstmt.setString(1,cvo.getTitle());
-			pstmt.setInt(2, cvo.getCvo().getCarNo());
-			pstmt.setString(3, cvo.getContent());
-			pstmt.executeUpdate();
-			
+			con = dataSource.getConnection();
+			String sql = "SELECT car_no,car_name FROM category";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				CategoryVO cvo = new CategoryVO(rs.getInt(1), rs.getString(2));
+				list.add(cvo);
+			}
 		}finally {
-			closeAll(pstmt, con);
+			closeAll(rs, pstmt, con);
+			
 		}
+		
+		return list;
+		
 	}
 }

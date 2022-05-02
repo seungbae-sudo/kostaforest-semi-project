@@ -18,7 +18,7 @@ public class CheckLoginInterceptor {
 	private CheckLoginInterceptor() {
 		
 		permitAllList.add("CommunityWriteController");
-		permitAllList.add("");
+		permitAllList.add("CommunityWriteFormController");
 		permitAllList.add("");
 	
 		

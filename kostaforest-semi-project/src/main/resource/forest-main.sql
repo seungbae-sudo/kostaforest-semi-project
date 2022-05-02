@@ -9,6 +9,8 @@ INSERT INTO CATEGORY(car_no,car_name) values(1,'회사이야기')
 INSERT INTO CATEGORY(car_no,car_name) values(2,'취미생활이야기');
 INSERT INTO CATEGORY(car_no,car_name) values(3,'주식이야기');
 
+SELECT car_no, car_name FROM CATEGORY
+
 CREATE TABLE EMP_MEMBER(
 	id VARCHAR2(100) PRIMARY KEY,
 	password VARCHAR2(100) NOT NULL,
@@ -42,10 +44,11 @@ CREATE SEQUENCE cmu_board_seq;
 INSERT INTO CMU_BOARD(board_no,title,car_no,content,time_posted,like_no,hits,id)
 						values(cmu_board_seq.nextval,'안녕하세요','1','안녕하세요',sysdate,1,1,'samsung')
 	
-SELECT * FROM 	CMU_BOARD			
+SELECT * FROM 	CMU_BOARD		
+
 SELECT c.board_no as 게시물번호, c.title as 제목,c.content as 본문,c.like_no as 좋아요,c.hits as 조회수,ca.car_name as 카테고리
 FROM CMU_BOARD c , CATEGORY ca
-WHERE c.car_no= ca.car_no
+WHERE c.car_no= ca.car_no;
 
 
 CREATE TABLE LIKE_COUNT(

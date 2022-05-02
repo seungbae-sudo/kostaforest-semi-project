@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -20,28 +21,25 @@
 <style>
 
 /*글제목, 유형선택 css*/
-
-.title_line{
-width: 80%;
-height: 35px;
+.title_line {
+	width: 80%;
+	height: 35px;
 }
 
-.btn{
+.btn {
 	background-color: #343a40;
-	color:#fff;
+	color: #fff;
 }
-
 
 .btn-success {
 	border-color: #343a40;
 }
 
-.btn-success:hover{
-	background-color: #343a40 !important; 
+.btn-success:hover {
+	background-color: #343a40 !important;
 	border-line: none;
 	opacity: 0.7;
 }
-
 
 .header {
 	padding-top: 20px;
@@ -96,7 +94,6 @@ height: 35px;
 }
 
 /*여기서부터 css 조작*/
-
 .container {
 	position: relative;
 	margin-top: 90px;
@@ -177,8 +174,6 @@ i {
 .icon {
 	font-size: 14px;
 }
-
-
 </style>
 </head>
 <body>
@@ -212,35 +207,37 @@ i {
 		<h3>커뮤니티 글쓰기</h3>
 		<form method="post" action="CommunityWriteController.do">
 			<table class="table">
-			<tr>
-				<td>
-					<select id="" onchange="" class="title_line" > <!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
-					<option value="">게시판을 선택해주세요. </option>
-					<option value="">회사이야기</option>
-					<option value="">주식이야기</option>
-					<option value="">취미생활이야기</option>
-					</select>
-				</td>
-				
-			</tr>
 				<tr>
-					<td><input class="title_line" type="text" name="title" placeholder="글제목"
-						required="required"></td>
+					<td>
+					<select name="carNo" class="title_line">
+							<!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
+							<option value="">게시판을 선택해주세요.</option>
+							<c:forEach items="${caList}" var="list">
+								<option value="${list.carNo }">${list.carName }</option>
+							</c:forEach>
+
+					</select> 
+					</td>
+
+				</tr>
+				<tr>
+					<td><input class="title_line" type="text" name="title"
+						placeholder="글제목" required="required"></td>
 				</tr>
 				<tr>
 					<td><textarea rows="10" class="form-control" name="content"
 							placeholder="본문내용" required="required"></textarea></td>
 				</tr>
 			</table>
-			
+
 			<div class="text-center">
 				<button type="submit" class="btn btn-success">확인</button>
 				<button type="reset" class="btn btn-success">취소</button>
 			</div>
-			</form>
-			<div class="jumbotron text-center" style="margin-bottom: 0">
-				<p>Footer</p>
-			</div>
+		</form>
+		<div class="jumbotron text-center" style="margin-bottom: 0">
+			<p>Footer</p>
+		</div>
 	</div>
 </body>
 </html>
