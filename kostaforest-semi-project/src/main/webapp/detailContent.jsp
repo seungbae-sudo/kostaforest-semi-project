@@ -203,19 +203,19 @@ ul.info li {
 				
 				<tbody class="up-space">
 					<tr>
-						<td class="col-sm-8"><a href="">여기가 글내용</a></td>
+						<td class="col-sm-8">여기가 글내용</td>
 						<td class="col-sm-2">2022.05.02</td>
 					</tr>
 					<tr>
-						<td><a href="">여기가 글내용</a></td>
+						<td>여기가 글내용</td>
 						<td>3</td>
 					</tr>
 					<tr>
-						<td><a href="">여기가 글내용</a></td>
+						<td>여기가 글내용</td>
 						<td>3</td>
 					</tr>
 					<tr>
-						<td><a href="">여기가 글내용</a></td>
+						<td>여기가 글내용</td>
 						<td>3</td>
 					</tr>
 				</tbody>
