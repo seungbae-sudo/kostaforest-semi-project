@@ -6,6 +6,8 @@ CREATE TABLE CATEGORY(
 DROP TABLE CATEGORY
 
 INSERT INTO CATEGORY(car_no,car_name) values(1,'회사이야기')
+INSERT INTO CATEGORY(car_no,car_name) values(2,'취미생활이야기');
+INSERT INTO CATEGORY(car_no,car_name) values(3,'주식이야기');
 
 CREATE TABLE EMP_MEMBER(
 	id VARCHAR2(100) PRIMARY KEY,
