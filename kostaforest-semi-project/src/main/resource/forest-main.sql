@@ -50,6 +50,7 @@ SELECT c.board_no as 게시물번호, c.title as 제목,c.content as 본문,c.li
 FROM CMU_BOARD c , CATEGORY ca
 WHERE c.car_no= ca.car_no;
 
+SELECT title,like_no,hits FROM CMU_BOARD WHERE car_no= '1';
 
 CREATE TABLE LIKE_COUNT(
 	id VARCHAR2(100),

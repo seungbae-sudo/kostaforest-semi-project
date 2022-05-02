@@ -2,6 +2,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -127,67 +128,45 @@ a.page-link{
 }
 </style>
 </head>
+<script type="text/javascript">
+	function submit(obj) {
+
+		obj.submit();
+	}
+</script>
 <body>
 		
 	<div class="container">
 		
 		<table class="table">
 			<h2 class="title">		
-					<i class="fas fa-coffee"></i>회사 생활 
+					<i class="fas fa-coffee"></i>
+					
+					<form action="CommunityPostListController.do" method="get">
+				
+					<select id ="carNo" name="carNo" onchange="submit(this.form)">
+							<!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
+							<option value="">게시판을 선택해주세요.</option>
+							
+						    <option value="1"  <c:if test="${carNo==1}"> selected </c:if> >회사 이야기</option>
+						    <option value="2" <c:if test="${carNo==2}"> selected </c:if>>취미 생활 이야기</option>
+						    <option value="3" <c:if test="${carNo==3}"> selected </c:if>>주식 이야기</option>
+					</select>
+					</form>
 				<form action="CommunityWriteFormController.do" method="get">
 					<button class="write">글쓰기</button>
 				</form>
 			</h2>
-
+				
 			<tbody>
+					<c:forEach items="${cmuList }" var="list">
 						<tr>
-							<td class="col-sm-10"><a href="">여기가 글내용</a></td>
-							<td class="col-sm-1"><i class='far fa-eye icon'></i>3</td>
-							<td class="col-sm-1"><i class='far fa-heart icon'></i>4</td>
+							<td class="col-sm-10"><a href="">${list.title }</a></td>
+							<td class="col-sm-1"><i class='far fa-eye icon'></i> ${list.likeNo } </td>
+							<td class="col-sm-1"><i class='far fa-heart icon'></i>${list.hits } </td>
 							
 						</tr>
-						<tr>
-							<td ><a href="">여기가 글내용</a></td>
-							<td ><i class='far fa-eye icon'></i>3</td>
-							<td ><i class='far fa-heart icon'></i>4</td>
-						</tr>
-						<tr>
-							<td ><a href="">여기가 글내용</a></td>
-							<td ><i class='far fa-eye icon'></i>3</td>
-							<td ><i class='far fa-heart icon'></i>4</td>
-						</tr>
-						<tr>
-							<td ><a href="">여기가 글내용</a></td>
-							<td ><i class='far fa-eye icon'></i>3</td>
-							<td ><i class='far fa-heart icon'></i>4</td>
-						</tr>
-						<tr>
-							<td class="col-sm-10"><a href="">여기가 글내용</a></td>
-							<td class="col-sm-1"><i class='far fa-eye icon'></i>3</td>
-							<td class="col-sm-1"><i class='far fa-heart icon'></i>4</td>
-							
-						</tr>
-						<tr>
-							<td ><a href="">여기가 글내용</a></td>
-							<td ><i class='far fa-eye icon'></i>3</td>
-							<td ><i class='far fa-heart icon'></i>4</td>
-						</tr>
-						<tr>
-							<td ><a href="">여기가 글내용</a></td>
-							<td ><i class='far fa-eye icon'></i>3</td>
-							<td ><i class='far fa-heart icon'></i>4</td>
-						</tr>
-						<tr>
-							<td ><a href="">여기가 글내용</a></td>
-							<td ><i class='far fa-eye icon'></i>3</td>
-							<td ><i class='far fa-heart icon'></i>4</td>
-						</tr>
-						<tr>
-							<td class="col-sm-10"><a href="">여기가 글내용</a></td>
-							<td class="col-sm-1"><i class='far fa-eye icon'></i>3</td>
-							<td class="col-sm-1"><i class='far fa-heart icon'></i>4</td>
-							
-						</tr>
+					</c:forEach>
 						
 					</tbody>
 		</table>

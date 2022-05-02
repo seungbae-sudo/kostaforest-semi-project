@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.sql.DataSource;
 
@@ -46,5 +47,28 @@ public class CommunityBoardDAO {
 		}finally {
 			closeAll(pstmt, con);
 		}
+	}
+	public ArrayList<CommunityPostVO> findAllPostList(String carNo) throws SQLException{
+		ArrayList<CommunityPostVO> list = new ArrayList<CommunityPostVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs= null;
+		try {
+			con = dataSource.getConnection();
+			String sql = "SELECT title,like_no,hits FROM CMU_BOARD WHERE car_no= ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, carNo);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				CommunityPostVO cvo = new CommunityPostVO();
+				cvo.setTitle(rs.getString("title"));
+				cvo.setLikeNo(rs.getInt("like_no"));
+				cvo.setHits(rs.getInt("hits"));
+				list.add(cvo);
+			}
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		return list;
 	}
 }
