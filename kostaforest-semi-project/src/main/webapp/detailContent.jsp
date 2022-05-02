@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -178,15 +178,15 @@ ul.info li {
 <body>
 
 	<div class="container">
-		<h3 class="title-detail">글 제목</h3>
+		<h3 class="title-detail">${cvo.title}</h3>
 		<hr>
 		<ul class="info">
-			<li>작성자 회사</li>
-			<li>작성일</li>
-			<li>조회수</li>
+			<li>작성자 회사 : ${cvo.mvo.comName }</li>
+			<li>작성일 : ${cvo.timePosted }</li>
+			<li>조회수 : ${cvo.hits }</li>
 		</ul>
 		<div class="content">
-			<pre>글 내용</pre>
+			<pre>${cvo.content }</pre>
 		</div>
 
 
