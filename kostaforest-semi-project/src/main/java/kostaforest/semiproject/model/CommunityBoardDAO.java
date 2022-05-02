@@ -29,4 +29,21 @@ public class CommunityBoardDAO {
 			rs.close();
 		closeAll(pstmt, con);
 	}
+	
+	public void posting(CommunityPostVO cvo) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con= dataSource.getConnection();
+			StringBuilder sql = new StringBuilder("INSERT INTO CMU_BOARD(board_no,title,car_no,content,time_posted,id) ");					
+			sql.append("values(cmu_board_seq.nextval,?,1,?,sysdate,'samsung')");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1,cvo.getTitle());
+			pstmt.setString(2, cvo.getContent());
+			pstmt.executeUpdate();
+			
+		}finally {
+			closeAll(pstmt, con);
+		}
+	}
 }

@@ -133,8 +133,10 @@ a.page-link{
 		
 		<table class="table">
 			<h2 class="title">
-				<i class="fas fa-coffee"></i>회사 생활 
-				<button class="write">글쓰기</button>
+				<form action="CommunityWriteForm.jsp" method="get">
+					<i class="fas fa-coffee"></i>회사 생활 
+					<button class="write">글쓰기</button>
+				</form>
 			</h2>
 
 			<tbody>

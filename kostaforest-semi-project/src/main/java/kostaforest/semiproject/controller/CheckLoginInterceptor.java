@@ -17,7 +17,7 @@ public class CheckLoginInterceptor {
 	private ArrayList<String> permitAllList = new ArrayList<String>();
 	private CheckLoginInterceptor() {
 		
-		permitAllList.add("");
+		permitAllList.add("CommunityWriteController");
 		permitAllList.add("");
 		permitAllList.add("");
 	

@@ -210,7 +210,7 @@ i {
 	</nav>
 	<div class="container">
 		<h3>커뮤니티 글쓰기</h3>
-		<form method="" action="">
+		<form method="post" action="CommunityWriteController.do">
 			<table class="table">
 			<tr>
 				<td>
@@ -219,8 +219,9 @@ i {
 					<option value="">회사이야기</option>
 					<option value="">주식이야기</option>
 					<option value="">취미생활이야기</option>
+					</select>
 				</td>
-				</select>
+				
 			</tr>
 				<tr>
 					<td><input class="title_line" type="text" name="title" placeholder="글제목"
@@ -236,7 +237,7 @@ i {
 				<button type="submit" class="btn btn-success">확인</button>
 				<button type="reset" class="btn btn-success">취소</button>
 			</div>
-			
+			</form>
 			<div class="jumbotron text-center" style="margin-bottom: 0">
 				<p>Footer</p>
 			</div>
