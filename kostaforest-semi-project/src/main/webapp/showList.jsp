@@ -108,10 +108,21 @@ i {
 	font-size: 14px;
 }
 
+/*showList */
+
 a.page-link{
 	color: #343a40;
 }
-
+.write{
+	font-size: 17px;
+    background: #fff;
+    border-radius: 5px;
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    right: 40px;
+    top: 17px;
+}
 </style>
 </head>
 <body>
@@ -121,6 +132,7 @@ a.page-link{
 		<table class="table">
 			<h2 class="title">
 				<i class="fas fa-coffee"></i>회사 생활 
+				<button class="write">글쓰기</button>
 			</h2>
 
 			<tbody>
