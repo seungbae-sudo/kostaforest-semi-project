@@ -150,22 +150,23 @@ i {
 
 			<tbody>
 						<tr>
-							<td class="col-sm-10">여기가 글내용</td>
+							<td class="col-sm-10"><a href="">여기가 글내용</a></td>
 							<td class="col-sm-1"><i class='far fa-eye icon'></i>3</td>
 							<td class="col-sm-1"><i class='far fa-heart icon'></i>4</td>
+							
 						</tr>
 						<tr>
-							<td >여기가 글내용</td>
+							<td ><a href="">여기가 글내용</a></td>
 							<td ><i class='far fa-eye icon'></i>3</td>
 							<td ><i class='far fa-heart icon'></i>4</td>
 						</tr>
 						<tr>
-							<td >여기가 글내용</td>
+							<td ><a href="">여기가 글내용</a></td>
 							<td ><i class='far fa-eye icon'></i>3</td>
 							<td ><i class='far fa-heart icon'></i>4</td>
 						</tr>
 						<tr>
-							<td >여기가 글내용</td>
+							<td ><a href="">여기가 글내용</a></td>
 							<td ><i class='far fa-eye icon'></i>3</td>
 							<td ><i class='far fa-heart icon'></i>4</td>
 						</tr>
@@ -183,22 +184,22 @@ i {
 
 					<tbody>
 						<tr>
-							<td class="col-sm-8">여기가 글내용</td>
+							<td class="col-sm-8"><a href="">여기가 글내용</a></td>
 							<td class="col-sm-2"><i class='far fa-eye icon'></i>3</td>
 							<td class="col-sm-2"><i class='far fa-heart icon'></i>4</td>
 						</tr>
 						<tr>
-							<td >여기가 글내용</td>
+							<td ><a href="">여기가 글내용</a></td>
 							<td ><i class='far fa-eye icon'></i>3</td>
 							<td ><i class='far fa-heart icon'></i>4</td>
 						</tr>
 						<tr>
-							<td >여기가 글내용</td>
+							<td ><a href="">여기가 글내용</a></td>
 							<td ><i class='far fa-eye icon'></i>3</td>
 							<td ><i class='far fa-heart icon'></i>4</td>
 						</tr>
 						<tr>
-							<td >여기가 글내용</td>
+							<td ><a href="">여기가 글내용</a></td>
 							<td ><i class='far fa-eye icon'></i>3</td>
 							<td ><i class='far fa-heart icon'></i>4</td>
 						</tr>
@@ -218,22 +219,22 @@ i {
 
 					<tbody>
 						<tr>
-							<td class="col-sm-8">여기가 글내용</td>
+							<td class="col-sm-8"><a href="">여기가 글내용</a></td>
 							<td class="col-sm-2"><i class='far fa-eye icon'></i>3</td>
 							<td class="col-sm-2"><i class='far fa-heart icon'></i>4</td>
 						</tr>
 						<tr>
-							<td >여기가 글내용</td>
+							<td ><a href="">여기가 글내용</a></td>
 							<td ><i class='far fa-eye icon'></i>3</td>
 							<td ><i class='far fa-heart icon'></i>4</td>
 						</tr>
 						<tr>
-							<td >여기가 글내용</td>
+							<td ><a href="">여기가 글내용</a></td>
 							<td ><i class='far fa-eye icon'></i>3</td>
 							<td ><i class='far fa-heart icon'></i>4</td>
 						</tr>
 						<tr>
-							<td >여기가 글내용</td>
+							<td ><a href="">여기가 글내용</a></td>
 							<td ><i class='far fa-eye icon'></i>3</td>
 							<td ><i class='far fa-heart icon'></i>4</td>
 						</tr>
