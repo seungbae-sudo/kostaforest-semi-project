@@ -89,6 +89,7 @@ public class CommunityBoardDAO {
 				MemberVO mvo = new MemberVO();
 				mvo.setComName(rs.getString("com_name"));
 				cvo = new CommunityPostVO();
+				cvo.setBoardNo(Integer.parseInt(no));
 				cvo.setTitle(rs.getString("title"));
 				cvo.setContent(rs.getString("content"));
 				cvo.setHits(rs.getInt("hits"));
@@ -100,6 +101,38 @@ public class CommunityBoardDAO {
 		}
 		
 		return cvo;
+	}
+	
+	public void deletePostByNo(String no) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = dataSource.getConnection();
+			String sql ="DELETE FROM CMU_BOARD WHERE board_no = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, no);
+			pstmt.executeUpdate();
+		}finally {
+			closeAll(pstmt, con);
+		}
+		
+	}
+	
+	public void updatePostByNo(CommunityPostVO cvo) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = dataSource.getConnection();
+			String sql = "UPDATE CMU_BOARD SET title=?,content=?, car_no=? WHERE board_no = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, cvo.getTitle());
+			pstmt.setString(2, cvo.getContent());
+			pstmt.setInt(3, cvo.getCvo().getCarNo());
+			pstmt.setInt(4, cvo.getBoardNo());
+			pstmt.executeUpdate();
+		}finally {
+			closeAll(pstmt, con);
+		}
 	}
 }
 

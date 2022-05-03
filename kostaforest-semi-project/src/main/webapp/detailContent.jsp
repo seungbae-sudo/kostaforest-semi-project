@@ -188,7 +188,31 @@ ul.info li {
 		<div class="content">
 			<pre>${cvo.content }</pre>
 		</div>
-
+		<form action="CommunityDeleteController.do" method="post" id= "DeleteForm">
+			<input type="hidden" name="no" value="${cvo.boardNo}">
+					
+			</form>
+			<form action="CommunityUpdateFormController.do" method="post" id="UpdateForm">
+				<input type="hidden" name="no" value="${cvo.boardNo}">
+	
+			</form>
+			<button type ="button" onclick="updatepost()"> 수정</button>
+			<button type ="button" onclick= "deletepost()" > 삭제</button>
+			
+			<script type="text/javascript">
+				function deletepost() {
+					if(confirm("삭제 하시겠습니까?")){
+						document.getElementById("DeleteForm").submit();
+					}
+				
+				}
+				function updatepost() {
+					if(confirm("수정 하시겠습니까?")){
+						document.getElementById("UpdateForm").submit();
+					}
+				
+				}
+			</script>
 
 		<div class="comment">
 			<table class="table table-comment">
@@ -196,7 +220,7 @@ ul.info li {
 					<i class="fas fa-cloud"></i>댓글<span class="more">
 				</h4>
 				
-				<form class="comment-form">
+				<form action="CommentWriteController.do" method="post" class="comment-form">
 					<input type="text" class="comment-write" placeholder="댓글을 입력하세요">
 					<button class="comment-write-ok">작성</button>
 				</form>

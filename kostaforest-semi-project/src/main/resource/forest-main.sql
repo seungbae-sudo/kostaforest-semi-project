@@ -60,6 +60,8 @@ SELECT c.title, c.content, c.hits, c.time_posted, m.com_name
 FROM CMU_BOARD c , EMP_MEMBER m
 WHERE c.id = m.id AND c.board_no = 7;
 
+UPDATE CMU_BOARD SET title='배드민턴',content='좋아하시는분??', car_no='1' WHERE board_no = 22
+
 CREATE TABLE LIKE_COUNT(
 	id VARCHAR2(100),
 	board_no NUMBER,
