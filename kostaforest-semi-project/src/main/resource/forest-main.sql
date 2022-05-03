@@ -83,6 +83,7 @@ CREATE TABLE BOARD_COMMENT(
 
 CREATE SEQUENCE board_comment_seq;
 
+--댓글 테스트
 INSERT INTO BOARD_COMMENT(comment_no, comment_content, time_posted,id,board_no)
                            VALUES(board_comment_seq.nextval,'좋아요~!',sysdate,'samsung','7')
         
