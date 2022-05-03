@@ -130,7 +130,6 @@ a.page-link{
 </head>
 <script type="text/javascript">
 	function submit(obj) {
-
 		obj.submit();
 	}
 </script>
@@ -159,9 +158,9 @@ a.page-link{
 			</h2>
 				
 			<tbody>
-					<c:forEach items="${cmuList }" var="list">
+					<c:forEach items="${cmuList}" var="list">
 						<tr>
-							<td class="col-sm-10"><a href="">${list.title }</a></td>
+							<td class="col-sm-10"><a href="CommunityPostDetailController.do?no=${list.boardNo }">${list.title }</a></td>
 							<td class="col-sm-1"><i class='far fa-eye icon'></i> ${list.likeNo } </td>
 							<td class="col-sm-1"><i class='far fa-heart icon'></i>${list.hits } </td>
 							

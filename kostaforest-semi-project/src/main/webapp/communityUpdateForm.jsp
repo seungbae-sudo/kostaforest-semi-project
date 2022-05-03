@@ -7,9 +7,12 @@
 <title>Bootstrap 4 Website Example</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Add icon library -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <script
@@ -21,6 +24,11 @@
 <style>
 
 /*글제목, 유형선택 css*/
+
+.container h3{
+	text-indent: 7px;
+}
+
 .title_line {
 	width: 80%;
 	height: 35px;
@@ -204,7 +212,7 @@ i {
 		</div>
 	</nav>
 	<div class="container">
-		<h3>커뮤니티 글쓰기</h3>
+		<h3><i class='fas fa-eraser' style='font-size:24px'></i>커뮤니티 수정</h3>
 		<form method="post" action="CommunityWriteController.do">
 			<table class="table">
 				<tr>
@@ -231,13 +239,14 @@ i {
 			</table>
 
 			<div class="text-center">
-				<button type="submit" class="btn btn-success">확인</button>
+				<button type="submit" class="btn btn-success">수정</button>
 				<button type="reset" class="btn btn-success">취소</button>
 			</div>
 		</form>
+		
+		</div>
 		<div class="jumbotron text-center" style="margin-bottom: 0">
 			<p>Footer</p>
 		</div>
-	</div>
 </body>
 </html>

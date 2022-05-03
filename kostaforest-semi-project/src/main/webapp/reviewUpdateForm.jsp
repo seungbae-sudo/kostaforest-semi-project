@@ -25,6 +25,9 @@
 
 /*글제목, 유형선택 css*/
 
+.container h3{
+	text-indent: 7px;
+}
 .title_line{
 width: 80%;
 height: 35px;
@@ -54,6 +57,7 @@ height: 35px;
 	width: 20%;
 	position: absolute;
 	right: 21%;
+	height: 30px;
 }
 .header {
 	padding-top: 20px;
@@ -221,7 +225,7 @@ i {
 		</div>
 	</nav>
 	<div class="container">
-		<h3>리뷰 글쓰기</h3>
+		<h3><i class='fas fa-eraser' style='font-size:24px'></i></i>리뷰 수정</h3>
 		<form method="" action="">
 			<table class="table">
 			<tr>
@@ -248,13 +252,14 @@ i {
 			</table>
 			
 			<div class="text-center">
-				<button type="submit" class="btn btn-success">확인</button>
+				<button type="submit" class="btn btn-success">수정</button>
 				<button type="reset" class="btn btn-success">취소</button>
+			</div>
+			
 			</div>
 			
 			<div class="jumbotron text-center" style="margin-bottom: 0">
 				<p>Footer</p>
 			</div>
-	</div>
 </body>
 </html>
