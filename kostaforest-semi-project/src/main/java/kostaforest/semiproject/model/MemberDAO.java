@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 public class MemberDAO {
 	private static MemberDAO instance = new MemberDAO();
 	private DataSource  dataSource;
+	
 	private MemberDAO() {
 		this.dataSource = DataSourceManager.getInstance().getDataSource();
 	}
@@ -29,5 +30,26 @@ public class MemberDAO {
 		if (rs != null)
 			rs.close();
 		closeAll(pstmt, con);
+	}
+	
+	public MemberVO login(String id, String password) throws SQLException {
+		MemberVO vo=null;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=dataSource.getConnection();
+			String sql="SELECT  *  FROM EMP_MEMBER WHERE id=? AND password=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, password);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				vo=new MemberVO(id,password,rs.getString(1),rs.getString(2),rs.getString(3));
+			}
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		return vo;
 	}
 }

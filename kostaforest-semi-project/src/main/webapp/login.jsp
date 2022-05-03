@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +17,9 @@
    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
    src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
 <style>
 .fakeimg {
    height: 200px;
@@ -309,25 +313,35 @@ span {
 				<button type="button" class="togglebtn" onclick="register()"><font color="#6b6b6b">기업</font></button>
 			</div>
 			<div class="social-icons"></div>
-			<form id="login" action="" class="input-group">
-				<input type="text" class="input-field" placeholder="ID" required>
+			<form id="login" action="LoginController.do" class="input-group" method="post">
+				<input type="text" name="id" class="input-field" placeholder="ID" required>
 				<div class="social-icons"></div>
-				<input type="password" class="input-field2" placeholder="PASSWORD" required >
+				<input type="password" name="password" class="input-field2" placeholder="PASSWORD" required >
 				<div class="social-icons"></div>
-				<button class="submit"><font color="white">SIGN IN</font></button>
+				<button type="submit" class="submit"><font color="white">SIGN IN</font></button>
+				<button type="button" onclick="moveRegiter();"><font color="white">가입가입</font></button>
 				<div class="social-icons"></div>
-				<button class="submit2">SIGN UP</button>
 			</form>
-			<form id="register" action="" class="input-group">
-				<input type="text" class="input-field" placeholder="ID" required>
+
+			<form id="register" action="LoginController.do" class="input-group">
+				<input type="text" name="id" class="input-field" placeholder="ID" required>
 				<div class="social-icons"></div>
-				<input type="password" class="input-field2" placeholder="PASSWORD"
-					required>
+				<input type="password" name="password "class="input-field2" placeholder="PASSWORD" required>
 					<div class="social-icons"></div>
 				<button class="submit"><font color="white">SIGN IN</font></button>
 				<div class="social-icons"></div>
-				<button class="submit2">SIGN UP</button>
 			</form>
+			 
+			<!--  ajax 호출 tag
+			<form id="login" action="#" class="input-group" method="post">
+				<input type="text" name="id" class="input-field" placeholder="ID" required>
+				<div class="social-icons"></div>
+				<input type="password" name="password" class="input-field2" placeholder="PASSWORD" required >
+				<div class="social-icons"></div>
+				<button onclick="loginSubmit();"><font color="white">SIGN IN</font></button>
+				<div class="social-icons"></div>
+			</form>
+			 -->
 		</div>
 	</div>
 	<script>
@@ -346,6 +360,45 @@ span {
 			y.style.left = "50px";
 			z.style.left = "110px";
 		}
+		
+		function moveRegiter(){
+			console.log('moveRegiter');
+			window.location.href = 'register.jsp';
+		}
+		
+		
+		
+		
+		/* ajax example
+		function loginSubmit(){
+			console.log('loginSubmit');
+			console.log($('input[name=id]').val());
+			console.log($('input[name=password]').val());
+				
+			var prams = {
+					"id":$('input[name=id]').val(),
+					"password":$('input[name=password]').val()
+			}
+			
+			console.log('prams'); 
+			console.log(prams); 
+			console.log(JSON.stringify(prams));
+			
+            $.ajax({
+                type : "POST",            // HTTP method type(GET, POST) 형식이다.
+                url : "LoginController.do",      // 컨트롤러에서 대기중인 URL 주소이다.
+                data : JSON.stringify(prams),            // Json 형식의 데이터이다.
+                success : function(result){ // 비동기통신의 성공일경우 success콜백으로 들어옵니다. 'res'는 응답받은 데이터이다.
+                	alert("12");
+                },
+                error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+                    alert("통신 실패.")
+                }
+            });
+		}
+		*/
+		
+		
 	</script>
 </body>
 </html>
