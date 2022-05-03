@@ -255,15 +255,15 @@ height: 70px;
     border: 0;
     margin-right: 5px;
 }
-.submit2{
+
+#test{
 width: 1000px;
 height: 70px;
-	background-color: #ffffff;
-	border-radius: 10px;
-    border: 1;
+    background: white;
+    border-radius: 10px;
+    border-line: 1px;
     margin-right: 5px;
 }
-
 .checkbox {
     margin: 30px 10px 30px 0;
 }
@@ -319,18 +319,22 @@ span {
 				<input type="password" name="password" class="input-field2" placeholder="PASSWORD" required >
 				<div class="social-icons"></div>
 				<button type="submit" class="submit"><font color="white">SIGN IN</font></button>
-				<button type="button" onclick="moveRegiter();"><font color="white">가입가입</font></button>
+				<div class="social-icons"></div>
+				<button id="test" type="button" onclick="moveRegiter();">SIGN UP</button>
 				<div class="social-icons"></div>
 			</form>
-
+						
 			<form id="register" action="LoginController.do" class="input-group">
 				<input type="text" name="id" class="input-field" placeholder="ID" required>
 				<div class="social-icons"></div>
 				<input type="password" name="password "class="input-field2" placeholder="PASSWORD" required>
 					<div class="social-icons"></div>
-				<button class="submit"><font color="white">SIGN IN</font></button>
+				<button type="submit" class="submit"><font color="white">SIGN IN</font></button>
+				<div class="social-icons"></div>
+				<button id="test" type="button" onclick="moveRegiter();">SIGN UP</button>
 				<div class="social-icons"></div>
 			</form>
+
 			 
 			<!--  ajax 호출 tag
 			<form id="login" action="#" class="input-group" method="post">

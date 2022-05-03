@@ -22,7 +22,7 @@ public class CheckLoginInterceptor {
 		permitAllList.add("CommunityPostListController");
 		permitAllList.add("CommunityPostDetailController");
 		permitAllList.add("LoginController");
-	
+		permitAllList.add("MemberRagisterController");
 		
 		
 	}
