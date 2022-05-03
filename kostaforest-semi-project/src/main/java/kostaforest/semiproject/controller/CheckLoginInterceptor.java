@@ -24,10 +24,10 @@ public class CheckLoginInterceptor {
 		permitAllList.add("CommunityDeleteController");
 		permitAllList.add("CommunityUpdateController");
 		permitAllList.add("CommunityUpdateFormController");
+		permitAllList.add("CommentWriteController");
+		permitAllList.add("LikeUpController");
 		
 	
-		
-		
 	}
 	
 	public static CheckLoginInterceptor getInstance() {

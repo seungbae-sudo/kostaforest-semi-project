@@ -221,28 +221,21 @@ ul.info li {
 				</h4>
 				
 				<form action="CommentWriteController.do" method="post" class="comment-form">
-					<input type="text" class="comment-write" placeholder="댓글을 입력하세요">
-					<button class="comment-write-ok">작성</button>
+					<input type="hidden" name ="boardNo" value="${cvo.boardNo }">
+					<input type="hidden" name ="comName" value="${cvo.mvo.comName }">
+					<input type="text" name="com_content" class="comment-write" placeholder="댓글을 입력하세요">
+					<button class="comment-write-ok" type="submit">작성</button>
 				</form>
 				
 				<tbody class="up-space">
+					<c:forEach items="${commentList}" var="list">
 					<tr>
-						<td class="col-sm-8">여기가 글내용</td>
-						<td class="col-sm-2">2022.05.02</td>
+						<td class="col-sm-8">${list.commentContent }</td>
+						<td class="col-sm-2">${list.timePosted }</td>
 					</tr>
-					<tr>
-						<td>여기가 글내용</td>
-						<td>3</td>
-					</tr>
-					<tr>
-						<td>여기가 글내용</td>
-						<td>3</td>
-					</tr>
-					<tr>
-						<td>여기가 글내용</td>
-						<td>3</td>
-					</tr>
+					</c:forEach>
 				</tbody>
+				
 			</table>
 		</div>
 	</div>

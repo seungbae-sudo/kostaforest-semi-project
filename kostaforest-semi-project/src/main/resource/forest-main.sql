@@ -60,6 +60,7 @@ SELECT c.title, c.content, c.hits, c.time_posted, m.com_name
 FROM CMU_BOARD c , EMP_MEMBER m
 WHERE c.id = m.id AND c.board_no = 7;
 
+-- 게시판 수정 테스트
 UPDATE CMU_BOARD SET title='배드민턴',content='좋아하시는분??', car_no='1' WHERE board_no = 22
 
 CREATE TABLE LIKE_COUNT(
@@ -82,7 +83,17 @@ CREATE TABLE BOARD_COMMENT(
 
 CREATE SEQUENCE board_comment_seq;
 
+INSERT INTO BOARD_COMMENT(comment_no, comment_content, time_posted,id,board_no)
+                           VALUES(board_comment_seq.nextval,'좋아요~!',sysdate,'samsung','7')
+        
+                           
+                         
+select * from BOARD_COMMENT
 
+-- 게시판별 댓글 리스트
+SELECT co.comment_no,co.comment_content, co.time_posted
+FROM BOARD_COMMENT co , CMU_BOARD cmu
+WHERE co.board_no = cmu.board_no AND co.board_no = 9
 
 CREATE TABLE REVIEW(
 	re_no NUMBER PRIMARY KEY,
