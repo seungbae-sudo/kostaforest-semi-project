@@ -36,7 +36,7 @@
 			<tbody>
 					<c:forEach items="${cmuList}" var="list">
 						<tr>
-							<td class="col-sm-10"><a href="CommunityPostDetailController.do?no=${list.boardNo }">${list.title }</a></td>
+							<td class="col-sm-10"><a href="CommunityPostDetailController.do?no=${list.boardNo }&carNo=${carNo}">${list.title }</a></td>
 							<td class="col-sm-1"><i class='far fa-eye icon'></i> ${list.hits } </td>
 							<td class="col-sm-1"><a href ="LikeUpController.do?no=${list.boardNo }&carNo=${carNo}"><i class='far fa-heart icon'></i></a>${list.likeNo } </td>
 							

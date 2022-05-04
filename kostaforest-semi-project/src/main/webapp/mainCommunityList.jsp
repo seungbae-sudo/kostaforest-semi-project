@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <form action="" class="search-form">
 	<input type="search" class="search" placeholder="검색어를 입력하세요">
 	<button>
@@ -13,27 +14,13 @@
 	</h2>
 
 	<tbody>
+		<c:forEach items="${List1 }" var="list">
 		<tr>
-			<td class="col-sm-10"><a href="">여기가 글내용</a></td>
-			<td class="col-sm-1"><i class='far fa-eye icon'></i>3</td>
-			<td class="col-sm-1"><i class='far fa-heart icon'></i>4</td>
-
+			<td class="col-sm-10"><a href="">${list.title }</a></td>
+			<td class="col-sm-1"><i class='far fa-eye icon'></i>${list.hits }</td>
+			<td class="col-sm-1"><i class='far fa-heart icon'></i>${list.likeNo }</td>
 		</tr>
-		<tr>
-			<td><a href="">여기가 글내용</a></td>
-			<td><i class='far fa-eye icon'></i>3</td>
-			<td><i class='far fa-heart icon'></i>4</td>
-		</tr>
-		<tr>
-			<td><a href="">여기가 글내용</a></td>
-			<td><i class='far fa-eye icon'></i>3</td>
-			<td><i class='far fa-heart icon'></i>4</td>
-		</tr>
-		<tr>
-			<td><a href="">여기가 글내용</a></td>
-			<td><i class='far fa-eye icon'></i>3</td>
-			<td><i class='far fa-heart icon'></i>4</td>
-		</tr>
+		</c:forEach>
 	</tbody>
 </table>
 
@@ -47,26 +34,13 @@
 			</h2>
 
 			<tbody>
-				<tr>
-					<td class="col-sm-8"><a href="">여기가 글내용</a></td>
-					<td class="col-sm-2"><i class='far fa-eye icon'></i>3</td>
-					<td class="col-sm-2"><i class='far fa-heart icon'></i>4</td>
-				</tr>
-				<tr>
-					<td><a href="">여기가 글내용</a></td>
-					<td><i class='far fa-eye icon'></i>3</td>
-					<td><i class='far fa-heart icon'></i>4</td>
-				</tr>
-				<tr>
-					<td><a href="">여기가 글내용</a></td>
-					<td><i class='far fa-eye icon'></i>3</td>
-					<td><i class='far fa-heart icon'></i>4</td>
-				</tr>
-				<tr>
-					<td><a href="">여기가 글내용</a></td>
-					<td><i class='far fa-eye icon'></i>3</td>
-					<td><i class='far fa-heart icon'></i>4</td>
-				</tr>
+				<c:forEach items="${List2 }" var="list">
+		<tr>
+			<td class="col-sm-10"><a href="">${list.title }</a></td>
+			<td class="col-sm-1"><i class='far fa-eye icon'></i>${list.hits }</td>
+			<td class="col-sm-1"><i class='far fa-heart icon'></i>${list.likeNo }</td>
+		</tr>
+		</c:forEach>
 			</tbody>
 		</table>
 		<hr class="d-sm-none">
@@ -82,27 +56,13 @@
 			</h2>
 
 			<tbody>
-				<tr>
-					<td class="col-sm-8"><a href="">여기가 글내용</a></td>
-					<td class="col-sm-2"><i class='far fa-eye icon'></i>3</td>
-					<td class="col-sm-2"><i class='far fa-heart icon'></i>4</td>
-				</tr>
-				<tr>
-					<td><a href="">여기가 글내용</a></td>
-					<td><i class='far fa-eye icon'></i>3</td>
-					<td><i class='far fa-heart icon'></i>4</td>
-				</tr>
-				<tr>
-					<td><a href="">여기가 글내용</a></td>
-					<td><i class='far fa-eye icon'></i>3</td>
-					<td><i class='far fa-heart icon'></i>4</td>
-				</tr>
-				<tr>
-					<td><a href="">여기가 글내용</a></td>
-					<td><i class='far fa-eye icon'></i>3</td>
-					<td><i class='far fa-heart icon'></i>4</td>
-				</tr>
-			</tbody>
+					<c:forEach items="${List3 }" var="list">
+		<tr>
+			<td class="col-sm-10"><a href="">${list.title }</a></td>
+			<td class="col-sm-1"><i class='far fa-eye icon'></i>${list.hits }</td>
+			<td class="col-sm-1"><i class='far fa-heart icon'></i>${list.likeNo }</td>
+		</tr>
+		</c:forEach>			</tbody>
 		</table>
 	</div>
 

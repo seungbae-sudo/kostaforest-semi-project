@@ -11,7 +11,7 @@
 		<div class="content">
 			<pre>${cvo.content }</pre>
 		</div>
-		<form action="CommunityDeleteController.do" method="post" id= "DeleteForm">
+		<form action="CommunityDeleteController.do?carNo=${carNo }" method="post" id= "DeleteForm">
 			<input type="hidden" name="no" value="${cvo.boardNo}">
 					
 			</form>

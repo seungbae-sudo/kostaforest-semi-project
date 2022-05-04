@@ -230,6 +230,37 @@ public class CommunityBoardDAO {
 			closeAll(pstmt, con);
 		}
 	}
+	
+	public ArrayList<CommunityPostVO> findAllListByCategoryNo(String no) throws SQLException{
+		ArrayList<CommunityPostVO> list = new ArrayList<CommunityPostVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = dataSource.getConnection();
+			StringBuilder sql = new StringBuilder("SELECT board_no, title , content, hits, like_no ");
+			sql.append("FROM CMU_BOARD ");
+			sql.append("WHERE car_no = ? ");
+			sql.append("AND ROWNUM <= 4 ");
+			sql.append("ORDER BY board_no DESC");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, no);
+			rs= pstmt.executeQuery();
+			while(rs.next()) {
+				CommunityPostVO cmuvo = new CommunityPostVO();
+				cmuvo.setBoardNo(rs.getInt("board_no"));
+				cmuvo.setTitle(rs.getString("title"));
+				cmuvo.setContent(rs.getString("content"));
+				cmuvo.setHits(rs.getInt("hits"));
+				cmuvo.setLikeNo(rs.getInt("like_no"));
+				list.add(cmuvo);
+			}
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		return list;
+	}
+	
 }
 
 

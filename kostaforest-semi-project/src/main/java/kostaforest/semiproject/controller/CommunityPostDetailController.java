@@ -14,6 +14,7 @@ public class CommunityPostDetailController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String no = request.getParameter("no");
+		String carNo = request.getParameter("carNo");
 		ArrayList<CommentVO> list =  CommunityBoardDAO.getInstance().findByBoardNoAllCommentList(no);
 		request.setAttribute("commentList",list);
 		request.setAttribute("cvo", CommunityBoardDAO.getInstance().findPostByNo(no));
@@ -24,8 +25,9 @@ public class CommunityPostDetailController implements Controller {
 		//if(!myboardNoList.contains(no)) {
 			CommunityBoardDAO.getInstance().hitsUpdate(no);
 		//	myboardNoList.add(no);
-	//	}
-			request.setAttribute("url", "detailContent.jsp");
+	//	}	
+			request.setAttribute("carNo", carNo);
+			request.setAttribute("url", "detailContent.jsp");		
 			return "layout.jsp";
 	}
 
