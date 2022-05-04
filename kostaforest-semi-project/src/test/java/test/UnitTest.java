@@ -41,6 +41,7 @@ public class UnitTest {
 //			*/
 			
 			//회원가입 
+			
 			MemberVO mvo = new MemberVO();
 			mvo.setId("daum");
 			mvo.setPassword("a");

@@ -12,3 +12,5 @@ select * from EMP_MEMBER;
 INSERT INTO EMP_MEMBER(id,password,com_name,member_group,reg_date) values('samsung','a','삼성전자','기업',sysdate)
 
 INSERT INTO EMP_MEMBER(id,password,com_name,member_group,reg_date) values('kakao','123','카카오','기업',sysdate);
+
+UPDATE EMP_MEMBER SET com_name='테스트' , password = 'abc' WHERE id='kakao'
