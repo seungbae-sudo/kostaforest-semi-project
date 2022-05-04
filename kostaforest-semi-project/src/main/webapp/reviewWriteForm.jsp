@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -9,10 +10,11 @@
 <!-- Add icon library -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
 
-<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-	
+
+<script src='https://kit.fontawesome.com/a076d05399.js'
+	crossorigin='anonymous'></script>
+
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <script
@@ -24,32 +26,31 @@
 <style>
 
 /*글제목, 유형선택 css*/
-
-.container h3{
+.container h3 {
 	text-indent: 7px;
 }
-.title_line{
-width: 80%;
-height: 35px;
+
+.title_line {
+	width: 80%;
+	height: 35px;
 }
 
-.btn{
+.btn {
 	background-color: #343a40;
-	color:#fff;
+	color: #fff;
 }
-
 
 .btn-success {
 	border-color: #343a40;
 }
 
-.btn-success:hover{
-	background-color: #343a40 !important; 
+.btn-success:hover {
+	background-color: #343a40 !important;
 	border-line: none;
 	opacity: 0.7;
 }
 
-#grade-td{
+#grade-td {
 	position: relative;;
 }
 
@@ -59,6 +60,7 @@ height: 35px;
 	right: 21%;
 	height: 30px;
 }
+
 .header {
 	padding-top: 20px;
 	padding-bottom: 30px;
@@ -112,7 +114,6 @@ height: 35px;
 }
 
 /*여기서부터 css 조작*/
-
 .container {
 	position: relative;
 	margin-top: 90px;
@@ -193,8 +194,6 @@ i {
 .icon {
 	font-size: 14px;
 }
-
-
 </style>
 </head>
 <body>
@@ -225,41 +224,44 @@ i {
 		</div>
 	</nav>
 	<div class="container">
-		<h3><i class='fas fa-user-edit' style='font-size:24px'></i>리뷰 작성</h3>
-		<form method="" action="">
+		<h3>
+			<i class='fas fa-user-edit' style='font-size: 24px'></i>리뷰 작성
+		</h3>
+		<form method="post" action="ReviewWriteController.do">
 			<table class="table">
-			<tr>
-				<td id="grade-td">
-					<span> 회사명 : 카카오(임시)</span>
-					<select id="" onchange="" class="title_line grade" > <!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
-					<option value="">평점 </option>
-					<option value="">1</option>
-					<option value="">2</option>
-					<option value="">3</option>
-					<option value="">4</option>
-					<option value="">5</option>
-				</td>
-				</select>
-			</tr>
 				<tr>
-					<td><input class="title_line" type="text" name="title" placeholder="글제목"
-						required="required"></td>
+					<td id="grade-td"><span> 회사명 : 카카오(임시)</span> <select id="rating"
+						onchange="findRating()" class="title_line grade">
+							<!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
+							<option value="">평점</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option></td>
+					</select>
+				</tr>
+				<tr>
+					<td><input class="title_line" type="text" name="title"
+						placeholder="글제목" required="required"></td>
 				</tr>
 				<tr>
 					<td><textarea rows="10" class="form-control" name="content"
 							placeholder="본문내용" required="required"></textarea></td>
 				</tr>
 			</table>
-			
+
 			<div class="text-center">
 				<button type="submit" class="btn btn-success">확인</button>
 				<button type="reset" class="btn btn-success">취소</button>
 			</div>
-			
-			</div>
-			
-			<div class="jumbotron text-center" style="margin-bottom: 0">
-				<p>Footer</p>
-			</div>
+	
+		</form>
+	</div>
+	<div class="jumbotron text-center" style="margin-bottom: 0">
+		<p>Footer</p>
+	</div>
+	
+</script>
 </body>
 </html>

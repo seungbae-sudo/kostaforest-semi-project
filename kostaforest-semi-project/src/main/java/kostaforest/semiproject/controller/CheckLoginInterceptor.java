@@ -22,8 +22,14 @@ public class CheckLoginInterceptor {
 		permitAllList.add("CommunityPostListController");
 		permitAllList.add("CommunityPostDetailController");
 		
-	
 		
+		permitAllList.add("ReviewWriteController");
+		permitAllList.add("ReviewWriteFormController");
+		permitAllList.add("ReviewPostListController");
+		permitAllList.add("ReviewPostDetailController");
+		permitAllList.add("ReviewPostUpdateController");
+		permitAllList.add("ReviewPostUpdateFormController");
+		permitAllList.add("ReviewPostDeleteController");
 		
 	}
 	
