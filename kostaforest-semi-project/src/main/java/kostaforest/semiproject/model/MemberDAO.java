@@ -53,22 +53,22 @@ public class MemberDAO {
 		return vo;
 	}
 	
-	//id password comName memberGroup resDate
-	//INSERT INTO EMP_MEMBER(id(?),password(?),com_name(?),member_group(?),reg_date) values('samsung','a','삼성전자','기업',sysdate)
-	public void register(MemberVO mvo) throws SQLException{
+public void register(MemberVO mvo) throws SQLException{
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		try {
 			con=dataSource.getConnection();
-			String sql="INSERT INTO EMP_MEMBER(id(?),password(?),com_name(?),member_group(?),reg_date) values(?,?,?,?,sysdate)";
+			String sql="INSERT INTO EMP_MEMBER(id,password,com_name,member_group,reg_date) values(?,?,?,?,sysdate)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, mvo.getId());
 			pstmt.setString(2, mvo.getPassword());
 			pstmt.setString(3, mvo.getComName());
 			pstmt.setString(4, mvo.getMemberGroup());
 			rs=pstmt.executeQuery();
-		}finally {
+		}
+		
+		finally {
 		closeAll(rs, pstmt, con);
 		}
 	}
