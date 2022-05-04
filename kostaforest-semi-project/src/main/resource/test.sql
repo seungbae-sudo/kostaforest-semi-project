@@ -7,4 +7,4 @@ insert into test(id) values ('java')
 
 select * from test
 
-
+seleㅊ=

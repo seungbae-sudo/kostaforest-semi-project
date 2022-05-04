@@ -45,7 +45,7 @@ public class MemberDAO {
 			pstmt.setString(2, password);
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
-				vo=new MemberVO(id,password,rs.getString(1),rs.getString(2),rs.getString(3));
+				vo=new MemberVO(id,password,rs.getString("com_name"),rs.getString("member_group"),rs.getString("reg_date"));
 			}
 		}finally {
 			closeAll(rs, pstmt, con);

@@ -139,11 +139,18 @@ a.page-link{
 		
 		<table class="table">
 			<h2 class="title">		
-					<i class="fas fa-coffee"></i>
-					
-					<form action="CommunityPostListController.do" method="get">
+					<c:if test="${carNo==1}">
+					<i class="fas fa-coffee"></i> 회사 이야기
+					</c:if>
+					<c:if test="${carNo==2 }">
+					<i class="fas fa-car"></i>취미생활 이야기
+					</c:if>
+					<c:if test="${carNo==3 }">
+					<i class="fas fa-cloud"></i>주식 이야기
+					</c:if>
+					<%-- <form action="CommunityPostListController.do" method="get">
 				
-						<select id ="carNo" name="carNo" onchange="submit(this.form)">
+						<select id ="carNo" name="carNo" onchange="submit(this.form)" >
 							<!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
 							<option value="">게시판을 선택해주세요.</option>
 							
@@ -151,10 +158,12 @@ a.page-link{
 						    <option value="2" <c:if test="${carNo==2}"> selected </c:if>>취미 생활 이야기</option>
 						    <option value="3" <c:if test="${carNo==3}"> selected </c:if>>주식 이야기</option>
 						</select>
-					</form>
+					</form> --%>
+				<c:if test="${sessionScope.mvo.memberGroup eq '직장인' }">
 					<form action="CommunityWriteFormController.do" method="get">
 					<button class="write">글쓰기</button>
 					</form>
+				</c:if>
 			</h2>
 				
 			<tbody>
@@ -162,7 +171,7 @@ a.page-link{
 						<tr>
 							<td class="col-sm-10"><a href="CommunityPostDetailController.do?no=${list.boardNo }">${list.title }</a></td>
 							<td class="col-sm-1"><i class='far fa-eye icon'></i> ${list.hits } </td>
-							<td class="col-sm-1"><a href ="LikeUpController.do?no=${list.boardNo }"><i class='far fa-heart icon'></i></a>${list.likeNo } </td>
+							<td class="col-sm-1"><a href ="LikeUpController.do?no=${list.boardNo }&carNo=${carNo}"><i class='far fa-heart icon'></i></a>${list.likeNo } </td>
 							
 						</tr>
 					</c:forEach>

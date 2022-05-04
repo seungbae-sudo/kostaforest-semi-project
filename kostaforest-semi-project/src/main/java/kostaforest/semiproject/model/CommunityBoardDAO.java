@@ -56,7 +56,7 @@ public class CommunityBoardDAO {
 		ResultSet rs= null;
 		try {
 			con = dataSource.getConnection();
-			String sql = "SELECT board_no, title,like_no,hits FROM CMU_BOARD WHERE car_no= ?";
+			String sql = "SELECT board_no, title,like_no,hits FROM CMU_BOARD WHERE car_no= ? ORDER by board_no DESC";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, carNo);
 			rs = pstmt.executeQuery();

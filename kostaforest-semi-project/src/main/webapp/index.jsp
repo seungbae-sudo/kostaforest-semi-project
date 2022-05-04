@@ -176,7 +176,7 @@ i {
 		<table class="table">
 			<h2 class="title">
 				<i class="fas fa-coffee"></i>회사 생활 <span class="more"><a
-					href="">더보기</a></span>
+					href="CommunityListDetailController.do?carNo=1">더보기</a></span>
 			</h2>
 
 			<tbody>
@@ -210,7 +210,7 @@ i {
 				<table class="table">
 					<h2 class="title">
 						<i class="fas fa-car"></i>취미생활 이야기 <span class="more"><a
-							href="">더보기</a></span>
+							href="CommunityPostListController.do?carNo=2">더보기</a></span>
 					</h2>
 
 					<tbody>
@@ -245,7 +245,7 @@ i {
 				<table class="table">
 					<h2 class="title">
 						<i class="fas fa-cloud"></i>주식 이야기<span class="more"><a
-							href="">더보기</a></span>
+							href="CommunityPostListController.do?carNo=3">더보기</a></span>
 					</h2>
 
 					<tbody>
