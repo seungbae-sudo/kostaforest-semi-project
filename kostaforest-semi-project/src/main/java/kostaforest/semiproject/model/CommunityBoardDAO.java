@@ -1,6 +1,7 @@
 package kostaforest.semiproject.model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -89,6 +90,7 @@ public class CommunityBoardDAO {
 				MemberVO mvo = new MemberVO();
 				mvo.setComName(rs.getString("com_name"));
 				cvo = new CommunityPostVO();
+				cvo.setBoardNo(Integer.parseInt(no));
 				cvo.setTitle(rs.getString("title"));
 				cvo.setContent(rs.getString("content"));
 				cvo.setHits(rs.getInt("hits"));
@@ -100,6 +102,115 @@ public class CommunityBoardDAO {
 		}
 		
 		return cvo;
+	}
+	
+	public void deletePostByNo(String no) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = dataSource.getConnection();
+			String sql ="DELETE FROM CMU_BOARD WHERE board_no = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, no);
+			pstmt.executeUpdate();
+		}finally {
+			closeAll(pstmt, con);
+		}
+		
+	}
+	
+	public void updatePostByNo(CommunityPostVO cvo) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = dataSource.getConnection();
+			String sql = "UPDATE CMU_BOARD SET title=?,content=?, car_no=? WHERE board_no = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, cvo.getTitle());
+			pstmt.setString(2, cvo.getContent());
+			pstmt.setInt(3, cvo.getCvo().getCarNo());
+			pstmt.setInt(4, cvo.getBoardNo());
+			pstmt.executeUpdate();
+		}finally {
+			closeAll(pstmt, con);
+		}
+	}
+	//INSERT INTO BOARD_COMMENT(comment_no, comment_content, time_posted,id,board_no)
+    //VALUES(board_comment_seq.nextval,'좋아요~!',sysdate,'samsung','7')
+	public void comment(CommentVO covo) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = dataSource.getConnection();
+			StringBuilder sql = new StringBuilder("INSERT INTO BOARD_COMMENT(comment_no, comment_content, time_posted,id,board_no) ");
+			sql.append("VALUES(board_comment_seq.nextval,?,sysdate,'samsung',?)");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, covo.getCommentContent());
+			pstmt.setInt(2, covo.getCmuvo().getBoardNo());
+			pstmt.executeUpdate();
+		}finally {
+			closeAll(pstmt, con);
+		}
+	}
+	
+	public ArrayList<CommentVO> findByBoardNoAllCommentList(String boardNo) throws SQLException{
+		ArrayList<CommentVO> list = new ArrayList<CommentVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs= null;
+		try {
+			con = dataSource.getConnection();
+			StringBuilder sql = new StringBuilder("SELECT co.comment_no,co.comment_content, co.time_posted ");
+			sql.append("FROM BOARD_COMMENT co , CMU_BOARD cmu ");
+			sql.append("WHERE co.board_no = cmu.board_no AND co.board_no = ?");
+			pstmt= con.prepareStatement(sql.toString());
+			pstmt.setString(1, boardNo);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				CommentVO covo = new CommentVO();
+				covo.setConmmentNO(Integer.parseInt(rs.getString("comment_no")));
+				covo.setCommentContent(rs.getString("comment_content"));
+				covo.setTimePosted(rs.getString("time_posted"));
+				list.add(covo);
+			}
+			
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		
+		
+		return list;
+		
+	}
+	
+	public void likeUpdate(String no) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = dataSource.getConnection();
+			String sql = "UPDATE CMU_BOARD SET like_no = like_no+1 WHERE board_no = ? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, no);
+			pstmt.executeUpdate();
+			
+		}finally {
+			closeAll(pstmt, con);
+		}
+	}
+	
+	public void hitsUpdate(String no) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = dataSource.getConnection();
+			String sql = "UPDATE CMU_BOARD SET hits = hits+1 WHERE board_no = ? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, no);
+			pstmt.executeUpdate();
+			
+		}finally {
+			closeAll(pstmt, con);
+		}
 	}
 }
 

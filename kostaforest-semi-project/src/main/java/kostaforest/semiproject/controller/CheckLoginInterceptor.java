@@ -21,7 +21,20 @@ public class CheckLoginInterceptor {
 		permitAllList.add("CommunityWriteFormController");
 		permitAllList.add("CommunityPostListController");
 		permitAllList.add("CommunityPostDetailController");
+		permitAllList.add("CommunityDeleteController");
+		permitAllList.add("CommunityUpdateController");
+		permitAllList.add("CommunityUpdateFormController");
+		permitAllList.add("CommentWriteController");
+		permitAllList.add("LikeUpController");
 		
+
+		permitAllList.add("EmploymentListController");
+		permitAllList.add("EmploymentPostDetailController");
+		permitAllList.add("EmploymentWriteController");
+		permitAllList.add("EmploymentWriteFormController");
+		permitAllList.add("EmploymentUpdateFormController");
+		permitAllList.add("EmploymentUpdatePostController");
+		permitAllList.add("EmploymentDeletePostController");
 		
 		permitAllList.add("ReviewWriteController");
 		permitAllList.add("ReviewWriteFormController");
@@ -32,7 +45,6 @@ public class CheckLoginInterceptor {
 		permitAllList.add("ReviewPostDeleteController");
 		
 	}
-	
 	public static CheckLoginInterceptor getInstance() {
 		return instance;
 	}

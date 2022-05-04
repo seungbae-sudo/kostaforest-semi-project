@@ -6,3 +6,5 @@ create table test(
 insert into test(id) values ('java')
 
 select * from test
+
+
