@@ -61,6 +61,9 @@ SELECT c.title, c.content, c.hits, c.time_posted, m.com_name
 FROM CMU_BOARD c , EMP_MEMBER m
 WHERE c.id = m.id AND c.board_no = 7;
 
+-- 게시판 수정 테스트
+UPDATE CMU_BOARD SET title='배드민턴',content='좋아하시는분??', car_no='1' WHERE board_no = 22
+
 CREATE TABLE LIKE_COUNT(
 	id VARCHAR2(100),
 	board_no NUMBER,
@@ -81,7 +84,18 @@ CREATE TABLE BOARD_COMMENT(
 
 CREATE SEQUENCE board_comment_seq;
 
+--댓글 테스트
+INSERT INTO BOARD_COMMENT(comment_no, comment_content, time_posted,id,board_no)
+                           VALUES(board_comment_seq.nextval,'좋아요~!',sysdate,'samsung','7')
+        
+                           
+                         
+select * from BOARD_COMMENT
 
+-- 게시판별 댓글 리스트
+SELECT co.comment_no,co.comment_content, co.time_posted
+FROM BOARD_COMMENT co , CMU_BOARD cmu
+WHERE co.board_no = cmu.board_no AND co.board_no = 9
 
 CREATE TABLE REVIEW(
 	re_no NUMBER PRIMARY KEY,
@@ -99,12 +113,9 @@ CREATE SEQUENCE review_seq;
 
 DROP TABLE REVIEW
 
-
--- 경력 신입의 구분이 들어갈 컬럼을 하나 더 만들었음 => emp_group
 CREATE TABLE EMPLOYMENT(
 	emp_no NUMBER PRIMARY KEY,
-	title VARCHAR2(100) NOT NULL,
-	emp_group VARCHAR2(100) NOT NULL,
+	tltle VARCHAR2(100) NOT NULL,
 	content CLOB NOT NULL,
 	time_posted DATE NOT NULL,
 	hits NUMBER DEFAULT 0,
@@ -113,29 +124,23 @@ CREATE TABLE EMPLOYMENT(
 )
 
 
+SELECT * FROM EMPLOYMENT
+
+SELECT * FROM REVIEW
+
+SELECT * FROM EMPLOYMENT
+
+SELECT * FROM REVIEW
+
+SELECT * FROM EMPLOYMENT
+
+SELECT * FROM REVIEW
+
+SELECT * FROM EMPLOYMENT
+
+SELECT * FROM REVIEW
+
 CREATE SEQUENCE employment_seq;
 
-DROP SEQUENCE employment_seq;
-DROP TABLE EMPLOYMENT;
 
-SELECT*FROM EMPLOYMENT
-
-INSERT INTO EMPLOYMENT(emp_no,title,emp_group,content,time_posted,id) 
-values(employment_seq.nextval,'삼성전자','계약직','삼성전자계약직모집합니다.',sysdate,'samsung')
-
-SELECT e.emp_no, e.title, e.hits ,e.emp_group
-FROM EMPLOYMENT e ,EMP_MEMBER m 
-WHERE m.id =e.id
-ORDER BY e.emp_no DESC
-
-SELECT emp_no, title, hits ,emp_group
-FROM EMPLOYMENT
-ORDER BY emp_no DESC
-
-SELECT e.title, e.content, e.hits,to_char(e.time_posted,'YYYY.MM.DD') as time_posted, m.com_name
-FROM EMPLOYMENT e , EMP_MEMBER m
-WHERE e.id = m.id AND e.emp_no = 1
-
-
-UPDATE EMPLOYMENT SET title='즐거웠지',content='유익한 시간이었어?',emp_group='계약직' WHERE emp_no=12
 --constraint myboard_fk FOREIGN KEY(id) REFERENCES member(id)

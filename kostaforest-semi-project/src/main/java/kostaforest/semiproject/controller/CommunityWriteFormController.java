@@ -10,11 +10,11 @@ import kostaforest.semiproject.model.CategoryVO;
 
 public class CommunityWriteFormController implements Controller {
 
-	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ArrayList<CategoryVO> list = CategoryDAO.getInstance().list();
-		request.setAttribute("caList", list);
-		return "CommunityWriteForm.jsp";
-	}
+   @Override
+   public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+      ArrayList<CategoryVO> list = CategoryDAO.getInstance().list();
+      request.setAttribute("caList", list);
+      return "CommunityWriteForm.jsp";
+   }
 
 }
