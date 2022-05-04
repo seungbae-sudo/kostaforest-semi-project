@@ -9,10 +9,11 @@ public class LikeUpController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String carNo = request.getParameter("carNo");
 		String no = request.getParameter("no");
 		CommunityBoardDAO.getInstance().likeUpdate(no);
 		
-		return "CommunityPostListController.do";
+		return "CommunityListDetailController.do?carNo="+carNo;
 	}
 
 }

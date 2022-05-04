@@ -22,7 +22,7 @@ public class CommunityWriteController implements Controller {
 		cvo.setCvo(cavo);
 		CommunityBoardDAO.getInstance().posting(cvo);
 		
-		return "redirect:showList1.jsp";
+		return "redirect:CommunityListDetailController.do?carNo="+carNo;
 	}
 
 }

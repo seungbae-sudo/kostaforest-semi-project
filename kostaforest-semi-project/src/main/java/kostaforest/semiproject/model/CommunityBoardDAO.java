@@ -56,7 +56,7 @@ public class CommunityBoardDAO {
 		ResultSet rs= null;
 		try {
 			con = dataSource.getConnection();
-			String sql = "SELECT board_no, title,like_no,hits FROM CMU_BOARD WHERE car_no= ?";
+			String sql = "SELECT board_no, title,like_no,hits FROM CMU_BOARD WHERE car_no= ? ORDER by board_no DESC";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, carNo);
 			rs = pstmt.executeQuery();
@@ -208,6 +208,24 @@ public class CommunityBoardDAO {
 			pstmt.setString(1, no);
 			pstmt.executeUpdate();
 			
+		}finally {
+			closeAll(pstmt, con);
+		}
+	}
+	
+	public void deleteByBoardNoComment(String no) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = dataSource.getConnection();
+			StringBuilder sql = new StringBuilder("DELETE FROM BOARD_COMMENT ");
+			sql.append("WHERE comment_no IN ( ");
+			sql.append("SELECT comment_no ");
+			sql.append("FROM BOARD_COMMENT ");
+			sql.append("WHERE board_no = ?)");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, no);
+			pstmt.executeUpdate();
 		}finally {
 			closeAll(pstmt, con);
 		}
