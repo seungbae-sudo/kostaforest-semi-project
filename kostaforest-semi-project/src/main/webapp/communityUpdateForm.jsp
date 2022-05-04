@@ -213,7 +213,7 @@ i {
 	</nav>
 	<div class="container">
 		<h3><i class='fas fa-eraser' style='font-size:24px'></i>커뮤니티 수정</h3>
-		<form method="post" action="CommunityWriteController.do">
+		<form method="post" action="CommunityUpdateController.do">
 			<table class="table">
 				<tr>
 					<td>
@@ -229,18 +229,20 @@ i {
 
 				</tr>
 				<tr>
-					<td><input class="title_line" type="text" name="title"
-						placeholder="글제목" required="required"></td>
+					<td>
+					<input type="hidden" name="boardNo" value="${cvo.boardNo}">
+					<input class="title_line" type="text" name="title"
+						placeholder="글제목" required="required" value="${cvo.title}"></td>
 				</tr>
 				<tr>
 					<td><textarea rows="10" class="form-control" name="content"
-							placeholder="본문내용" required="required"></textarea></td>
+							placeholder="본문" required="required">${cvo.content}</textarea></td>
 				</tr>
 			</table>
 
 			<div class="text-center">
 				<button type="submit" class="btn btn-success">수정</button>
-				<button type="reset" class="btn btn-success">취소</button>
+				<button type="reset" class="btn btn-success">취소</button>				
 			</div>
 		</form>
 		
