@@ -173,6 +173,12 @@ ul.info li {
 	margin-top: 30px;
 }
 
+/*detail */
+.updateANDdelete button{
+
+}
+
+
 </style>
 </head>
 <body>
@@ -189,6 +195,33 @@ ul.info li {
 			<pre>${empPostVO.content }</pre>
 		</div>
 
+		<div class="updateANDdelete">
+				<form  id="updateForm" action="EmploymentUpdateFormController.do" method="post">
+					<input  type="hidden" name="no" value="${empPostVO.boardNo}">
+				</form>
+				<form  id="deleteForm" action="EmploymentDeletePostController.do" method="post">
+					<input type="hidden" name="no" value="${empPostVO.boardNo}">
+				</form>
+				<button type="button" onclick="updatePostFrom()">수정</button> 	
+				<button type="button" onclick="deletePost()">삭제</button> 
+				
+		</div>
+		
+		<script>
+				function updatePostFrom(){
+					//confirm 함수는 확인 누를 때 true를 반환
+					if(confirm("수정 하시겠습니까?")){
+						document.getElementById("updateForm").submit();
+					}
+				}
+				function deletePost(){
+					//confirm 함수는 확인 누를 때 true를 반환
+					if(confirm("삭제하시겠습니까?")){
+						document.getElementById("deleteForm").submit();
+					}
+				}
+							
+			</script>
 
 		<div class="comment">
 			<table class="table table-comment">
@@ -200,6 +233,10 @@ ul.info li {
 					<input type="text" class="comment-write" placeholder="댓글을 입력하세요">
 					<button class="comment-write-ok">작성</button>
 				</form>
+				
+				
+					
+				
 				
 				<tbody class="up-space">
 					<tr>
