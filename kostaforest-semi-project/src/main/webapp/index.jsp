@@ -46,7 +46,7 @@ i {
 
 .navbar {
 	padding: 0.5rem 14rem;
-} 
+}   
 
 .nav-link {
 	margin-left: 20px;
