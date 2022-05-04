@@ -1,12 +1,10 @@
 package kostaforest.semiproject.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kostaforest.semiproject.model.MemberDAO;
 import kostaforest.semiproject.model.MemberVO;
 
 public class LoginController implements Controller {
@@ -29,11 +27,11 @@ public class LoginController implements Controller {
 			
 			MemberVO member = null;
 			try{
-				// test code
-				member = checkMember(id, password);
+				// test code(오라클 연동실패시 연습코드)
+				//member = checkMember(id, password);
 				
 				// real code
-				//member = MemberDAO.getInstance().login(id, password);
+				member = MemberDAO.getInstance().login(id, password);
 			}catch(Exception e){
 				System.out.println("맴버 조회중 오류 발생 / 오류내용: "+e.getMessage());
 				return "login-fail.jsp";
@@ -48,7 +46,7 @@ public class LoginController implements Controller {
 			return "index.jsp";
 			
 			
-			/*
+			/* 2번째 방법
 			String id=request.getParameter("id");
 			String password=request.getParameter("password");
 			
@@ -76,7 +74,8 @@ public class LoginController implements Controller {
 			return false;
 		}
 		
-		private MemberVO checkMember(String id, String password) {
+	/* 임시 DB값 
+	 private MemberVO checkMember(String id, String password) {
 			List<MemberVO> memberList = new ArrayList<MemberVO>();
 			MemberVO samsungMember = new MemberVO("samsung","a","삼돌이","삼성전자","20220503152200");
 			memberList.add(samsungMember);
@@ -89,5 +88,5 @@ public class LoginController implements Controller {
 			}
 			
 			return null;
-		}
+		}*/
 }
