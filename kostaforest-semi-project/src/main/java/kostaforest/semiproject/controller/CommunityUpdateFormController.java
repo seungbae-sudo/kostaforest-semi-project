@@ -7,14 +7,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import kostaforest.semiproject.model.CategoryDAO;
 import kostaforest.semiproject.model.CategoryVO;
+import kostaforest.semiproject.model.CommunityBoardDAO;
+import kostaforest.semiproject.model.CommunityPostVO;
 
-public class CommunityWriteFormController implements Controller {
+public class CommunityUpdateFormController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String no = request.getParameter("no");
+		CommunityPostVO cvo = CommunityBoardDAO.getInstance().findPostByNo(no);
 		ArrayList<CategoryVO> list = CategoryDAO.getInstance().list();
 		request.setAttribute("caList", list);
-		return "communityWriteForm.jsp";
+		request.setAttribute("cvo", cvo);
+		return "communityUpdateForm.jsp";
 	}
 
 }
