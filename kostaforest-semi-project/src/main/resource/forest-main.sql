@@ -21,6 +21,7 @@ CREATE TABLE EMP_MEMBER(
 
 INSERT INTO EMP_MEMBER(id,password,com_name,member_group,reg_date) values('samsung','a','삼성전자','기업',sysdate)
 
+
 CREATE TABLE FAQ(
 	faq_no NUMBER PRIMARY KEY,
 	answer CLOB NOT NULL
@@ -98,9 +99,12 @@ CREATE SEQUENCE review_seq;
 
 DROP TABLE REVIEW
 
+
+-- 경력 신입의 구분이 들어갈 컬럼을 하나 더 만들었음 => emp_group
 CREATE TABLE EMPLOYMENT(
 	emp_no NUMBER PRIMARY KEY,
-	tltle VARCHAR2(100) NOT NULL,
+	title VARCHAR2(100) NOT NULL,
+	emp_group VARCHAR2(100) NOT NULL,
 	content CLOB NOT NULL,
 	time_posted DATE NOT NULL,
 	hits NUMBER DEFAULT 0,
@@ -108,7 +112,30 @@ CREATE TABLE EMPLOYMENT(
 	CONSTRAINT employment_id_pk FOREIGN KEY(id) REFERENCES EMP_MEMBER(id)
 )
 
+
 CREATE SEQUENCE employment_seq;
 
+DROP SEQUENCE employment_seq;
+DROP TABLE EMPLOYMENT;
 
+SELECT*FROM EMPLOYMENT
+
+INSERT INTO EMPLOYMENT(emp_no,title,emp_group,content,time_posted,id) 
+values(employment_seq.nextval,'삼성전자','계약직','삼성전자계약직모집합니다.',sysdate,'samsung')
+
+SELECT e.emp_no, e.title, e.hits ,e.emp_group
+FROM EMPLOYMENT e ,EMP_MEMBER m 
+WHERE m.id =e.id
+ORDER BY e.emp_no DESC
+
+SELECT emp_no, title, hits ,emp_group
+FROM EMPLOYMENT
+ORDER BY emp_no DESC
+
+SELECT e.title, e.content, e.hits,to_char(e.time_posted,'YYYY.MM.DD') as time_posted, m.com_name
+FROM EMPLOYMENT e , EMP_MEMBER m
+WHERE e.id = m.id AND e.emp_no = 1
+
+
+UPDATE EMPLOYMENT SET title='즐거웠지',content='유익한 시간이었어?',emp_group='계약직' WHERE emp_no=12
 --constraint myboard_fk FOREIGN KEY(id) REFERENCES member(id)

@@ -22,7 +22,13 @@ public class CheckLoginInterceptor {
 		permitAllList.add("CommunityPostListController");
 		permitAllList.add("CommunityPostDetailController");
 		
-	
+		permitAllList.add("EmploymentListController");
+		permitAllList.add("EmploymentPostDetailController");
+		permitAllList.add("EmploymentWriteController");
+		permitAllList.add("EmploymentWriteFormController");
+		permitAllList.add("EmploymentUpdateFormController");
+		permitAllList.add("EmploymentUpdatePostController");
+		permitAllList.add("EmploymentDeletePostController");
 		
 		
 	}

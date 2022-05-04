@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Bootstrap 4 Website Example</title>
+<title>코스트 숲</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -127,7 +127,7 @@ i {
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="#">회사 리뷰</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">채용 공고</a></li>
+				<li class="nav-item"><a class="nav-link" href="EmploymentListController.do">채용 공고</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">문의 게시판</a></li>
 			</ul>
 			<div class="reg-form">
