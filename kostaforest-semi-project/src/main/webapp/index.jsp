@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,20 +52,23 @@ i {
 	margin-left: 20px;
 }
 
-.reg-form{
+.reg-form-before{
 	flex: auto;
     display: flex;
     flex-direction: row-reverse;
 }
 
-.reg-form button{
-	    width: 100px;
+
+.reg-form-before button{
+	 width: 100px;
     height: 35px;
     background: #fff;
     border-radius: 11px;
     border: 0;
     margin-right: 5px;
 }
+
+
 .search-form button{
     background-color:#343a40;
     position: absolute;
@@ -75,6 +78,29 @@ i {
     width: 50px;
     height: 40px;
 }
+
+.reg-form-after{
+	flex: auto;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.reg-form-after span{
+    color: #fff;
+     line-height: 2.5;
+}
+.reg-form-after span b{
+	font-size: 20px;
+}
+
+.reg-form-after button{
+	background-color: #fff;
+    border-radius: 18px;
+    width: 117px;
+    height: 40px;
+    margin-left: 10px;
+}
+
 
 .search {
 	position: absolute;
@@ -130,9 +156,14 @@ i {
 				<li class="nav-item"><a class="nav-link" href="EmploymentListController.do">채용 공고</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">문의 게시판</a></li>
 			</ul>
-			<div class="reg-form">
+<!-- 			<div class="reg-form-before">
 				<button>로그인</button>
 				<button>회원가입</button>
+			</div> -->
+			<div class="reg-form-after">
+				<button>로그아웃</button>
+				<button>회원정보 수정</button>
+				<span><b>삼성기업</b> 님</span>
 			</div>
 		</div>
 	</nav>
