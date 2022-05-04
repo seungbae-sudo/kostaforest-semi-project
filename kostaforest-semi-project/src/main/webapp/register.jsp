@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,75 +7,77 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Add icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
-   href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <script
-   src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script
-   src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
-   src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 .fakeimg {
-   height: 200px;
-   background: #aaa;
+	height: 200px;
+	background: #aaa;
 }
 
-.navbar{
-   padding: 0.5rem 6rem;
+.navbar {
+	padding: 0.5rem 6rem;
 }
 
-* {box-sizing: border-box;}
+* {
+	box-sizing: border-box;
+}
 
 .input-container {
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  width: 100%;
-  margin-bottom: 15px;
+	display: -ms-flexbox; /* IE10 */
+	display: flex;
+	width: 100%;
+	margin-bottom: 15px;
 }
 
 .icon {
-  padding: 10px;
-  background: #343A40;
-  color: white;
-  min-width: 50px;
-  text-align: center;
-  opacity: 0.8;
+	padding: 10px;
+	background: #343A40;
+	color: white;
+	min-width: 50px;
+	text-align: center;
+	opacity: 0.8;
 }
 
 .input-field {
-  width: 100%;
-  padding: 10px;
-  outline: none;
+	width: 100%;
+	padding: 10px;
+	outline: none;
 }
 
 .input-field:focus {
-  border: 2px solid dodgerblue;
+	border: 2px solid dodgerblue;
 }
 
 /*회원가입 폼 CSS 조작*/
-
 .btn {
-  background-color: #343A40;
-  color: #fff;
-  padding: 15px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.8;
+	background-color: #343A40;
+	color: #fff;
+	padding: 15px 20px;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	opacity: 0.8;
 }
 
 .btn:hover {
-  opacity: 1;
- }
-  
-#group{
+	opacity: 1;
+}
+
+#group {
 	width: 100%;
 	height: 45px;
 }
 
-.icon-reg{
+.icon-reg {
 	line-height: 2;
 }
 
@@ -102,28 +105,29 @@ i {
 	margin-left: 20px;
 }
 
-.reg-form{
+.reg-form {
 	flex: auto;
-    display: flex;
-    flex-direction: row-reverse;
+	display: flex;
+	flex-direction: row-reverse;
 }
 
-.reg-form button{
-	   width: 100px;
-    height: 35px;
-    background: #fff;
-    border-radius: 11px;
-    border: 0;
-    margin-right: 5px;
+.reg-form button {
+	width: 100px;
+	height: 35px;
+	background: #fff;
+	border-radius: 11px;
+	border: 0;
+	margin-right: 5px;
 }
-.search-form button{
-    background-color:#343a40;
-    position: absolute;
-    top: -60px;
-    right: 250px;
-    border-radius: 18px;
-    width: 50px;
-    height: 40px;
+
+.search-form button {
+	background-color: #343a40;
+	position: absolute;
+	top: -60px;
+	right: 250px;
+	border-radius: 18px;
+	width: 50px;
+	height: 40px;
 }
 
 .search {
@@ -145,7 +149,8 @@ i {
 }
 
 .more {
-	color: green; position : absolute;
+	color: green;
+	position: absolute;
 	float: right;
 	line-height: 1.5px;
 	font-size: 16px;
@@ -154,14 +159,14 @@ i {
 	position: absolute;
 }
 
-.icon{
+.icon {
 	font-size: 14px;
 }
 </style>
 </head>
 <body>
 
-   <div class="text-center" style="margin-bottom: 0">
+	<div class="text-center" style="margin-bottom: 0">
 		<h1>
 			<img alt="logo" src="images/코스타1.png">
 		</h1>
@@ -187,46 +192,46 @@ i {
 		</div>
 	</nav>
 
-   <div class="container" style="margin-top: 30px">
-	
-			<form action="/action_page.php" style="max-width:500px;margin:auto">
-		  <h2>회원가입</h2>
-		  
-		  <br>
-		  <select id="group" onchange=""> <!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
-		<option value="">회원가입 분류 </option>
-		<option value="employee">직장인</option>
-		<option value="company">기업</option>
-		</select>
-		 <br><br>
-		  
-		  <div class="input-container">
-		    <i class="fa fa-user icon icon-reg"></i>
-		    <input class="input-field" type="text" placeholder="Username" name="usrnm">
-		  </div>
-		  
-		  <div class="input-container">
-		    <i class="fa fa-key icon icon-reg"></i>
-		    <input class="input-field" type="password" placeholder="Password" name="psw">
-		  </div>
-		
-		<div class="input-container">
-		     <i class="fa fa-key icon icon-reg"></i>
-		    <input class="input-field" type="password" placeholder="Password 확인" name="email">
-		  </div>
-		  
-		  <div class="input-container">
-		    <i class="fa fa-envelope icon icon-reg"></i>
-		    <input class="input-field" type="text" placeholder="회사명" name="company">
-		  </div>
-		  
-		  <button type="submit" class="btn">Register</button>
+	<div class="container" style="margin-top: 30px">
+
+		<form method="post" action="MemberRagisterController.do" style="max-width: 500px; margin: auto">
+			<h2>회원가입</h2>
+
+			<br> <select id="group" name="memberGroup" onchange="">
+				<!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
+				<option value="">회원가입 분류</option>
+				<option value="직장인">직장인</option>
+				<option value="기업">기업</option>
+			</select> <br>
+			<br>
+
+			<div class="input-container">
+				<i class="fa fa-user icon icon-reg"></i> <input class="input-field"
+					type="text" placeholder="아이디" name="id">
+			</div>
+
+			<div class="input-container">
+				<i class="fa fa-key icon icon-reg"></i> <input class="input-field"
+					type="password" placeholder="패스워드" name="password">
+			</div>
+
+			<div class="input-container">
+				<i class="fa fa-key icon icon-reg"></i> <input class="input-field"
+					type="password" placeholder="패스워드 확인">
+			</div>
+
+			<div class="input-container">
+				<i class="fa fa-envelope icon icon-reg"></i> <input
+					class="input-field" type="text" placeholder="회사명" name="comName">
+			</div>
+
+			<button type="submit" class="btn">Register</button>
 		</form>
-     
+
 	</div>
-   <div class="jumbotron text-center" style="margin-bottom: 0">
-      <p>Footer</p>
-   </div>
+	<div class="jumbotron text-center" style="margin-bottom: 0">
+		<p>Footer</p>
+	</div>
 
 </body>
 </html>

@@ -18,6 +18,14 @@ public class MemberVO implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	
+	public MemberVO(String id, String password, String comName, String memberGroup) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.comName = comName;
+		this.memberGroup = memberGroup;
+	}
+
 	public MemberVO(String id, String password, String comName, String memberGroup, String resDate) {
 		super();
 		this.id = id;

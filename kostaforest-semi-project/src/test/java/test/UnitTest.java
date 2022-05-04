@@ -1,17 +1,16 @@
 package test;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import kostaforest.semiproject.model.EmploymentBoardDAO;
-import kostaforest.semiproject.model.EmploymentPostVO;
+import kostaforest.semiproject.model.MemberDAO;
 import kostaforest.semiproject.model.MemberVO;
 
 public class UnitTest {
 
 	public static void main(String[] args) {
 		EmploymentBoardDAO dao = EmploymentBoardDAO.getInstance();
-
+		MemberDAO mdao = MemberDAO.getInstance();
 		try {
 			// 게시물 리스트
 
@@ -31,7 +30,7 @@ public class UnitTest {
 			// 테스트에서는 안되지만 table에 잘 들어감;;;
 
 			// 수정
-			System.out.println(dao.findPostByNo("10"));
+			/*System.out.println(dao.findPostByNo("10"));
 			EmploymentPostVO empPostVO = new EmploymentPostVO();
 			empPostVO.setBoardNo(10);
 			empPostVO.setTitle("왜");
@@ -39,7 +38,18 @@ public class UnitTest {
 			empPostVO.setEmpGroup("계약직");
 			dao.updatePost(empPostVO);
 			System.out.println(dao.findPostByNo("10"));
-//			
+//			*/
+			
+			//회원가입 
+			MemberVO mvo = new MemberVO();
+			mvo.setId("daum");
+			mvo.setPassword("a");
+			mvo.setComName("카카오");
+			mvo.setMemberGroup("기업");
+			mdao.register(mvo);
+			System.out.println(mvo);
+			
+			
 		} catch (SQLException e) {
 
 			e.printStackTrace();

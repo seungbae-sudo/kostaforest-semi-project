@@ -54,9 +54,9 @@ public class MemberDAO {
 	}
 	
 public void register(MemberVO mvo) throws SQLException{
+	
 		Connection con=null;
 		PreparedStatement pstmt=null;
-		ResultSet rs=null;
 		try {
 			con=dataSource.getConnection();
 			String sql="INSERT INTO EMP_MEMBER(id,password,com_name,member_group,reg_date) values(?,?,?,?,sysdate)";
@@ -65,11 +65,11 @@ public void register(MemberVO mvo) throws SQLException{
 			pstmt.setString(2, mvo.getPassword());
 			pstmt.setString(3, mvo.getComName());
 			pstmt.setString(4, mvo.getMemberGroup());
-			rs=pstmt.executeQuery();
+			pstmt.executeUpdate();
 		}
 		
 		finally {
-		closeAll(rs, pstmt, con);
+		closeAll(pstmt, con);
 		}
 	}
 }

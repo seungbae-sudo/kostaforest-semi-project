@@ -309,8 +309,6 @@ span {
 		<div class="form-wrap">
 			<div class="button-wrap">
 				<div id="btn"></div>
-				<button type="button" class="togglebtn" onclick="login()"><font color="#6b6b6b">직장인</font></button>
-				<button type="button" class="togglebtn" onclick="register()"><font color="#6b6b6b">기업</font></button>
 			</div>
 			<div class="social-icons"></div>
 			<form id="login" action="LoginController.do" class="input-group" method="post">
@@ -318,17 +316,6 @@ span {
 				<div class="social-icons"></div>
 				<input type="password" name="password" class="input-field2" placeholder="PASSWORD" required >
 				<div class="social-icons"></div>
-				<button type="submit" class="submit"><font color="white">SIGN IN</font></button>
-				<div class="social-icons"></div>
-				<button id="test" type="button" onclick="moveRegiter();">SIGN UP</button>
-				<div class="social-icons"></div>
-			</form>
-						
-			<form id="register" action="LoginController.do" class="input-group">
-				<input type="text" name="id" class="input-field" placeholder="ID" required>
-				<div class="social-icons"></div>
-				<input type="password" name="password "class="input-field2" placeholder="PASSWORD" required>
-					<div class="social-icons"></div>
 				<button type="submit" class="submit"><font color="white">SIGN IN</font></button>
 				<div class="social-icons"></div>
 				<button id="test" type="button" onclick="moveRegiter();">SIGN UP</button>
