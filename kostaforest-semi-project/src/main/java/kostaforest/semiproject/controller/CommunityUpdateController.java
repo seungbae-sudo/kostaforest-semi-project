@@ -1,5 +1,7 @@
 package kostaforest.semiproject.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,7 +25,11 @@ public class CommunityUpdateController implements Controller {
 		cvo.setTitle(title);
 		cvo.setContent(content);
 		CommunityBoardDAO.getInstance().updatePostByNo(cvo);
-		return "redirect:CommunityPostListController.do";
+		ArrayList<CommunityPostVO> list = CommunityBoardDAO.getInstance().findAllPostList(no);
+		request.setAttribute("cmuList", list);
+		request.setAttribute("carNo", no);
+		request.setAttribute("url", "showList1.jsp");
+		return "layout.jsp";
 	}
 
 }
