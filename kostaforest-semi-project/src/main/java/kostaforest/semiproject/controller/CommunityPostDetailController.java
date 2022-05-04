@@ -25,8 +25,8 @@ public class CommunityPostDetailController implements Controller {
 			CommunityBoardDAO.getInstance().hitsUpdate(no);
 		//	myboardNoList.add(no);
 	//	}
-		
-		return "detailContent.jsp";
+			request.setAttribute("url", "detailContent.jsp");
+			return "layout.jsp";
 	}
 
 }

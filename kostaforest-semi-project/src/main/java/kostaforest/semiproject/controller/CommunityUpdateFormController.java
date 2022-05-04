@@ -19,7 +19,9 @@ public class CommunityUpdateFormController implements Controller {
 		ArrayList<CategoryVO> list = CategoryDAO.getInstance().list();
 		request.setAttribute("caList", list);
 		request.setAttribute("cvo", cvo);
-		return "communityUpdateForm.jsp";
+		
+		request.setAttribute("url", "communityUpdateForm.jsp");
+		return "layout.jsp";
 	}
 
 }

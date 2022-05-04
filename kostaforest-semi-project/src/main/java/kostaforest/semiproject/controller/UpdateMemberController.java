@@ -18,7 +18,8 @@ public class UpdateMemberController implements Controller{
 				mvo.setPassword(password);
 				mvo.setComName(comName);
 				MemberDAO.getInstance().registerUpdate(mvo);
-		return "redirect:index.jsp";
+		return "redirect:mainHomtListController.do";
+		
 	}
 
 }

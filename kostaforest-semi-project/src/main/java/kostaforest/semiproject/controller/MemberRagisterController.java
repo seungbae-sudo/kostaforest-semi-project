@@ -19,8 +19,8 @@ public class MemberRagisterController implements Controller{
 		MemberVO mvo= new MemberVO(id,password,comName,memberGroup);
 		MemberDAO.getInstance().register(mvo);
 		
-		return "redirect:login.jsp";
-
+		request.setAttribute("url", "redirect:login.jsp");
+		return "layout.jsp";
 	}
 	
 }

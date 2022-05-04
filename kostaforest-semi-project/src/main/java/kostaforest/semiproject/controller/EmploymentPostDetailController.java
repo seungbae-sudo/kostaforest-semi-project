@@ -15,7 +15,8 @@ public class EmploymentPostDetailController implements Controller {
 		String no=request.getParameter("no");
 		EmploymentPostVO empPostVO = EmploymentBoardDAO.getInstance().findPostByNo(no);
 		request.setAttribute("empPostVO", empPostVO);
-		return "EmploymentDetailContent.jsp";
+		request.setAttribute("url","EmploymentDetailContent.jsp");
+		return "layout.jsp";
 	}
 
 }

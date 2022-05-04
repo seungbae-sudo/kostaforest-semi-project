@@ -21,7 +21,7 @@ public class LoginController implements Controller {
 		} else { // 성공
 			HttpSession session = request.getSession();
 			session.setAttribute("mvo", vo);
-			viewName = "index.jsp";
+			viewName = "redirect:mainHomtListController.do";
 		}
 		return viewName;
 	}

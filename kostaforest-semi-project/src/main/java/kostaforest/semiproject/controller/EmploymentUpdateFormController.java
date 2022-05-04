@@ -13,7 +13,8 @@ public class EmploymentUpdateFormController implements Controller {
 		
 		String no=request.getParameter("no");	
 		request.setAttribute("empPostVO", EmploymentBoardDAO.getInstance().findPostByNo(no));
-		return "employmentUpdateForm.jsp";
+		request.setAttribute("url",  "employmentUpdateForm.jsp");
+		return "layout.jsp";
 	}
 
 }

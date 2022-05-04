@@ -20,7 +20,8 @@ public class CommunityPostListController implements Controller {
 		request.setAttribute("carNo", carNo);
 		request.setAttribute("cmuList", list);	
 		request.setAttribute("caList", list2);
-		return "showList1.jsp";
+		request.setAttribute("url", "showList1.jsp");
+		return "layout.jsp";
 	}
 
 }

@@ -12,7 +12,8 @@ public class EmploymentWriteFormController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return "employmentWriteForm.jsp";
+		request.setAttribute("url", "employmentWriteForm.jsp");
+		return "layout.jsp";
 	}
 
 }

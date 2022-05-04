@@ -17,7 +17,9 @@ public class ReviewPostUpdateFormController implements Controller {
 				
 				String no=request.getParameter("no");
 				request.setAttribute("rvo", ReviewBoardDAO.getInstance().findPostByNo(no));
-				return "reviewUpdateForm.jsp";
+				
+				request.setAttribute("url","reviewUpdateForm.jsp");
+				return "layout.jsp";
 	}
 
 }

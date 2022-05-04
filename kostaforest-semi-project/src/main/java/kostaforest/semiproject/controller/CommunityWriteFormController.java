@@ -15,6 +15,8 @@ public class CommunityWriteFormController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ArrayList<CategoryVO> list = CategoryDAO.getInstance().list();
 		request.setAttribute("caList", list);
-		return "communityWriteForm.jsp";
+		request.setAttribute("url", "communityWriteForm.jsp");
+		return "layout.jsp";
+
 	}
 }

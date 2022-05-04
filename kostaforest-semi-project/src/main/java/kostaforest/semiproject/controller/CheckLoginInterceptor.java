@@ -16,38 +16,16 @@ public class CheckLoginInterceptor {
 	private static CheckLoginInterceptor instance = new CheckLoginInterceptor();
 	private ArrayList<String> permitAllList = new ArrayList<String>();
 	private CheckLoginInterceptor() {
-		
-		permitAllList.add("CommunityWriteController");
-		permitAllList.add("CommunityWriteFormController");
-		permitAllList.add("CommunityPostListController");
-		permitAllList.add("CommunityPostDetailController");
-		permitAllList.add("CommunityDeleteController");
-		permitAllList.add("CommunityUpdateController");
-		permitAllList.add("CommunityUpdateFormController");
-		permitAllList.add("CommentWriteController");
-		permitAllList.add("CommunityListDetailController");
-		permitAllList.add("LikeUpController");
-		permitAllList.add("LoginController");
-		permitAllList.add("MemberRagisterController");
+
 		permitAllList.add("LoginController");
 		permitAllList.add("MemberRagisterController");
 		
 
 		permitAllList.add("EmploymentListController");
 		permitAllList.add("EmploymentPostDetailController");
-		permitAllList.add("EmploymentWriteController");
-		permitAllList.add("EmploymentWriteFormController");
-		permitAllList.add("EmploymentUpdateFormController");
-		permitAllList.add("EmploymentUpdatePostController");
-		permitAllList.add("EmploymentDeletePostController");
 		
-		permitAllList.add("ReviewWriteController");
-		permitAllList.add("ReviewWriteFormController");
-		permitAllList.add("ReviewPostListController");
-		permitAllList.add("ReviewPostDetailController");
-		permitAllList.add("ReviewPostUpdateController");
-		permitAllList.add("ReviewPostUpdateFormController");
-		permitAllList.add("ReviewPostDeleteController");
+		permitAllList.add("mainHomtListController");
+
 		
 	}
 	public static CheckLoginInterceptor getInstance() {
