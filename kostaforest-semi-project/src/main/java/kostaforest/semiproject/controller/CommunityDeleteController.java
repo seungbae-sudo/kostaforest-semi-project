@@ -10,6 +10,7 @@ public class CommunityDeleteController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String no = request.getParameter("no");
+		CommunityBoardDAO.getInstance().deleteByBoardNoComment(no);
 		CommunityBoardDAO.getInstance().deletePostByNo(no);
 		return "showList1.jsp";
 	}

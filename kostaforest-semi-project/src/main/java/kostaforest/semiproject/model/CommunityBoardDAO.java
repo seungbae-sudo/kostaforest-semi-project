@@ -212,6 +212,24 @@ public class CommunityBoardDAO {
 			closeAll(pstmt, con);
 		}
 	}
+	
+	public void deleteByBoardNoComment(String no) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = dataSource.getConnection();
+			StringBuilder sql = new StringBuilder("DELETE FROM BOARD_COMMENT ");
+			sql.append("WHERE comment_no IN ( ");
+			sql.append("SELECT comment_no ");
+			sql.append("FROM BOARD_COMMENT ");
+			sql.append("WHERE board_no = ?)");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, no);
+			pstmt.executeUpdate();
+		}finally {
+			closeAll(pstmt, con);
+		}
+	}
 }
 
 
