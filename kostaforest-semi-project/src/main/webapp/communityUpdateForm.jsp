@@ -242,7 +242,7 @@ i {
 
 			<div class="text-center">
 				<button type="submit" class="btn btn-success">수정</button>
-				<button type="reset" class="btn btn-success">취소</button>
+				<button type="reset" class="btn btn-success">취소</button>				
 			</div>
 		</form>
 		
