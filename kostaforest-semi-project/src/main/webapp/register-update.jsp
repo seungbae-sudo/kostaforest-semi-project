@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="kostaforest.semiproject.model.MemberDAO" %>
-<%@ page import="kostaforest.semiproject.model.MemberVO" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
