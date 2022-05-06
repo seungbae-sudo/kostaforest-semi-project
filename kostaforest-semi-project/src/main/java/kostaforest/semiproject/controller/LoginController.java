@@ -23,7 +23,7 @@ public class LoginController implements Controller {
 		} else { // 성공
 			HttpSession session = request.getSession();
 			session.setAttribute("mvo", vo);
-			viewName = "redirect:mainHomtListController.do";
+			viewName = "redirect:MainHomtListController.do";
 			
 			//조회수를 위한 게시판 별 ArrayList 생성
 			session.setAttribute("CommunityBoardNoList", new ArrayList<String>());

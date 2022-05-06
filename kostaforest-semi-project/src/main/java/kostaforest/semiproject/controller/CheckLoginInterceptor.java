@@ -30,7 +30,7 @@ public class CheckLoginInterceptor {
 		permitAllList.add("EmploymentListController");
 		permitAllList.add("EmploymentPostDetailController");
 		
-		permitAllList.add("mainHomtListController");
+		permitAllList.add("MainHomtListController");
 
 		
 	}
