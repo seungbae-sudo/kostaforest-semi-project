@@ -6,9 +6,11 @@
 		<table class="table">
 			<h2 class="title">
 				<i class="fas fa-coffee"></i>리뷰 리스트
-				<form action="ReviewWriteFormController.do" method="get">
+				<c:if test="${sessionScope.mvo.memberGroup eq '직장인' }" >
+					<form action="ReviewWriteFormController.do" method="get">
 					<button class="write">글쓰기</button>
 				</form>
+				</c:if>
 			</h2>
 
 			<tbody>

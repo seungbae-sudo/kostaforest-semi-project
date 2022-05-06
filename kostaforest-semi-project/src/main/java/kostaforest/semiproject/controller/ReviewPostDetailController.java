@@ -16,19 +16,15 @@ public class ReviewPostDetailController implements Controller {
 		//로그인 유지기간동안 읽은 글에 대한 조회수 재증가 방지를 위한 코드 
 		String no=request.getParameter("no");
 		
-		
-		/*
-		  HttpSession session=request.getSession(false);
+		HttpSession session=request.getSession(false);
 		  
 		  @SuppressWarnings("unchecked") 
-		  ArrayList<String> reviewBoardNoList=(ArrayList<String>)session.getAttribute("reviewBoardNoList");//object downcasting 
-		  if(reviewBoardNoList.contains(no)==false) { //조회수 증가
-			  ReviewBoardDAO.getInstance().updateHits(no); reviewBoardNoList.add(no); 
+		  ArrayList<String> ReviewBoardNoList=(ArrayList<String>)session.getAttribute("ReviewBoardNoList");//object downcasting 
+		  if(ReviewBoardNoList.contains(no)==false) { //조회수 증가
+			  ReviewBoardDAO.getInstance().updateHits(no); 
+			  ReviewBoardNoList.add(no); 
 		  }
-		 */
 		 
-		 
-		
 		ReviewPostVO rvo=ReviewBoardDAO.getInstance().findPostByNo(no);
 		request.setAttribute("rvo",rvo);
 		
