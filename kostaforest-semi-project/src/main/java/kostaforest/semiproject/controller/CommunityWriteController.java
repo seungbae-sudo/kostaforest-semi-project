@@ -8,6 +8,7 @@ import javax.websocket.Session;
 import kostaforest.semiproject.model.CategoryVO;
 import kostaforest.semiproject.model.CommunityBoardDAO;
 import kostaforest.semiproject.model.CommunityPostVO;
+import kostaforest.semiproject.model.MemberVO;
 
 public class CommunityWriteController implements Controller {
 
@@ -17,13 +18,14 @@ public class CommunityWriteController implements Controller {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		int carNo = Integer.parseInt(request.getParameter("carNo"));
-		String id = (String) request.getAttribute("");
+		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
 		CommunityPostVO cvo = new CommunityPostVO();
 		CategoryVO cavo = new CategoryVO();
 		cavo.setCarNo(carNo);
 		cvo.setTitle(title);
 		cvo.setContent(content);
 		cvo.setCvo(cavo);
+		cvo.setMvo(mvo);;
 		CommunityBoardDAO.getInstance().posting(cvo);
 		
 		return "redirect:CommunityListDetailController.do?carNo="+carNo;
