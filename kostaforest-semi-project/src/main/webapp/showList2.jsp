@@ -22,9 +22,11 @@
 									${list.title}
 								</a>
 							</td>
+							<%-- 
 							<td class="col-sm-1">
 								<i class='far fa-eye icon'></i>${list.hits}
-							</td>
+							</td> 
+							--%>
 						</tr>
 					</c:forEach>
 				</tbody>
