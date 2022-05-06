@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<form action="" class="search-form">
-	<input type="search" class="search" placeholder="검색어를 입력하세요">
-	<button>
+<form action="CommunitySearchController.do" method="get" class="search-form">
+	<input type="search" name="title" class="search" placeholder="검색어를 입력하세요">
+	<button type="submit">
 		<img src="images/search.png">
 	</button>
 </form>

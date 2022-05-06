@@ -8,19 +8,16 @@ import javax.servlet.http.HttpServletResponse;
 import kostaforest.semiproject.model.CommunityBoardDAO;
 import kostaforest.semiproject.model.CommunityPostVO;
 
-public class CommunityDeleteController implements Controller {
+public class CommunitySearchController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String no = request.getParameter("no");
-		String carNo = request.getParameter("carNo");
-		CommunityBoardDAO.getInstance().deleteByBoardNoComment(no);
-		CommunityBoardDAO.getInstance().deletePostByNo(no);
-		ArrayList<CommunityPostVO> list = CommunityBoardDAO.getInstance().findAllPostList(carNo);
 		
-		request.setAttribute("url", "showList1.jsp");
-		request.setAttribute("carNo", carNo);
+		String title = request.getParameter("title");
+		ArrayList<CommunityPostVO> list = CommunityBoardDAO.getInstance().findAllListByTitle(title);
 		request.setAttribute("cmuList", list);
+		request.setAttribute("url", "communitySearchList.jsp");
+		request.setAttribute("title", title);
 		return "layout.jsp";
 	}
 
