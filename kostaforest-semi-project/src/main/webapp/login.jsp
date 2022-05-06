@@ -47,7 +47,7 @@
 		
 		function moveRegiter(){
 			console.log('moveRegiter');
-			window.location.href = 'register.jsp';
+			window.location.href = 'MemberRagisterFormController.do';
 		}
 		
 		
