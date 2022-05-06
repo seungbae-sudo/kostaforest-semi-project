@@ -38,11 +38,12 @@ public class CommunityBoardDAO {
 		try {
 			con= dataSource.getConnection();
 			StringBuilder sql = new StringBuilder("INSERT INTO CMU_BOARD(board_no,title,car_no,content,time_posted,id) ");					
-			sql.append("values(cmu_board_seq.nextval,?,?,?,sysdate,'samsung')");
+			sql.append("values(cmu_board_seq.nextval,?,?,?,sysdate,?)");
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1,cvo.getTitle());
 			pstmt.setInt(2, cvo.getCvo().getCarNo());
 			pstmt.setString(3, cvo.getContent());
+			pstmt.setString(4, cvo.getMvo().getId());
 			pstmt.executeUpdate();
 			
 		}finally {
@@ -80,7 +81,7 @@ public class CommunityBoardDAO {
 		CommunityPostVO cvo = null;
 		try {
 			con = dataSource.getConnection();
-			StringBuilder sql = new StringBuilder("SELECT c.title, c.content, c.hits, c.time_posted, m.com_name ");
+			StringBuilder sql = new StringBuilder("SELECT c.title, c.content,c.like_no, c.hits, c.time_posted, m.com_name,m.id ");
 			sql.append("FROM CMU_BOARD c , EMP_MEMBER m ");
 			sql.append("WHERE c.id = m.id AND c.board_no = ?");
 			pstmt = con.prepareStatement(sql.toString());
@@ -89,11 +90,13 @@ public class CommunityBoardDAO {
 			if(rs.next()) {
 				MemberVO mvo = new MemberVO();
 				mvo.setComName(rs.getString("com_name"));
+				mvo.setId(rs.getString("id"));
 				cvo = new CommunityPostVO();
 				cvo.setBoardNo(Integer.parseInt(no));
 				cvo.setTitle(rs.getString("title"));
 				cvo.setContent(rs.getString("content"));
 				cvo.setHits(rs.getInt("hits"));
+				cvo.setLikeNo(rs.getInt("like_no"));
 				cvo.setTimePosted(rs.getString("time_posted"));
 				cvo.setMvo(mvo);
 			}
@@ -143,10 +146,11 @@ public class CommunityBoardDAO {
 		try {
 			con = dataSource.getConnection();
 			StringBuilder sql = new StringBuilder("INSERT INTO BOARD_COMMENT(comment_no, comment_content, time_posted,id,board_no) ");
-			sql.append("VALUES(board_comment_seq.nextval,?,sysdate,'samsung',?)");
+			sql.append("VALUES(board_comment_seq.nextval,?,sysdate,?,?)");
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, covo.getCommentContent());
-			pstmt.setInt(2, covo.getCmuvo().getBoardNo());
+			pstmt.setString(2, covo.getMvo().getId());
+			pstmt.setInt(3, covo.getCmuvo().getBoardNo());
 			pstmt.executeUpdate();
 		}finally {
 			closeAll(pstmt, con);
