@@ -101,7 +101,7 @@ public class MemberDAO {
 		ResultSet rs = null;
 		try {
 			con = dataSource.getConnection();
-			String sql = "select count(*) from EMP_MEMBER where id=?";
+			String sql = "SELECT COUNT(id) FROM USER WHERE id= ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();

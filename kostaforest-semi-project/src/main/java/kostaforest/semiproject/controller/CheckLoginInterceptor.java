@@ -24,6 +24,7 @@ public class CheckLoginInterceptor {
 		permitAllList.add("UpdateMemberController");
 		permitAllList.add("UpdateMemberFormController");
 		permitAllList.add("FAQController");
+		permitAllList.add("CheckIdController");
 		
 		
 
