@@ -16,7 +16,7 @@
 	<tbody>
 		<c:forEach items="${List1 }" var="list">
 		<tr>
-			<td class="col-sm-10"><a href="">${list.title }</a></td>
+			<td class="col-sm-10"><a href="CommunityPostDetailController.do?no=${list.boardNo }">${list.title }</a></td>
 			<td class="col-sm-1"><i class='far fa-eye icon'></i>${list.hits }</td>
 			<td class="col-sm-1"><i class='far fa-heart icon'></i>${list.likeNo }</td>
 		</tr>
@@ -36,7 +36,7 @@
 			<tbody>
 				<c:forEach items="${List2 }" var="list">
 		<tr>
-			<td class="col-sm-10"><a href="">${list.title }</a></td>
+			<td class="col-sm-10"><a href=" CommunityPostDetailController.do?no=${list.boardNo}&carNo=2">${list.title }</a></td>
 			<td class="col-sm-1"><i class='far fa-eye icon'></i>${list.hits }</td>
 			<td class="col-sm-1"><i class='far fa-heart icon'></i>${list.likeNo }</td>
 		</tr>
@@ -58,7 +58,7 @@
 			<tbody>
 					<c:forEach items="${List3 }" var="list">
 		<tr>
-			<td class="col-sm-10"><a href="">${list.title }</a></td>
+			<td class="col-sm-10"><a href=" CommunityPostDetailController.do?no=${list.boardNo}&carNo=3 ">${list.title }</a></td>
 			<td class="col-sm-1"><i class='far fa-eye icon'></i>${list.hits }</td>
 			<td class="col-sm-1"><i class='far fa-heart icon'></i>${list.likeNo }</td>
 		</tr>
