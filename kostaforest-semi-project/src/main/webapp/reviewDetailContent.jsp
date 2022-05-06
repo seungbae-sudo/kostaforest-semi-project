@@ -20,7 +20,7 @@
 			<pre><font size="4">${rvo.content}</pre>
 		</div>
 	
-		<c:if test=${sessionScope.mvo.id eq ReviewPostVO.mvo.id }">
+		<c:if test="${sessionScope.mvo.id eq rvo.mvo.id }">
 		<tr>
 			<td colspan="5" class="text-center">
 				 <form id="deleteForm" action="ReviewPostDeleteController.do" method="post">			<%--삭제를 위한 form  : post방식--%>
