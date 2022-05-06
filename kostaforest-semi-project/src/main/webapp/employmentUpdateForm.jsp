@@ -7,7 +7,7 @@
 			<table class="table">
 			<tr>
 				<td id="grade-td">
-					<span> 회사명 : 카카오(임시)</span>
+					<span> ${empPostVO.empGroup}</span>
 					<select name="empGroup" class="title_line grade" > <!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
 					<option value="">조건 </option>
 					<option value="정규직">정규직</option>
