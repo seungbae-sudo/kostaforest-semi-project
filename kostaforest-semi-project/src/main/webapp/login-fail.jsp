@@ -4,5 +4,5 @@
 
 <script type="text/javascript">
 	alert("로그인 실패");
-	location.href="login.jsp";
+	location.href="LoginFormController.do";
 </script>
