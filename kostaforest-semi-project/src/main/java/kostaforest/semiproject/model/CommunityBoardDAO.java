@@ -38,11 +38,12 @@ public class CommunityBoardDAO {
 		try {
 			con= dataSource.getConnection();
 			StringBuilder sql = new StringBuilder("INSERT INTO CMU_BOARD(board_no,title,car_no,content,time_posted,id) ");					
-			sql.append("values(cmu_board_seq.nextval,?,?,?,sysdate,'samsung')");
+			sql.append("values(cmu_board_seq.nextval,?,?,?,sysdate,?)");
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1,cvo.getTitle());
 			pstmt.setInt(2, cvo.getCvo().getCarNo());
 			pstmt.setString(3, cvo.getContent());
+			pstmt.setString(4, cvo.getMvo().getId());
 			pstmt.executeUpdate();
 			
 		}finally {
@@ -143,10 +144,11 @@ public class CommunityBoardDAO {
 		try {
 			con = dataSource.getConnection();
 			StringBuilder sql = new StringBuilder("INSERT INTO BOARD_COMMENT(comment_no, comment_content, time_posted,id,board_no) ");
-			sql.append("VALUES(board_comment_seq.nextval,?,sysdate,'samsung',?)");
+			sql.append("VALUES(board_comment_seq.nextval,?,sysdate,?,?)");
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, covo.getCommentContent());
-			pstmt.setInt(2, covo.getCmuvo().getBoardNo());
+			pstmt.setString(2, covo.getMvo().getId());
+			pstmt.setInt(3, covo.getCmuvo().getBoardNo());
 			pstmt.executeUpdate();
 		}finally {
 			closeAll(pstmt, con);
