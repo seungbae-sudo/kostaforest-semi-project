@@ -7,9 +7,11 @@
 		<table class="table">
 			<h2 class="title">
 				<i class="fas fa-coffee"></i>채용 공고
-				<form action="EmploymentWriteFormController.do" method="get">
-					<button class="write">글쓰기</button>
-				</form>
+				<c:if test="${sessionScope.mvo.memberGroup eq '기업'}">
+					<form action="EmploymentWriteFormController.do" method="get">
+						<button class="write">글쓰기</button>
+					</form>
+				</c:if>
 			</h2>
 
 			<tbody>
