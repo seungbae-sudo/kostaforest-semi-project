@@ -15,6 +15,7 @@
 			<div class="input-container">
 				<i class="fa fa-user icon icon-reg"></i> <input class="input-field"
 					type="text" placeholder="아이디" name="id">
+					<input type="button" value="ID 중복확인" onclick="idCheck()">
 			</div>
 
 			<div class="input-container">
@@ -34,3 +35,8 @@
 
 			<button type="submit" class="btn">Register</button>
 		</form>
+			<script>
+				function idCheck(){
+			window.open("idCheckForm.jsp","idwin","width=400 height=350")
+		}
+				</script>
