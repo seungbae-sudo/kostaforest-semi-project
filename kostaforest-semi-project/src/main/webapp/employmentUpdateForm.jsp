@@ -2,13 +2,13 @@
 	pageEncoding="UTF-8"%>
 	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 		<h3><i class='fas fa-eraser' style='font-size:24px'></i>채용공고 수정</h3>
-		<form method="post" action="EmploymentUpdatePostController.do">
+		<form method="post" action="EmploymentUpdatePostController.do" id="Update">
 			<input type="hidden" name="no" value="${empPostVO.boardNo }">
 			<table class="table">
 			<tr>
 				<td id="grade-td">
 					<span> ${empPostVO.empGroup}</span>
-					<select name="empGroup" class="title_line grade" > <!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
+					<select id="UpdateEmpGroup" name="empGroup" class="title_line grade" > <!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
 					<option value="">조건 </option>
 					<option value="정규직">정규직</option>
 					<option value="계약직">계약직</option>
@@ -27,10 +27,21 @@
 				</tr>
 			</table>
 			
-			<%-- <c:if test="${sessionScope.mvo.id eq empPostVO.id}"> --%>
+
 				<div class="text-center">
-					<button type="submit" class="btn btn-success">수정</button>
+					<button type="button" class="btn btn-success" onclick="updateCheck()">수정</button>
 					<button type="reset" class="btn btn-success">취소</button>
 				</div>
-<%-- 			</c:if> --%>
+
 		</form>
+		
+		<script type="text/javascript">
+			function updateCheck(){
+				if(document.getElementById("UpdateEmpGroup").value==""){
+					alert("조건을 선택해주세요");
+					return;
+				}else{
+					document.getElementById("Update").submit();
+				}
+			}
+		</script>
