@@ -34,6 +34,9 @@
 			</h2>
 				
 			<tbody>
+			<c:choose>
+			<c:when test="${sessionScope.mvo.memberGroup eq '직장인' }">
+			
 					<c:forEach items="${cmuList}" var="list">
 						<tr>
 							<td class="col-sm-10"><a href="CommunityPostDetailController.do?no=${list.boardNo }&carNo=${carNo}">${list.title }</a></td>
@@ -41,9 +44,22 @@
 							<td class="col-sm-1"><a href ="LikeUpController.do?no=${list.boardNo }&carNo=${carNo}"><i class='far fa-heart icon'></i></a>${list.likeNo } </td>
 							
 						</tr>
-					</c:forEach>
-						
+					</c:forEach>		
+					</c:when>
+					<c:otherwise>
+						<c:forEach items="${cmuList}" var="list">
+						<tr>
+							<td class="col-sm-10">${list.title }</td>
+							<td class="col-sm-1"><i class='far fa-eye icon'></i> ${list.hits } </td>
+							<td class="col-sm-1"><i class='far fa-heart icon'></i>${list.likeNo } </td>
+							
+						</tr>
+					</c:forEach>		
+					
+					</c:otherwise>
+				</c:choose>					
 				</tbody>
+				
 		</table>
 		
 		  <ul class="pagination justify-content-center">

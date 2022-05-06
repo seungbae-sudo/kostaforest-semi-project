@@ -19,13 +19,13 @@ public class CommunityPostDetailController implements Controller {
 		request.setAttribute("commentList",list);
 		request.setAttribute("cvo", CommunityBoardDAO.getInstance().findPostByNo(no));
 		
-	//	HttpSession session = request.getSession(false);
-		//@SuppressWarnings("unchecked")
-	//	ArrayList<String> myboardNoList = (ArrayList<String>) session.getAttribute("myboardNoList");	
-		//if(!myboardNoList.contains(no)) {
+		HttpSession session = request.getSession(false);
+		@SuppressWarnings("unchecked")
+		ArrayList<String> CommunityBoardNoList = (ArrayList<String>) session.getAttribute("CommunityBoardNoList");	
+		if(!CommunityBoardNoList.contains(no)) {
 			CommunityBoardDAO.getInstance().hitsUpdate(no);
-		//	myboardNoList.add(no);
-	//	}	
+			CommunityBoardNoList.add(no);
+		}	
 			request.setAttribute("carNo", carNo);
 			request.setAttribute("url", "detailContent.jsp");		
 			return "layout.jsp";
