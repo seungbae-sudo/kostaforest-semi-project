@@ -4,7 +4,7 @@
 
 <div class="text-center" style="margin-bottom: 0">
 		<h1>
-			<a href="mainHomtListController.do"><img alt="logo" src="images/코스타1.png"></a>
+			<img alt="logo" src="images/코스타1.png">
 		</h1>
 
 	</div>
@@ -37,7 +37,7 @@
 				<form method="post" action="LogoutController.do">
 				<button>로그아웃</button>
 				</form>
-				<form method="post" action="MemberRagisterFormController.do">
+				<form method="post" action="UpdateMemberController.do">
 				<button>회원정보 수정</button>
 				</form>
 				<span><b>${sessionScope.mvo.comName}</b> 님</span>
