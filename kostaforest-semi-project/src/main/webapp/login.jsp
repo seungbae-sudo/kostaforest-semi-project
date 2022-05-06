@@ -1,16 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-	<div class="wrap">
+
 		<div class="form-wrap">
-			<div class="button-wrap">
-				<div id="btn"></div>
-			</div>
-			<div class="social-icons"></div>
+			
 			<form id="login" action="LoginController.do" class="input-group" method="post">
 				<input type="text" name="id" class="input-field" placeholder="ID" required>
 				<div class="social-icons"></div>
-				<input type="password" name="password" class="input-field2" placeholder="PASSWORD" required >
+				<input type="password" name="password" class="input-field" placeholder="PASSWORD" required >
 				<div class="social-icons"></div>
 				<button type="submit" class="submit"><font color="white">SIGN IN</font></button>
 				<div class="social-icons"></div>
@@ -30,7 +27,7 @@
 			</form>
 			 -->
 		</div>
-	</div>
+
 	<script>
 		var x = document.getElementById("login");
 		var y = document.getElementById("register");
