@@ -107,12 +107,12 @@ public class EmploymentBoardDAO {
 			con = dataSource.getConnection();
 			StringBuilder sql = new StringBuilder(
 					"INSERT INTO EMPLOYMENT(emp_no,title,emp_group,content,time_posted,id) ");
-			sql.append("values(employment_seq.nextval,?,?,?,sysdate,'samsung')");
+			sql.append("values(employment_seq.nextval,?,?,?,sysdate,?)");
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, empPostVO.getTitle());
 			pstmt.setString(2, empPostVO.getEmpGroup());
 			pstmt.setString(3, empPostVO.getContent());
-//			pstmt.setString(4, empPostVO.getMvo().getId());
+			pstmt.setString(4, empPostVO.getMvo().getId());
 			pstmt.executeUpdate();
 		} finally {
 			closeAll(pstmt, con);
@@ -132,7 +132,6 @@ public class EmploymentBoardDAO {
 			pstmt.setString(3, empPostVO.getEmpGroup());
 			pstmt.setInt(4, empPostVO.getBoardNo());
 			pstmt.executeUpdate();
-			System.out.println(empPostVO + " 잘 나옴");
 		} finally {
 			closeAll(pstmt, con);
 		}
