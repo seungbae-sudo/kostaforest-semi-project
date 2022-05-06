@@ -22,8 +22,7 @@
 				<button type="button" onclick="updatePostFrom()">수정</button> 	
 				<button type="button" onclick="deletePost()">삭제</button> 
 				
-		</div>
-		
+			</div>
 		<script>
 				function updatePostFrom(){
 					//confirm 함수는 확인 누를 때 true를 반환

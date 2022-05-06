@@ -1,5 +1,7 @@
 package kostaforest.semiproject.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,6 +24,10 @@ public class LoginController implements Controller {
 			HttpSession session = request.getSession();
 			session.setAttribute("mvo", vo);
 			viewName = "redirect:mainHomtListController.do";
+			
+			//조회수를 위한 게시판 별 ArrayList 생성
+			session.setAttribute("CommunityBoardNoList", new ArrayList<String>());
+			session.setAttribute("ReviewBoardNoList", new ArrayList<String>());
 		}
 		return viewName;
 	}
