@@ -65,6 +65,13 @@
 				<tr>
 					<td class="col-sm-8">${list.commentContent }</td>
 					<td class="col-sm-2">${list.timePosted }</td>
+					
+					<td class="col-sm-2">
+					<form action="CommentDeleteController.do" method="post" >
+					<button>삭제</button>
+					</form>
+					</td>
+					
 				</tr>
 			</c:forEach>
 		</tbody>

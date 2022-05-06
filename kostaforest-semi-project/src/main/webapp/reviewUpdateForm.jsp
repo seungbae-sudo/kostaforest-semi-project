@@ -3,12 +3,12 @@
 	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 		<h3><i class='fas fa-eraser' style='font-size:24px'></i></i>리뷰 수정</h3>
-		<form method="post" action="ReviewPostUpdateController.do">
+		<form method="post" action="ReviewPostUpdateController.do" id="Update">
 			<table class="table">
 			<tr>
 				<td id="grade-td">
-					<span> 회사명 : 카카오(임시)</span>
-					<select id="" onchange="" class="title_line grade" > <!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
+					<span> 회사명 : ${sessionScope.mvo.comName}</span>
+					<select id="ratingNo" onchange="" class="title_line grade" > <!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
 					<option value="">평점 </option>
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -32,7 +32,18 @@
 			</table>
 			
 			<div class="text-center">
-				<button type="submit" class="btn btn-success">확인</button>
+				<button type="button" class="btn btn-success" onclick="check()">수정</button>
 				<button type="reset" class="btn btn-success">취소</button>
 			</div>
 			</form>
+			
+			<script type="text/javascript">	
+			function check() {
+				if(document.getElementById("ratingNo").value ==""){
+					alert("평점을 선택해 주세요");		
+					return;
+				}else{
+					document.getElementById("Update").submit();
+				}
+			}	
+		</script>
