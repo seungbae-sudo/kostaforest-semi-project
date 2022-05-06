@@ -1,5 +1,14 @@
 package kostaforest.semiproject.controller;
 
-public class MemberRagisterFormController {
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class MemberRagisterFormController implements Controller {
+
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.setAttribute("url", "register.jsp");
+		return "layout.jsp";
+	}
 
 }
