@@ -1,68 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<div class="faq">
-		<div class="faqHeader">
-			<!--button type="button" class="showAll">답변 모두 여닫기</button-->
-		</div>
-		<h3>F A Q</h3>
-		<ul class="faqBody">
-			<li class="article" id="a1">
-				<p class="q">
-					<a href="#a1">Q.자주 묻는 질문 1번</a>
-				</p>
-				<p class="a">A.답변하는곳 답변하는곳<br>답변하는곳 답변하는곳</p>
-			</li>
-			<li class="article" id="a2">
-				<p class="q">
-					<a href="#a2">Q.자주 묻는 질문 2번</a>
-				</p>
-				<p class="a">A.답변하는곳 답변하는곳<br>답변하는곳 답변하는곳</p>
-			</li>
-			<li class="article" id="a3">
-				<p class="q">
-					<a href="#a3">Q.자주 묻는 질문 3번</a>
-				</p>
-				<p class="a">A.답변하는곳 답변하는곳<br>답변하는곳 답변하는곳</p>
-			</li>
-			<li class="article" id="a4">
-				<p class="q">
-					<a href="#a4">Q.자주 묻는 질문 4번</a>
-				</p>
-				<p class="a">A.답변하는곳 답변하는곳<br>답변하는곳 답변하는곳</p>
-			</li>
-		</ul>
-	</div>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 
-	<script>
-		jQuery(function($) {
-			// Frequently Asked Question
-			var article = $('.faq>.faqBody>.article');
-			article.addClass('hide');
-			article.find('.a').hide();
-			article.eq(0).removeClass('hide');
-			article.eq(0).find('.a').show();
-			$('.faq>.faqBody>.article>.q>a').click(function() {
-				var myArticle = $(this).parents('.article:first');
-				if (myArticle.hasClass('hide')) {
-					article.addClass('hide').removeClass('show');
-					article.find('.a').slideUp(100);
-					myArticle.removeClass('hide').addClass('show');
-					myArticle.find('.a').slideDown(100);
-				} else {
-					myArticle.removeClass('show').addClass('hide');
-					myArticle.find('.a').slideUp(100);
-				}
-				return false;
-			});
-			$('.faq>.faqHeader>.showAll').click(function() {
-				var hidden = $('.faq>.faqBody>.article.hide').length;
-				if (hidden > 0) {
-					article.removeClass('hide').addClass('show');
-					article.find('.a').slideDown(100);
-				} else {
-					article.removeClass('show').addClass('hide');
-					article.find('.a').slideUp(100);
-				}
-			});
-		});
-	</script>
+<div>
+	<ul>
+		<li><a href="#ms1">질문1</a></li>
+		<li><a href="#ms2">질문2</a></li>
+		<li><a href="#ms3">질문3</a></li>
+		<li><a href="#ms4">질문4</a></li>
+		<li><a href="#ms5">질문5</a></li>
+	</ul>
+</div>
+<div id="ms1" class="ask-box" style='height:500px'>질문1에 대한 답변</div>
+<div id="ms2"  class="ask-box" style='height:500px'>질문2에 대한 답변</div>
+<div id="ms3"  class="ask-box" style='height:500px'>질문3에 대한 답변</div>
+<div id="ms4"  class="ask-box" style='height:500px'>질문4에 대한 답변</div>
+<div id="ms5"  class="ask-box" style='height:500px'>질문5에 대한 답변</div>

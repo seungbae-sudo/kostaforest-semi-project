@@ -22,9 +22,10 @@
 				</tr>
 				<tr>
 					<td><textarea rows="10" class="form-control" name="content"
-							placeholder="본문내용" required="required"></textarea></td>
+							placeholder="지원받을 귀사의 사이트 링크를 꼭 기재해 주세요!" required="required"></textarea></td>
 				</tr>
 			</table>
+
 
 			<div class="text-center">
 				<button type="button" class="btn btn-success" onclick="WriteCheck()">확인</button>
