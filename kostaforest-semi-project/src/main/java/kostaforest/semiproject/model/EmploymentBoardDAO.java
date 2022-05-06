@@ -73,7 +73,7 @@ public class EmploymentBoardDAO {
 
 			StringBuilder sql = new StringBuilder();
 			sql.append(
-					"SELECT e.emp_no,e.title,e.emp_group, e.content, e.hits,to_char(e.time_posted,'YYYY.MM.DD') as time_posted, m.com_name ");
+					"SELECT e.emp_no,e.title,e.emp_group, e.content, e.hits,to_char(e.time_posted,'YYYY.MM.DD') as time_posted, m.com_name ,m.id");
 			sql.append(" FROM EMPLOYMENT e , EMP_MEMBER m ");
 			sql.append(" WHERE e.id = m.id AND e.emp_no=? ");
 			pstmt = con.prepareStatement(sql.toString());
@@ -82,6 +82,7 @@ public class EmploymentBoardDAO {
 			if (rs.next()) {
 				MemberVO mvo = new MemberVO();
 				mvo.setComName(rs.getString("com_name"));
+				mvo.setId(rs.getString("id"));
 				empPostVO = new EmploymentPostVO();
 				empPostVO.setBoardNo(rs.getInt("emp_no"));
 				empPostVO.setTitle(rs.getString("title"));
