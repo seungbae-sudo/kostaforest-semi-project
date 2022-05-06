@@ -19,14 +19,8 @@ public class EmploymentPostDetailController implements Controller {
 		String no=request.getParameter("no");
 		EmploymentPostVO empPostVO = EmploymentBoardDAO.getInstance().findPostByNo(no);
 		request.setAttribute("empPostVO", empPostVO);
-		System.out.println(empPostVO);
-		//조회수
-//		HttpSession session=request.getSession(false);
-//		ArrayList<String> EmploymentBoardNoList = (ArrayList<String>) session.getAttribute("EmploymentBoardNoList");
-//		if (EmploymentBoardNoList.contains(no)==false) {
-//			EmploymentBoardDAO.getInstance().updateHits(no);
-//			EmploymentBoardNoList.add(no);
-//		}
+
+		
 		
 		request.setAttribute("url","EmploymentDetailContent.jsp");
 		return "layout.jsp";
