@@ -4,11 +4,11 @@
 
 
 		<h3><i class='fas fa-eraser' style='font-size:24px'></i>커뮤니티 수정</h3>
-		<form method="post" action="CommunityUpdateController.do">
+		<form method="post" action="CommunityUpdateController.do" id="Update">
 			<table class="table">
 				<tr>
 					<td>
-					<select name="carNo" class="title_line">
+					<select id = "carNo" name="carNo" class="title_line">
 							<!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
 							<option value="">게시판을 선택해주세요.</option>
 							<c:forEach items="${caList}" var="list">
@@ -32,7 +32,18 @@
 			</table>
 
 			<div class="text-center">
-				<button type="submit" class="btn btn-success">수정</button>
+				<button type="button" class="btn btn-success" onclick="check()">수정</button>
 				<button type="reset" class="btn btn-success">취소</button>				
 			</div>
 		</form>
+		
+		<script type="text/javascript">	
+			function check() {
+				if(document.getElementById("carNo").value ==""){
+					alert("게시판을 선택해 주세요");		
+					return;
+				}else{
+					document.getElementById("Update").submit();
+				}
+			}	
+		</script>
