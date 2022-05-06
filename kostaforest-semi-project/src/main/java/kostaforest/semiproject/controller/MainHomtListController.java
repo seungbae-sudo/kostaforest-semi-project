@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kostaforest.semiproject.model.CommunityBoardDAO;
 
-public class mainHomtListController implements Controller {
+public class MainHomtListController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

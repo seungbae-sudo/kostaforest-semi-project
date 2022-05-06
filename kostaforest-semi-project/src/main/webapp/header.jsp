@@ -10,7 +10,7 @@
 	</div>
 
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
-		<a class="navbar-brand" href="mainHomtListController.do">홈</a>
+		<a class="navbar-brand" href="MainHomtListController.do">홈</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#collapsibleNavbar">
 			<span class="navbar-toggler-icon"></span>

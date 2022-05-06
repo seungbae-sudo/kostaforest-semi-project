@@ -28,7 +28,7 @@ public class ReviewPostDetailController implements Controller {
 		ReviewPostVO rvo=ReviewBoardDAO.getInstance().findPostByNo(no);
 		request.setAttribute("rvo",rvo);
 		
-		request.setAttribute("url", "reviewDetailContent.jsp");
+		request.setAttribute("url", "reviewcommunityDetailContent.jsp");
 		return "layout.jsp";
 	}
 

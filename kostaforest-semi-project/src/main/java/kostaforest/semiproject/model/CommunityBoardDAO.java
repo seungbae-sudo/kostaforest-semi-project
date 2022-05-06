@@ -265,6 +265,40 @@ public class CommunityBoardDAO {
 		return list;
 	}
 	
+	public ArrayList<CommunityPostVO> findAllListByTitle(String title) throws SQLException{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<CommunityPostVO> list = new ArrayList<CommunityPostVO>();
+		try {
+			con = dataSource.getConnection();
+			String sql = "SELECT * FROM CMU_BOARD WHERE title LIKE ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%"+title+"%");
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				CommunityPostVO cmuvo = new  CommunityPostVO();
+				CategoryVO cavo = new CategoryVO();
+				MemberVO mvo = new MemberVO();
+				mvo.setId(rs.getString("id"));
+				cavo.setCarNo(Integer.parseInt(rs.getString("car_no")));
+				cmuvo.setBoardNo(Integer.parseInt(rs.getString("board_no")));
+				cmuvo.setTitle(rs.getString("title"));
+				cmuvo.setTimePosted(rs.getString("time_posted"));
+				cmuvo.setLikeNo(Integer.parseInt(rs.getString("like_no")));
+				cmuvo.setHits(Integer.parseInt(rs.getString("hits")));
+				cmuvo.setCvo(cavo);
+				cmuvo.setMvo(mvo);
+				list.add(cmuvo);
+			}
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		
+		return list;
+	}
+	
+	
 }
 
 

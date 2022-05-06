@@ -33,7 +33,7 @@ public class CommunityUpdateController implements Controller {
 		ArrayList<CommunityPostVO> list = CommunityBoardDAO.getInstance().findAllPostList(no);
 		request.setAttribute("cmuList", list);
 		request.setAttribute("carNo", no);
-		request.setAttribute("url", "showList1.jsp");
+		request.setAttribute("url", "communityList.jsp");
 		return "layout.jsp";
 	}
 
