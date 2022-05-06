@@ -25,17 +25,21 @@
 			<c:choose>
 			<c:when test="${sessionScope.mvo==null }">  
 				<div class="reg-form-before">
-				<form action="login.jsp">
-				<button>로그인</button>
+				<form method="post" action="LoginController.do" >
+				<button type="submit">로그인</button>
 				</form>
-				<form action="">
-				<button>회원가입</button>
+				<form method="post" action="MemberRagisterController.do">
+				<button type="submit">회원가입</button>
 				</form>
 			</c:when>  
 			<c:otherwise>
-			<div class="reg-form-after">	
+			<div class="reg-form-after">
+				<form method="post" action="LogoutController.do">
 				<button>로그아웃</button>
+				</form>
+				<form method="post" action="MemberRagisterFormController.do">
 				<button>회원정보 수정</button>
+				</form>
 				<span><b>${sessionScope.mvo.comName}</b> 님</span>
 			</div>
 			</c:otherwise>
