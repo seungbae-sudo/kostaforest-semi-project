@@ -20,9 +20,7 @@
 			<pre><font size="4">${rvo.content}</pre>
 		</div>
 	
-	
-	
-	
+		<c:if test="${sessionScope.mvo.id eq rvo.mvo.id }">
 		<tr>
 			<td colspan="5" class="text-center">
 				 <form id="deleteForm" action="ReviewPostDeleteController.do" method="post">			<%--삭제를 위한 form  : post방식--%>
@@ -31,10 +29,13 @@
 				<form id="updateForm" action="ReviewPostUpdateFormController.do" method="post">			<%--삭제를 위한 form  : post방식--%>
 					<input type="hidden" name="no" value="${rvo.reNo}">
 				</form>
+				
 				 <button type="button"onclick="updatePost()">수정</button>
 				<button type="button" onclick="deletePost()">삭제</button>
+				
 			</td>
 		</tr>
+		</c:if>
 				
 		<script>
 			function deletePost(){
@@ -51,39 +52,3 @@
 				}
 			}
 		</script>
-
-
-
-
-
-		<div class="comment">
-			<table class="table table-comment">
-				<h4 class="title">
-					<i class="fas fa-cloud"></i>댓글<span class="more">
-				</h4>
-				
-				<form class="comment-form">
-					<input type="text" class="comment-write" placeholder="댓글을 입력하세요">
-					<button class="comment-write-ok">작성</button>
-				</form>
-				
-				<tbody class="up-space">
-					<tr>
-						<td class="col-sm-8">여기가 글내용</td>
-						<td class="col-sm-2">2022.05.02</td>
-					</tr>
-					<tr>
-						<td>여기가 글내용</td>
-						<td>3</td>
-					</tr>
-					<tr>
-						<td>여기가 글내용</td>
-						<td>3</td>
-					</tr>
-					<tr>
-						<td>여기가 글내용</td>
-						<td>3</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>

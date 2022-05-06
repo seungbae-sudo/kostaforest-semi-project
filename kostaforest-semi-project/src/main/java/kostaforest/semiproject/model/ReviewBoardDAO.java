@@ -84,7 +84,7 @@ public class ReviewBoardDAO {
 		try {
 			con=dataSource.getConnection();
 			StringBuilder sql=new StringBuilder();
-			sql.append("SELECT r.re_no, r.title, r.rating, r.content, r.hits, r.time_posted, m.com_name ");
+			sql.append("SELECT r.re_no, r.title, r.rating, r.content, r.hits, r.time_posted, m.com_name,m.id ");
 			sql.append("FROM REVIEW r, EMP_MEMBER m ");
 			sql.append("WHERE r.id=m.id AND r.re_no=? ");
 			pstmt=con.prepareStatement(sql.toString());
@@ -93,6 +93,7 @@ public class ReviewBoardDAO {
 			if(rs.next()) {
 				MemberVO mvo=new MemberVO();
 				mvo.setComName(rs.getString("com_name"));
+				mvo.setId(rs.getString("id"));
 				rvo=new ReviewPostVO();
 				rvo.setReNo(rs.getInt("re_no"));
 				rvo.setTitle(rs.getString("title"));
