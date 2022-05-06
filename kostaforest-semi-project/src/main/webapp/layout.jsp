@@ -449,7 +449,7 @@ a.page-link {
 	top: 17px;
 }
 
-/*detailContent*/
+/*communityDetailContent*/
 li {
 	list-style: none;
 }
@@ -497,7 +497,7 @@ ul.info li {
 	margin-top: 30px;
 }
 
-/*EmployementDetailContent.jsp*/
+/*EmployementcommunityDetailContent.jsp*/
 .fakeimg {
 	height: 200px;
 	background: #aaa;
@@ -601,7 +601,7 @@ a.page-link {
 	top: 17px;
 }
 
-/*detailContent*/
+/*communityDetailContent*/
 li {
 	list-style: none;
 }
@@ -1681,7 +1681,7 @@ i {
 	font-size: 14px;
 }
 
-/*reviewDetailContent.jsp*/
+/*reviewcommunityDetailContent.jsp*/
 .fakeimg {
 	height: 200px;
 	background: #aaa;
@@ -1785,7 +1785,7 @@ a.page-link {
 	top: 17px;
 }
 
-/*detailContent*/
+/*communityDetailContent*/
 li {
 	list-style: none;
 }
@@ -2183,7 +2183,7 @@ i {
 	font-size: 14px;
 }
 
-/*showList1.jsp*/
+/*communityList.jsp*/
 .fakeimg {
 	height: 200px;
 	background: #aaa;

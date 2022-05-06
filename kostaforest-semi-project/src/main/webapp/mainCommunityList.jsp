@@ -9,7 +9,7 @@
 </form>
 <table class="table">
 	<h2 class="title">
-		<i class="fas fa-coffee"></i>회사 생활 <span class="more"><a
+		<i class="fas fa-coffee"></i>회사 이야기 <span class="more"><a
 			href="CommunityListDetailController.do?carNo=1">더보기</a></span>
 	</h2>
 

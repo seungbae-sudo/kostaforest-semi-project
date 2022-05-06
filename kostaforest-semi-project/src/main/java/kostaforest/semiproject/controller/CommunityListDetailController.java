@@ -19,7 +19,7 @@ public class CommunityListDetailController implements Controller {
 		ArrayList<CommunityPostVO> list = CommunityBoardDAO.getInstance().findAllPostList(carNo);
 		request.setAttribute("carNo", carNo);
 		request.setAttribute("cmuList", list);
-		request.setAttribute("url", "showList1.jsp");
+		request.setAttribute("url", "communityList.jsp");
 		return "layout.jsp";
 	}
 
