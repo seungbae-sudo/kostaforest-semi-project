@@ -37,10 +37,11 @@ public class ReviewBoardDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con= dataSource.getConnection();
-			String sql="INSERT INTO REVIEW(re_no,title,content,time_posted,id) VALUES(review_seq.nextval,?,?,sysdate,'samsung')";
+			String sql="INSERT INTO REVIEW(re_no,title,content,time_posted,id) VALUES(review_seq.nextval,?,?,sysdate,? ) " ;
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1,rvo.getTitle());
 			pstmt.setString(2, rvo.getContent());
+			pstmt.setString(3, rvo.getMvo().getId());
 			pstmt.executeUpdate();
 		}finally {
 			closeAll(pstmt, con);
