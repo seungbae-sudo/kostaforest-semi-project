@@ -11,6 +11,7 @@
 		<div class="content">
 			<pre>${cvo.content }</pre>
 		</div>
+		
 		<form action="CommunityDeleteController.do?carNo=${carNo }" method="post" id= "DeleteForm">
 			<input type="hidden" name="no" value="${cvo.boardNo}">
 					
@@ -19,9 +20,10 @@
 				<input type="hidden" name="no" value="${cvo.boardNo}">
 	
 			</form>
+			<c:if test="${sessionScope.mvo.id == cvo.mvo.id} ">
 			<button type ="button" onclick="updatepost()"> 수정</button>
 			<button type ="button" onclick= "deletepost()" > 삭제</button>
-			
+		 	</c:if> 
 			<script type="text/javascript">
 				function deletepost() {
 					if(confirm("삭제 하시겠습니까?")){

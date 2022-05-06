@@ -81,7 +81,7 @@ public class CommunityBoardDAO {
 		CommunityPostVO cvo = null;
 		try {
 			con = dataSource.getConnection();
-			StringBuilder sql = new StringBuilder("SELECT c.title, c.content, c.hits, c.time_posted, m.com_name ");
+			StringBuilder sql = new StringBuilder("SELECT c.title, c.content, c.hits, c.time_posted, m.com_name,m.id ");
 			sql.append("FROM CMU_BOARD c , EMP_MEMBER m ");
 			sql.append("WHERE c.id = m.id AND c.board_no = ?");
 			pstmt = con.prepareStatement(sql.toString());
@@ -90,6 +90,7 @@ public class CommunityBoardDAO {
 			if(rs.next()) {
 				MemberVO mvo = new MemberVO();
 				mvo.setComName(rs.getString("com_name"));
+				mvo.setId(rs.getString("id"));
 				cvo = new CommunityPostVO();
 				cvo.setBoardNo(Integer.parseInt(no));
 				cvo.setTitle(rs.getString("title"));
