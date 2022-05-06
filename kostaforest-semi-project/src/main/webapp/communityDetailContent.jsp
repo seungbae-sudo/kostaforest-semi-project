@@ -67,9 +67,11 @@
 					<td class="col-sm-2">${list.timePosted }</td>
 					
 					<td class="col-sm-2">
-					<form action="CommentDeleteController.do" method="post" >
+					<c:if test="${sessionScope.mvo.id eq list.mvo.id }">
+					<form action="CommentDeleteController.do?commentNo=${list.commentNO}&carNo=${carNo}&no=${cvo.boardNo}" method="post" >
 					<button>삭제</button>
 					</form>
+					</c:if>
 					</td>
 					
 				</tr>

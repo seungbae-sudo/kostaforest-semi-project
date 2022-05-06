@@ -164,7 +164,7 @@ public class CommunityBoardDAO {
 		ResultSet rs= null;
 		try {
 			con = dataSource.getConnection();
-			StringBuilder sql = new StringBuilder("SELECT co.comment_no,co.comment_content, co.time_posted ");
+			StringBuilder sql = new StringBuilder("SELECT co.comment_no,co.comment_content, co.time_posted,co.id ");
 			sql.append("FROM BOARD_COMMENT co , CMU_BOARD cmu ");
 			sql.append("WHERE co.board_no = cmu.board_no AND co.board_no = ?");
 			pstmt= con.prepareStatement(sql.toString());
@@ -172,7 +172,10 @@ public class CommunityBoardDAO {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				CommentVO covo = new CommentVO();
-				covo.setConmmentNO(Integer.parseInt(rs.getString("comment_no")));
+				MemberVO mvo = new MemberVO();
+				mvo.setId(rs.getString("id"));
+				covo.setcommentNO(Integer.parseInt(rs.getString("comment_no")));
+				covo.setMvo(mvo);
 				covo.setCommentContent(rs.getString("comment_content"));
 				covo.setTimePosted(rs.getString("time_posted"));
 				list.add(covo);
@@ -298,7 +301,20 @@ public class CommunityBoardDAO {
 		return list;
 	}
 	
-	
+	public void deleteCommentByCommentNo(String commentNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = dataSource.getConnection();
+			String sql = "DELETE FROM BOARD_COMMENT WHERE comment_no = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, commentNo);
+			pstmt.executeUpdate();
+		}finally {
+			closeAll(pstmt, con);
+			
+		}
+	}
 }
 
 

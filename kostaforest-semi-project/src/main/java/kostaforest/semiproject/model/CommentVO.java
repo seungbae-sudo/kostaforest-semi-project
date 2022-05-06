@@ -1,7 +1,7 @@
 package kostaforest.semiproject.model;
 
 public class CommentVO {
-	private int conmmentNO;
+	private int commentNO;
 	private String commentContent;
 	private String timePosted;
 	private MemberVO mvo;
@@ -10,19 +10,19 @@ public class CommentVO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public CommentVO(int conmmentNO, String commentContent, String timePosted, MemberVO mvo, CommunityPostVO cmuvo) {
+	public CommentVO(int commentNO, String commentContent, String timePosted, MemberVO mvo, CommunityPostVO cmuvo) {
 		super();
-		this.conmmentNO = conmmentNO;
+		this.commentNO = commentNO;
 		this.commentContent = commentContent;
 		this.timePosted = timePosted;
 		this.mvo = mvo;
 		this.cmuvo = cmuvo;
 	}
-	public int getConmmentNO() {
-		return conmmentNO;
+	public int getcommentNO() {
+		return commentNO;
 	}
-	public void setConmmentNO(int conmmentNO) {
-		this.conmmentNO = conmmentNO;
+	public void setcommentNO(int commentNO) {
+		this.commentNO = commentNO;
 	}
 	public String getCommentContent() {
 		return commentContent;
@@ -50,7 +50,7 @@ public class CommentVO {
 	}
 	@Override
 	public String toString() {
-		return "CommentVO [conmmentNO=" + conmmentNO + ", commentContent=" + commentContent + ", timePosted="
+		return "CommentVO [commentNO=" + commentNO + ", commentContent=" + commentContent + ", timePosted="
 				+ timePosted + ", mvo=" + mvo + ", cmuvo=" + cmuvo + "]";
 	}
 
