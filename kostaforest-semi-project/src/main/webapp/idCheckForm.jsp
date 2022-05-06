@@ -4,13 +4,10 @@
 
 <div class="row">
 <div class="col-sm-8 offset-sm-2">
-<form action="RegisterMemberController.do" method="post" id="registerForm" onsubmit="return checkRegForm()">
+<form action="MemberRagisterController.do" method="post" id="registerForm" onsubmit="return checkRegForm()">
 <input type="text" name="id" id="memberId" required="required" placeholder="아이디" onkeyup="checkId()">
 <span id="checkResult"></span><br>
-<input type="password" name="password" required="required" placeholder="패스워드"><br>
-<input type="text" name="name" required="required" placeholder="이름"><br>
-<input type="text" name="address" required="required" placeholder="주소"><br>
-<input type="submit" value="회원가입">
+<input type="submit" value="아이디 결정">
 </form>
 <%-- memberId id text 입력양식에 keyup 이벤트를 이용해서 
 아이디 중복확인을 ajax 방식으로 처리할 수 있다  --%>
@@ -27,3 +24,28 @@
 			return false;// onsubmit 에 return false를 하면 전송되지 않는다 
 		}
 	}
+	function checkId() {
+		checkIdFlag=false;
+		let memberId=document.getElementById("memberId").value;
+		let checkResult=document.getElementById("checkResult");
+		if(memberId.length<4){
+			checkResult.innerHTML="<font color=pink>아이디는 4자이상</font>";
+		}else{// 입력한 아이디가 4자 이상이 될 때 ajax 방식으로 서버에 요청 
+			let xhr=new XMLHttpRequest();
+			xhr.onload=function(){
+				//alert(xhr.responseText);
+				if(xhr.responseText=="ok"){
+					checkResult.innerHTML="<font color=green>사용가능</font>";
+					checkIdFlag=true;
+				}else{
+					checkResult.innerHTML="<font color=red>사용불가</font>";
+				}					
+			}//callback
+			xhr.open("get", "CheckIdController.do?id="+memberId);
+			xhr.send();
+		}//else
+	}//function
+	</script>
+	</div>
+	</div>
+	
