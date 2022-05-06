@@ -22,7 +22,7 @@ public class EmploymentPostDetailController implements Controller {
 
 		
 		
-		request.setAttribute("url","EmploymentcommunityDetailContent.jsp");
+		request.setAttribute("url","EmploymentDetailContent.jsp");
 		return "layout.jsp";
 	}
 

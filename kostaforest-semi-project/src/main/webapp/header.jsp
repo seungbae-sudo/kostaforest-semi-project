@@ -4,7 +4,7 @@
 
 <div class="text-center" style="margin-bottom: 0">
 		<h1>
-			<img alt="logo" src="images/코스타1.png">
+			<a href="MainHomtListController.do"><img alt="logo" src="images/코스타1.png"></a>
 		</h1>
 
 	</div>
