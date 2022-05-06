@@ -37,7 +37,7 @@
 				<form method="post" action="LogoutController.do">
 				<button>로그아웃</button>
 				</form>
-				<form method="post" action="UpdateMemberController.do">
+				<form method="post" action="UpdateMemberFormController.do">
 				<button>회원정보 수정</button>
 				</form>
 				<span><b>${sessionScope.mvo.comName}</b> 님</span>
