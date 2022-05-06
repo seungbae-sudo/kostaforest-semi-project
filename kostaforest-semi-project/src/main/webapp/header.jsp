@@ -20,15 +20,15 @@
 				<li class="nav-item"><a class="nav-link" href="ReviewPostListController.do">회사 리뷰</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="EmploymentListController.do">채용 공고</a></li>
-				<li class="nav-item"><a class="nav-link" href="">문의 게시판</a></li>
+				<li class="nav-item"><a class="nav-link" href="FAQController.do">문의 게시판</a></li>
 			</ul>
 			<c:choose>
 			<c:when test="${sessionScope.mvo==null }">  
 				<div class="reg-form-before">
-				<form method="post" action="LoginController.do" >
+				<form method="post" action="LoginFormController.do" >
 				<button type="submit">로그인</button>
 				</form>
-				<form method="post" action="MemberRagisterController.do">
+				<form method="post" action="MemberRagisterFormController.do">
 				<button type="submit">회원가입</button>
 				</form>
 			</c:when>  
