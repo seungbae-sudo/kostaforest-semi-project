@@ -64,6 +64,7 @@
 			
 		<form action="CommentWriteController.do" method="post"
 			class="comment-form">
+			<input type="hidden" name="carNo" value="${carNo}"> 
 			<input type="hidden" name="boardNo" value="${cvo.boardNo }">
 			<input type="hidden" name="comName" value="${cvo.mvo.comName }">
 			<input type="text" name="com_content" class="comment-write"
