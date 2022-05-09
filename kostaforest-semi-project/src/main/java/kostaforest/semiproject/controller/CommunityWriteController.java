@@ -3,7 +3,6 @@ package kostaforest.semiproject.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import kostaforest.semiproject.model.CategoryVO;
 import kostaforest.semiproject.model.CommunityBoardDAO;
@@ -27,8 +26,9 @@ public class CommunityWriteController implements Controller {
 		cvo.setCvo(cavo);
 		cvo.setMvo(mvo);;
 		CommunityBoardDAO.getInstance().posting(cvo);
+		request.setAttribute("carNo", carNo);
 		
-		return "redirect:CommunityListDetailController.do?carNo="+carNo;
+		return "redirect:CommunityListDetailController.do";
 	}
 
 }
