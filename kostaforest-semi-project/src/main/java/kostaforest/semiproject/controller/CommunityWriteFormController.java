@@ -14,8 +14,11 @@ public class CommunityWriteFormController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ArrayList<CategoryVO> list = CategoryDAO.getInstance().list();
+		String carNo = request.getParameter("no");
+		System.out.println(carNo);
 		request.setAttribute("caList", list);
-		request.setAttribute("url", "communityWriteForm.jsp");
+		request.setAttribute("carNo", carNo);	
+		request.setAttribute("url", "communityWriteForm.jsp");	
 		return "layout.jsp";
 
 	}
