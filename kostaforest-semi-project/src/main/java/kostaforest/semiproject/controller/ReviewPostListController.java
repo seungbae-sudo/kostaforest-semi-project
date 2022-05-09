@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kostaforest.semiproject.model.RatingVO;
 import kostaforest.semiproject.model.ReviewBoardDAO;
 import kostaforest.semiproject.model.ReviewPostVO;
 
@@ -23,6 +24,9 @@ public class ReviewPostListController implements Controller {
 		
 		ArrayList<ReviewPostVO> list=ReviewBoardDAO.getInstance().findPostList();
 		request.setAttribute("revList", list);	
+		
+		ArrayList<RatingVO> ratingList=ReviewBoardDAO.getInstance().findRatingByNo();
+		request.setAttribute("ratingList", ratingList);
 
 		request.setAttribute("url","showList3.jsp");
 		return "layout.jsp";

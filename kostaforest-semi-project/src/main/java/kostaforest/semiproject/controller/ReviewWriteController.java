@@ -20,10 +20,12 @@ public class ReviewWriteController implements Controller {
 		HttpSession session = request.getSession();
 		
 		String title=request.getParameter("title");
+		String rating=request.getParameter("rating");
 		String content=request.getParameter("content");
 		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
 		ReviewPostVO rvo=new ReviewPostVO();
 		rvo.setTitle(title);
+		rvo.setRating(Integer.parseInt(rating));
 		rvo.setContent(content);
 		rvo.setMvo(mvo);
 		ReviewBoardDAO.getInstance().posting(rvo);

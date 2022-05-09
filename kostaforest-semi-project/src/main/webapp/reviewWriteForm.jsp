@@ -9,15 +9,15 @@
 			<table class="table">
 				<tr>
 					<td id="grade-td"><span> 회사명 : ${sessionScope.mvo.comName}</span>
-					 <select id="ratingNo" onchange="findRating()" class="title_line grade">
-							<!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
-							<option value="">평점</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option></td>
+					 <select id="ratingNo" name="rating" class="title_line grade all_star">
+						<option value="" class='fas fa-star' >평점 선택하기</option>									
+						<option value="1" class="star_1 fa">&#xf005</option>
+						<option value="2" class="star_2">&#xf005 &#xf005</option>
+						<option value="3" class="star_3">&#xf005 &#xf005 &#xf005</option>
+						<option value="4" class="star_4">&#xf005 &#xf005 &#xf005 &#xf005</option>
+						<option value="5" class="star_5">&#xf005 &#xf005 &#xf005 &#xf005 &#xf005</option>
 					</select>
+					</td>
 				</tr>
 				<tr>
 					<td><input class="title_line" type="text" name="title"

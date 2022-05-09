@@ -37,11 +37,12 @@ public class ReviewBoardDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con= dataSource.getConnection();
-			String sql="INSERT INTO REVIEW(re_no,title,content,time_posted,id) VALUES(review_seq.nextval,?,?,sysdate,? ) " ;
+			String sql="INSERT INTO REVIEW(re_no,title,rating, content,time_posted,id) VALUES(review_seq.nextval,?,?,?,sysdate,? ) " ;
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1,rvo.getTitle());
-			pstmt.setString(2, rvo.getContent());
-			pstmt.setString(3, rvo.getMvo().getId());
+			pstmt.setInt(2, rvo.getRating());
+			pstmt.setString(3, rvo.getContent());
+			pstmt.setString(4, rvo.getMvo().getId());
 			pstmt.executeUpdate();
 		}finally {
 			closeAll(pstmt, con);
@@ -140,14 +141,48 @@ public class ReviewBoardDAO {
 		PreparedStatement pstmt=null;
 		try {
 			con=dataSource.getConnection();
-			String sql="UPDATE REVIEW SET title=?, content=? WHERE re_no=? ";
+			String sql="UPDATE REVIEW SET title=?, rating=? ,content=? WHERE re_no=? ";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, rvo.getTitle());
-			pstmt.setString(2, rvo.getContent());
-			pstmt.setInt(3, rvo.getReNo());
+			pstmt.setInt(2, rvo.getRating());
+			pstmt.setString(3, rvo.getContent());
+			pstmt.setInt(4, rvo.getReNo());
 			pstmt.executeUpdate();
 		}finally {
 			closeAll(pstmt, con);
 		}
+	}
+	
+	public ArrayList<RatingVO> findRatingByNo() throws SQLException{
+		ArrayList<RatingVO> list=new ArrayList<RatingVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs= null;
+		
+		try {
+			con=dataSource.getConnection();
+			StringBuilder sql=new StringBuilder();
+			sql.append("select com_name, round(avg(rating),2) ");
+			sql.append(" from( ");
+			sql.append(" select e.com_name ,r.rating ");
+			sql.append(" from EMP_MEMBER e, REVIEW r ");
+			sql.append(" where e.id=r.id ");
+			sql.append(" )GROUP BY com_name ");
+			sql.append(" order by avg(rating) desc ");
+			pstmt = con.prepareStatement(sql.toString());
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				MemberVO mvo = new MemberVO();
+				mvo.setComName(rs.getString("com_name"));
+				RatingVO rtvo=new RatingVO();
+				rtvo.setMvo(mvo);
+				rtvo.setRating(rs.getInt("round(avg(rating),2)"));
+				list.add(rtvo);
+			}
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		return list;
+		
 	}
 }

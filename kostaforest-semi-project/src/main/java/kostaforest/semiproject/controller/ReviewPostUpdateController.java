@@ -16,10 +16,12 @@ public class ReviewPostUpdateController implements Controller {
 		
 		String no=request.getParameter("no");
 		String title=request.getParameter("title");
+		String rating=request.getParameter("rating");
 		String content=request.getParameter("content");
 		ReviewPostVO rvo=new ReviewPostVO();
 		rvo.setReNo(Integer.parseInt(no));
 		rvo.setTitle(title);
+		rvo.setRating(Integer.parseInt(rating));
 		rvo.setContent(content);
 		ReviewBoardDAO.getInstance().updatePost(rvo);
 		
