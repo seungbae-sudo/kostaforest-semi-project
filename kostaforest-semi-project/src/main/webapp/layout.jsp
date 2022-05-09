@@ -462,7 +462,8 @@ li {
 	</div>
 
 	<div class="jumbotron text-center footer" style="margin-bottom: 0">
-		<p>Footer</p>
+		<img alt="logo" style="width:20%" src="images/코스타1.png">
+		<p>238기 세미프로젝트 1조 <b>열쩡! 열쩡!</b> </p>
 	</div>
 
 

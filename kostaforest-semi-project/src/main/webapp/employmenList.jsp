@@ -18,7 +18,8 @@
 					<c:forEach items="${empList}" var="list">
 						<tr>
 							<td class="col-sm-10">
-								<a href="EmploymentPostDetailController.do?no=${list.boardNo}">[<span>${list.empGroup}</span>]
+								<%-- 게시물이 포함된 해당 페이지 번호를 queryString으로 넘긴다 --%>
+								<a href="EmploymentPostDetailController.do?no=${list.boardNo}&nowPage=${pagination.nowPage}">[<span>${list.empGroup}</span>]
 									${list.title}
 								</a>
 							</td>
