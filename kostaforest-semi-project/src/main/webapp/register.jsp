@@ -39,13 +39,9 @@
 <button type="button" class="btn" onclick="registerCheck()">Register</button>
 <script type="text/javascript">
 	let checkIdFlag = false;
-	let password = document.getElementById("pw").value;
-	let conpassword = document.getElementById("pw2").value;
+	
 	function checkRegForm() {
-		if (password!=conpassword){
-			alert("비밀번호가 일치하지 않습니다");
-			return false;
-		}else if (checkIdFlag == false) {
+		if(checkIdFlag == false) {
 			alert("아이디를 확인하세요");
 			return false;// onsubmit 에 return false를 하면 전송되지 않는다 
 		}
@@ -73,11 +69,16 @@
 	}//function
 	
  	 function registerCheck(){
+ 		let password = document.getElementById("pw").value;
+ 		let conpassword = document.getElementById("pw2").value;
 		if(document.getElementById("group").value ==""){
 			alert("회원분류를 선택해주세요");
 		return;
-	}else{
-	document.getElementById("register").submit();
+	   }else if (password!=conpassword){
+		alert("비밀번호가 일치하지 않습니다");
+		return;
+	   }else{
+	    	document.getElementById("register").submit();
 		}
 	}	  
 	
