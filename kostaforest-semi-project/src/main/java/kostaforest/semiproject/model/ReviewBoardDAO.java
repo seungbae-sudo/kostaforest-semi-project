@@ -49,18 +49,22 @@ public class ReviewBoardDAO {
 		}
 	}
 	
-	public ArrayList<ReviewPostVO> findPostList() throws SQLException{
+	public ArrayList<ReviewPostVO> findPostList(Pagination pagination) throws SQLException{
 		ArrayList<ReviewPostVO> list=new ArrayList<ReviewPostVO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs= null;
 		try {
 			con = dataSource.getConnection();
-			StringBuilder sql=new StringBuilder("SELECT r.re_no, m.com_name, r.title, r.hits, r.time_posted ");
-			sql.append("FROM REVIEW r, EMP_MEMBER m ");
-			sql.append("WHERE  r.id=m.id ");
-			sql.append("ORDER BY r.re_no DESC");			
+			StringBuilder sql=new StringBuilder("SELECT r.re_no, m.com_name, r.title, r.hits ");
+			sql.append("FROM(  ");
+			sql.append("SELECT ROW_NUMBER() OVER(ORDER BY re_no DESC)as rnum, re_no,title,hits,id ");
+			sql.append("FROM REVIEW ");			
+			sql.append(")r, EMP_MEMBER m ");			
+			sql.append("WHERE r.id=m.id AND rnum BETWEEN ? AND ? ");			
 			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setInt(1, pagination.getStartRowNumber());
+			pstmt.setInt(2, pagination.getEndRowNumber());
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				MemberVO mvo = new MemberVO();
@@ -69,7 +73,6 @@ public class ReviewBoardDAO {
 				rvo.setReNo(rs.getInt("re_no"));
 				rvo.setTitle(rs.getString("title"));
 				rvo.setHits(rs.getInt("hits"));
-				rvo.setTimePosted(rs.getString("time_posted"));
 				list.add(rvo);
 			}
 		} finally {
@@ -184,5 +187,22 @@ public class ReviewBoardDAO {
 		}
 		return list;
 		
+	}
+	public int getTotalPostCount() throws SQLException {
+		int totalPostCount=0;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=dataSource.getConnection();
+			String sql="SELECT COUNT(*) FROM review";
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			if(rs.next())
+				totalPostCount=rs.getInt(1);
+		}finally{
+			closeAll(rs, pstmt, con);
+		}
+		return totalPostCount;
 	}
 }
