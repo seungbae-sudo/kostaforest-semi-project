@@ -5,12 +5,25 @@ import java.sql.SQLException;
 import kostaforest.semiproject.model.EmploymentBoardDAO;
 import kostaforest.semiproject.model.MemberDAO;
 import kostaforest.semiproject.model.MemberVO;
+import kostaforest.semiproject.model.Pagination;
 
 public class UnitTest {
 
 	public static void main(String[] args) {
 		EmploymentBoardDAO dao = EmploymentBoardDAO.getInstance();
 		MemberDAO mdao = MemberDAO.getInstance();
+		/*
+		Pagination p=new Pagination(48,9);
+//		System.out.println(p.getStartRowNumber());
+//		System.out.println(p.getEndRowNumber());
+		System.out.println("totalPage "+p.getTotalPage());
+		System.out.println("totalPageGroup "+p.getTotalPageGroup());
+		System.out.println("nowPageGroup "+p.getNowPageGroup());
+		System.out.println("startPageOfPageGroup "+p.getStartPageOfPageGroup());
+		System.out.println("endPageOfPageGroup "+p.getEndPageOfPageGroup());
+		System.out.println("isPreviousPageGroup "+p.isPreviousPageGroup());
+		System.out.println("isNextPageGroup "+p.isNextPageGroup());
+		*/
 		try {
 			// 게시물 리스트
 
@@ -39,7 +52,7 @@ public class UnitTest {
 			dao.updatePost(empPostVO);
 			System.out.println(dao.findPostByNo("10"));
 //			*/
-			System.out.println(dao.findPostByNo("1"));
+			/* System.out.println(dao.findPostByNo("1")); */
 			//회원가입 
 			
 //			MemberVO mvo = new MemberVO();
@@ -49,8 +62,9 @@ public class UnitTest {
 //			mvo.setMemberGroup("기업");
 //			mdao.register(mvo);
 //			System.out.println(mvo);
+			System.out.println(dao.findPostList(new Pagination(10,2)));
 			
-			
+
 		} catch (SQLException e) {
 
 			e.printStackTrace();

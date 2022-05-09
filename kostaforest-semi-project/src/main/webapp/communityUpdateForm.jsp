@@ -5,6 +5,7 @@
 
 		<h3><i class='fas fa-eraser' style='font-size:24px'></i>커뮤니티 수정</h3>
 		<form method="post" action="CommunityUpdateController.do" id="Update">
+			<input type="hidden" name = "pageNo" value="${pageNo }">
 			<table class="table">
 				<tr>
 					<td>

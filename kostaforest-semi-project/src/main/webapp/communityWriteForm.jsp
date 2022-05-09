@@ -5,6 +5,7 @@
 	<i class='fas fa-user-edit' style='font-size: 24px'></i>커뮤니티 작성
 </h3>
 <form method="post" action="CommunityWriteController.do" id="Write">
+	<input type="hidden" name = "pageNo" value="${pageNo }">
 	<table class="table">
 		<tr>
 			<td><select id="carNo" name="carNo" class="title_line">
@@ -34,7 +35,8 @@
 	
 		</tr>
 		<tr>
-			<td><input class="title_line" type="text" name="title"
+			<td>
+				<input class="title_line" type="text" name="title"
 				placeholder="글제목" required="required"></td>
 		</tr>
 		<tr>

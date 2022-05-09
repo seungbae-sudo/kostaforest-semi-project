@@ -14,6 +14,7 @@ public class CommunityWriteController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
+		String pageNo = request.getParameter("pageNo");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		int carNo = Integer.parseInt(request.getParameter("carNo"));
@@ -26,7 +27,7 @@ public class CommunityWriteController implements Controller {
 		cvo.setCvo(cavo);
 		cvo.setMvo(mvo);;
 		CommunityBoardDAO.getInstance().posting(cvo);
-		return "redirect:CommunityListDetailController.do?carNo="+carNo;
+		return "redirect:CommunityPostListController.do?carNo="+carNo+"&pageNo="+pageNo;
 	}
 
 }

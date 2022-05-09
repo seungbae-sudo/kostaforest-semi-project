@@ -31,14 +31,24 @@
 					</c:forEach>
 				</tbody>
 		</table>
-		
+
 		  <ul class="pagination justify-content-center">
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+		  	<c:if test="${pagination.previousPageGroup}">
+		    	<li class="page-item"><a class="page-link" href="EmploymentListController.do?pageNo=${pagination.startPageOfPageGroup-1}">Previous</a></li>
+		    </c:if>
+		    <c:forEach begin="${pagination.startPageOfPageGroup}" end="${pagination.endPageOfPageGroup}" var="page">
+			    <c:choose>
+				    <%--현재 페이지이면 --%>
+				    <c:when test="${page==pagination.nowPage}"> 
+				    	<li class="page-item active"><a class="page-link" href="EmploymentListController.do?pageNo=${page}">${page}</a></li>
+					</c:when>
+					<c:otherwise>
+						<li class="page-item"><a class="page-link" href="EmploymentListController.do?pageNo=${page}">${page}</a></li>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${pagination.nextPageGroup}">
+		    	<li class="page-item"><a class="page-link" href="EmploymentListController.do?pageNo=${pagination.endPageOfPageGroup+1}">Next</a></li>
+		    </c:if>
 		  </ul>
 		

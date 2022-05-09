@@ -12,10 +12,11 @@ public class CommunitySearchController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+		String pageNo = request.getParameter("pageNo");
 		String title = request.getParameter("title");
 		ArrayList<CommunityPostVO> list = CommunityBoardDAO.getInstance().findAllListByTitle(title);
 		request.setAttribute("cmuList", list);
+		request.setAttribute("pageNo", pageNo);
 		request.setAttribute("url", "communitySearchList.jsp");
 		request.setAttribute("title", title);
 		return "layout.jsp";
