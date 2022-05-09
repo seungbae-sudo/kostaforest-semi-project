@@ -40,15 +40,19 @@
 <script type="text/javascript">
 	let checkIdFlag = false;
 	let password = document.getElementById("pw").value;
+	
 	let conpassword = document.getElementById("pw2").value;
 	function checkRegForm() {
-		if (password!=conpassword){
-			alert("비밀번호가 일치하지 않습니다");
-			return false;
-		}else if (checkIdFlag == false) {
+		if (checkIdFlag == false) {
 			alert("아이디를 확인하세요");
-			return false;// onsubmit 에 return false를 하면 전송되지 않는다 
+			checkIdFlag= false;// onsubmit 에 return false를 하면 전송되지 않는다 
+		}else (checkIdFlag == true){
+			if (password!=conpassword){
+				alert("비밀번호가 일치하지 않습니다");
+				checkIdFlag=false;
+			}
 		}
+		return checkIdFlag;
 	}
 	function checkId() {
 		checkIdFlag = false;
