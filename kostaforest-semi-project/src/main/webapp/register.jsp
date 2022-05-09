@@ -33,10 +33,10 @@
 	<div class="input-container">
 		<i class="fa fa-envelope icon icon-reg"></i> <input
 			class="input-field" type="text" placeholder="회사명" name="comName">
-	</div>
+	</div><br>
 
-</form>
 <button type="button" class="btn" onclick="registerCheck()">Register</button>
+</form>
 <script type="text/javascript">
 	let checkIdFlag = false;
 	
@@ -78,7 +78,7 @@
 		alert("비밀번호가 일치하지 않습니다");
 		return;
 	   }else{
-		   alert("회원가입을 축하합니다! 로그인 페이지로 이동합니다");
+		   alert("회원가입을 축하합니다!\n로그인 페이지로 이동합니다");
 	    	document.getElementById("register").submit();
 		}
 	}	  
