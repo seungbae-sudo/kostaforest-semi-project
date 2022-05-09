@@ -12,7 +12,7 @@
 		
 		
 		<div class="rating">
-			<h2>회사 평가점수<span class="badge badge-secondary">${rvo.rating}</span></h2>
+			<h2>회사 평가점수  <span class="badge badge-secondary">${rvo.rating}</span> 점</h2>
 		</div>
 		
 		

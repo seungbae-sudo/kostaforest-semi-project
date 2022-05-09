@@ -12,6 +12,20 @@
 				</form>
 				</c:if>
 			</h2>
+			
+			<hr> <hr>
+			<div style='margin-left:30%';>
+				<h3><i class="fa fa-trophy" style="font-size:24px"></i>기업별 리뷰 평균 평점</h3><br>
+				<c:forEach items="${ratingList}" var="ratingList">
+					<h3><p href="ReviewPostDetailController.do?no=${ratingList.reNo}"></p>${ratingList.mvo.comName}
+					
+					</h3>
+					
+					<span>평균 평점 : ${ratingList.rating}</span>
+				</c:forEach>
+			</div>
+			
+			<br><br>
 
 			<tbody>
 						<c:forEach items="${revList}" var="list">
