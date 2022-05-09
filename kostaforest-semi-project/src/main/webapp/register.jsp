@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-		<form method="post" action="MemberRagisterController.do" style="max-width: 500px; margin: auto">
+		<form method="post" id="register" action="MemberRagisterController.do" style="max-width: 500px; margin: auto">
 			<h2>회원가입</h2>
 
 			<br> <select id="group" name="memberGroup" onchange="">
@@ -13,15 +13,15 @@
 			<br>
 
 			<div class="input-container">
-				<i class="fa fa-user icon icon-reg"></i> <input class="input-field"
-					type="text" placeholder="아이디" name="id">
+				<i class="fa fa-user icon icon-reg"></i> 
+				<input class="input-field" type="text" placeholder="아이디" name="id" id="id">
 					<input type="button" value="ID 중복확인" onclick="idCheck()">
 			</div>
 
 			<div class="input-container">
 				<i class="fa fa-key icon icon-reg"></i> <input class="input-field"
 					type="password" placeholder="패스워드" name="password">
-			</div>
+				</div>
 
 			<div class="input-container">
 				<i class="fa fa-key icon icon-reg"></i> <input class="input-field"
@@ -39,4 +39,5 @@
 				function idCheck(){
 			window.open("idCheckForm.jsp","idwin","width=400 height=350")
 		}
+
 				</script>
