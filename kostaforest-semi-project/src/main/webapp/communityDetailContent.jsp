@@ -9,7 +9,7 @@
 	<li>작성자 회사 : ${cvo.mvo.comName }</li>
 	<li>작성일 : ${cvo.timePosted }</li>
 	<li>조회수 : ${cvo.hits }</li>
-	<li><a href="CommunityListDetailController.do?carNo=${carNo}">목록</a></li>
+	<li><a href="CommunityPostListController.do?carNo=${carNo}&pageNo=${pageNo}">목록</a></li>
 </ul>
 <div class="content">
 	<pre>${cvo.content }</pre>
@@ -18,12 +18,12 @@
 
 
 <c:if test="${sessionScope.mvo.id eq cvo.mvo.id}">
-	<form action="CommunityDeleteController.do?carNo=${carNo }"
+	<form action="CommunityDeleteController.do?carNo=${carNo }&pageNo=${pageNo}"
 		method="post" id="DeleteForm">
 		<input type="hidden" name="no" value="${cvo.boardNo}">
 
 	</form>
-	<form action="CommunityUpdateFormController.do" method="post"
+	<form action="CommunityUpdateFormController.do?pageNo=${pageNo}" method="post"
 		id="UpdateForm">
 		<input type="hidden" name="no" value="${cvo.boardNo}">
 
@@ -42,15 +42,15 @@
 					<c:when test="${fn:contains(sessionScope.LikeNoList, cvo.boardNo)}">
 						<c:choose>
 							<c:when test="${fn:contains(sessionScope.LikeDownList,cvo.boardNo) }">
-								<a href ="LikeUpController.do?no=${cvo.boardNo }&carNo=${carNo}"><i class='far fa-heart icon'></i></a> ${cvo.likeNo }
+								<a href ="LikeUpController.do?no=${cvo.boardNo }&carNo=${carNo}&pageNo=${pageNo}"><i class='far fa-heart icon'></i></a> ${cvo.likeNo }
 							</c:when>			
 							<c:otherwise>	
-								<a href ="LikeDownController.do?no=${cvo.boardNo }&carNo=${carNo}"><i class="fa fa-heart" style="font-size:24px;color:red"></i></a>${cvo.likeNo }
+								<a href ="LikeDownController.do?no=${cvo.boardNo }&carNo=${carNo}&pageNo=${pageNo}"><i class="fa fa-heart" style="font-size:24px;color:red"></i></a>${cvo.likeNo }
 							</c:otherwise>
 						</c:choose>
 					</c:when>
 					<c:otherwise>
-						<a href ="LikeUpController.do?no=${cvo.boardNo }&carNo=${carNo}"><i class='far fa-heart icon'></i></a> ${cvo.likeNo }
+						<a href ="LikeUpController.do?no=${cvo.boardNo }&carNo=${carNo}&pageNo=${pageNo}"><i class='far fa-heart icon'></i></a> ${cvo.likeNo }
 				
 					</c:otherwise>
 			
@@ -67,6 +67,7 @@
 			<input type="hidden" name="carNo" value="${carNo}"> 
 			<input type="hidden" name="boardNo" value="${cvo.boardNo }">
 			<input type="hidden" name="comName" value="${cvo.mvo.comName }">
+			<input type="hidden" name="pageNo" value="${pageNo}">
 			<input type="text" name="com_content" class="comment-write"
 				placeholder="댓글을 입력하세요">
 			<button class="comment-write-ok" type="submit">작성</button>
@@ -80,7 +81,7 @@
 					
 					<td class="col-sm-2">
 					<c:if test="${sessionScope.mvo.id eq list.mvo.id }">
-					<form action="CommentDeleteController.do?commentNo=${list.commentNO}&carNo=${carNo}&no=${cvo.boardNo}" method="post" 
+					<form action="CommentDeleteController.do?commentNo=${list.commentNO}&carNo=${carNo}&no=${cvo.boardNo}&pageNo=${pageNo}" method="post" 
 					id="ComDeleteForm">
 					<button type="button" onclick="comdeletepost()">삭제</button>
 					</form>

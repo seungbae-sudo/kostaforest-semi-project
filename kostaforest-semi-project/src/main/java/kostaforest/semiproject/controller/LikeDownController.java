@@ -11,10 +11,11 @@ import kostaforest.semiproject.model.CommunityBoardDAO;
 
 public class LikeDownController implements Controller {
 
-	@SuppressWarnings({ "unchecked", "unlikely-arg-type" })
+	@SuppressWarnings( "unchecked")
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
+		String pageNo = request.getParameter("pageNo");
 		String carNo = request.getParameter("carNo");
 		String no = request.getParameter("no");
 		ArrayList<String> LikeNoList = (ArrayList<String>)session.getAttribute("LikeNoList");
@@ -31,6 +32,7 @@ public class LikeDownController implements Controller {
 		ArrayList<CommentVO> list =  CommunityBoardDAO.getInstance().findByBoardNoAllCommentList(no);
 		request.setAttribute("commentList",list);
 		request.setAttribute("cvo", CommunityBoardDAO.getInstance().findPostByNo(no));
+		request.setAttribute("pageNo", pageNo);
 		request.setAttribute("carNo", carNo);
 		request.setAttribute("url", "communityDetailContent.jsp");		
 		return "layout.jsp";

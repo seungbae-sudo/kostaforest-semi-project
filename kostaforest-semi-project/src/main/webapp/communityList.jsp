@@ -28,7 +28,7 @@
 					</form> --%>
 					<c:choose>
 						<c:when test="${sessionScope.mvo.memberGroup eq '직장인' }">
-							<form action="CommunityWriteFormController.do?no=${carNo}" method="post">
+							<form action="CommunityWriteFormController.do?no=${carNo}&pageNo=${pagination.nowPage}" method="post">
 								<button type="submit" class="write">글쓰기</button>
 							</form>
 						</c:when>
@@ -46,7 +46,7 @@
 			
 					<c:forEach items="${cmuList}" var="list">
 						<tr>
-							<td class="col-sm-10"><a href="CommunityPostDetailController.do?no=${list.boardNo }&carNo=${carNo}">${list.title }</a></td>
+							<td class="col-sm-10"><a href="CommunityPostDetailController.do?no=${list.boardNo }&carNo=${carNo}&pageNo=${pagination.nowPage}">${list.title }</a></td>
 							<td class="col-sm-1"><i class='far fa-eye icon'></i> ${list.hits } </td>
 							<td class="col-sm-1"><i class='far fa-heart icon'></i>${list.likeNo } </td>
 							
@@ -69,13 +69,23 @@
 				
 		</table>
 		
-		  <ul class="pagination justify-content-center">
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
-		  </ul>
-		
+		  <ul class="pagination justify-content-center" style="margin:20px 0">
+ <c:if test="${pagination.previousPageGroup }">
+     <li class="page-item"><a class="page-link" href="CommunityPostListController.do?pageNo=${pagination.startPageOfPageGroup-1}&carNo=${carNo}">Previous</a></li> 
+    </c:if>
+    <c:forEach begin="${pagination.startPageOfPageGroup}" end="${pagination.endPageOfPageGroup}" var="page">
+    <c:choose>
+    	<c:when test="${page==pagination.nowPage}">
+    		  <li class="page-item active"><a class="page-link" href="CommunityPostListController.do?pageNo=${page}&carNo=${carNo}">${page}</a></li>
+    	</c:when>
+    	<c:otherwise>
+    		  <li class="page-item"><a class="page-link" href="CommunityPostListController.do?pageNo=${page}&carNo=${carNo}">${page}</a></li>
+    	</c:otherwise>
+    </c:choose>
+    
+  
+    </c:forEach>
+    <c:if test="${pagination.nextPageGroup}">
+    <li class="page-item"><a class="page-link" href="CommunityPostListController.do?pageNo=${pagination.endPageOfPageGroup+1}&carNo=${carNo}">Next</a></li>
+   </c:if>
+  </ul>

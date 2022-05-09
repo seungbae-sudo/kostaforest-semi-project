@@ -1,5 +1,6 @@
 package kostaforest.semiproject.model;
 
+import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -74,6 +75,62 @@ public class CommunityBoardDAO {
 		}
 		return list;
 	}
+	
+	public ArrayList<CommunityPostVO> findAllPostList2(Pagination p, String carNo) throws SQLException{
+		ArrayList<CommunityPostVO> list = new ArrayList<CommunityPostVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs= null;
+		try {
+			con= dataSource.getConnection();
+			StringBuilder sql = new StringBuilder("SELECT b.rnum,b.board_no,b.title,b.time_posted,b.hits,b.like_no ");
+			sql.append("FROM( ");
+			sql.append("SELECT ROW_NUMBER() OVER(ORDER BY board_no DESC) as rnum ,board_no, car_no,title,time_posted,like_no,hits,id ");
+			sql.append("FROM CMU_BOARD ");
+			sql.append("where car_no = ?) b, EMP_MEMBER m ");
+			sql.append("WHERE b.id=m.id AND rnum BETWEEN ? AND ? AND b.car_no = ?");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, carNo);
+			pstmt.setInt(2, p.getStartRowNumber());
+			pstmt.setInt(3, p.getEndRowNumber());
+			pstmt.setString(4, carNo);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				CommunityPostVO cvo = new CommunityPostVO();
+				cvo.setBoardNo(rs.getInt("board_no"));
+				cvo.setTitle(rs.getString("title"));
+				cvo.setLikeNo(rs.getInt("like_no"));
+				cvo.setHits(rs.getInt("hits"));
+				list.add(cvo);
+			}
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		
+		return list;
+		
+	}
+	public int getTotalPostCount(String carNo) throws SQLException {
+		int totalPostCount=0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = dataSource.getConnection();
+			String sql = "SELECT COUNT(*) FROM CMU_BOARD WHERE car_no =?";
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, carNo);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				totalPostCount=rs.getInt(1);
+			}
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		return totalPostCount;
+	}
+	
+	
 	public CommunityPostVO findPostByNo(String no) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;

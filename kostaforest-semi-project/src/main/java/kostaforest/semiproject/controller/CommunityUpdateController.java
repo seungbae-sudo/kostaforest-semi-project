@@ -16,25 +16,24 @@ public class CommunityUpdateController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
-		String no = request.getParameter("carNo");
+		String pageNo = request.getParameter("pageNo");
+		String carNo = request.getParameter("carNo");
 		String boardNo = request.getParameter("boardNo");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
 		CommunityPostVO cvo = new CommunityPostVO();
 		CategoryVO cavo = new CategoryVO();
-		cavo.setCarNo(Integer.parseInt(no));
+		cavo.setCarNo(Integer.parseInt(carNo));
 		cvo.setBoardNo(Integer.parseInt(boardNo));
 		cvo.setCvo(cavo);
 		cvo.setTitle(title);
 		cvo.setContent(content);
 		cvo.setMvo(mvo);
 		CommunityBoardDAO.getInstance().updatePostByNo(cvo);
-		ArrayList<CommunityPostVO> list = CommunityBoardDAO.getInstance().findAllPostList(no);
-		request.setAttribute("cmuList", list);
-		request.setAttribute("carNo", no);
+		request.setAttribute("carNo", carNo);
 		request.setAttribute("url", "communityList.jsp");
-		return "layout.jsp";
+		return "redirect:CommunityPostListController.do?carNo="+carNo+"&pageNo="+pageNo;
 	}
 
 }

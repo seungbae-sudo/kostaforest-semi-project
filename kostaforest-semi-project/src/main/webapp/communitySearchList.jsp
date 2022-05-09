@@ -33,7 +33,7 @@
 			
 					<c:forEach items="${cmuList}" var="list">
 						<tr>
-							<td class="col-sm-10"><a href="CommunityPostDetailController.do?no=${list.boardNo }&carNo=${list.cvo.carNo}">${list.title }</a></td>
+							<td class="col-sm-10"><a href="CommunityPostDetailController.do?no=${list.boardNo }&carNo=${list.cvo.carNo}&pageNo=${pageNo}">${list.title }</a></td>
 							<td class="col-sm-1"><i class='far fa-eye icon'></i> ${list.hits } </td>
 							<td class="col-sm-1"><a href ="LikeUpController.do?no=${list.boardNo }&carNo=${list.cvo.carNo}"><i class='far fa-heart icon'></i></a>${list.likeNo } </td>
 							
@@ -55,14 +55,4 @@
 				</tbody>
 				
 		</table>
-		
-		  <ul class="pagination justify-content-center">
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
-		    <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
-		  </ul>
-		
+

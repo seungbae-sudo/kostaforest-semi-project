@@ -13,6 +13,7 @@ public class CommunityPostDetailController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String pageNo = request.getParameter("pageNo");
 		String no = request.getParameter("no");
 		String carNo = request.getParameter("carNo");
 		ArrayList<CommentVO> list =  CommunityBoardDAO.getInstance().findByBoardNoAllCommentList(no);
@@ -26,6 +27,7 @@ public class CommunityPostDetailController implements Controller {
 			CommunityBoardDAO.getInstance().hitsUpdate(no);
 			CommunityBoardNoList.add(no);
 		}	
+			request.setAttribute("pageNo", pageNo);
 			request.setAttribute("carNo", carNo);
 			request.setAttribute("url", "communityDetailContent.jsp");		
 			return "layout.jsp";
