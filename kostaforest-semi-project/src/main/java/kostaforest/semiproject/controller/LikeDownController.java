@@ -9,24 +9,25 @@ import javax.servlet.http.HttpSession;
 import kostaforest.semiproject.model.CommentVO;
 import kostaforest.semiproject.model.CommunityBoardDAO;
 
-public class LikeUpController implements Controller {
+public class LikeDownController implements Controller {
 
 	@SuppressWarnings({ "unchecked", "unlikely-arg-type" })
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
 		HttpSession session = request.getSession();
-		ArrayList<String> LikeNoList = (ArrayList<String>)session.getAttribute("LikeNoList");
-		ArrayList<String> LikeDownList = (ArrayList<String>)session.getAttribute("LikeDownList");
 		String carNo = request.getParameter("carNo");
 		String no = request.getParameter("no");
-		LikeDownList.remove(no);
+		ArrayList<String> LikeNoList = (ArrayList<String>)session.getAttribute("LikeNoList");
+		ArrayList<String> LikeDownList = (ArrayList<String>)session.getAttribute("LikeDownList");
+	
+		LikeNoList.remove(no);
 		
-		if(!LikeNoList.contains(no)) {
-			CommunityBoardDAO.getInstance().likeUpdate(no);
-			LikeNoList.add(no);			
-			System.out.println(LikeDownList.toString());
-			System.out.println(LikeNoList.toString());
+		if(!LikeDownList.contains(no)) {
+			CommunityBoardDAO.getInstance().likeDown(no);
+			LikeDownList.add(no);
+			LikeNoList.remove(new Integer(no));
+			System.out.println(LikeDownList);
+			System.out.println(LikeNoList);
 		}
 		
 		ArrayList<CommentVO> list =  CommunityBoardDAO.getInstance().findByBoardNoAllCommentList(no);

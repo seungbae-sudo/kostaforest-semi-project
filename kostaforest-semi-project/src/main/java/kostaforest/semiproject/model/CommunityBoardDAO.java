@@ -220,6 +220,21 @@ public class CommunityBoardDAO {
 		}
 	}
 	
+	public void likeDown(String no) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = dataSource.getConnection();
+			String sql = "UPDATE CMU_BOARD SET like_no = like_no -1 WHERE board_no = ? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, no);
+			pstmt.executeUpdate();
+			
+		}finally {
+			closeAll(pstmt, con);
+		}
+	}
+	
 	public void deleteByBoardNoComment(String no) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;

@@ -29,6 +29,7 @@ public class LoginController implements Controller {
 			session.setAttribute("CommunityBoardNoList", new ArrayList<String>());
 			session.setAttribute("ReviewBoardNoList", new ArrayList<String>());
 			session.setAttribute("LikeNoList", new ArrayList<String>());
+			session.setAttribute("LikeDownList", new ArrayList<String>());
 		}
 		return viewName;
 	}

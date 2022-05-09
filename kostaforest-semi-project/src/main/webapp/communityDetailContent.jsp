@@ -38,14 +38,21 @@
 	<table class="table table-comment">
 		<h4 class="title">
 			<i class="fas fa-cloud"></i>댓글<span class="more">
-			<c:choose>
-			<c:when test="${fn:contains(sessionScope.LikeNoList, cvo.boardNo)}">
-			<i class='far fa-heart icon'></i>${cvo.likeNo }
-			</c:when>
-			<c:otherwise>
-			<a href ="LikeUpController.do?no=${cvo.boardNo }&carNo=${carNo}"><i class='far fa-heart icon'></i></a> ${cvo.likeNo }
-			
-			</c:otherwise>
+				<c:choose>
+					<c:when test="${fn:contains(sessionScope.LikeNoList, cvo.boardNo)}">
+						<c:choose>
+							<c:when test="${fn:contains(sessionScope.LikeDownList,cvo.boardNo) }">
+								<a href ="LikeUpController.do?no=${cvo.boardNo }&carNo=${carNo}"><i class='far fa-heart icon'></i></a> ${cvo.likeNo }
+							</c:when>			
+							<c:otherwise>	
+								<a href ="LikeDownController.do?no=${cvo.boardNo }&carNo=${carNo}"><i class="fa fa-heart" style="font-size:24px;color:red"></i></a>${cvo.likeNo }
+							</c:otherwise>
+						</c:choose>
+					</c:when>
+					<c:otherwise>
+						<a href ="LikeUpController.do?no=${cvo.boardNo }&carNo=${carNo}"><i class='far fa-heart icon'></i></a> ${cvo.likeNo }
+				
+					</c:otherwise>
 			
 			</c:choose>
 			
