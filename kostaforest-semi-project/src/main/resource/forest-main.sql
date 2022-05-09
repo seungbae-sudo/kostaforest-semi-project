@@ -147,4 +147,30 @@ SELECT * FROM REVIEW
 CREATE SEQUENCE employment_seq;
 
 
+select com_name, avg(rating)
+from(
+   select e.com_name ,r.rating
+   from EMP_MEMBER e, REVIEW r
+   where e.id=r.id
+)GROUP BY com_name
+order by avg(rating) desc
+
+
+select e.com_name, avg(rating)
+from emp_member e, review r
+where e.id,r.id
+order by avg(rating) desc 
+
+
+
+select com_name, avg(rating)
+from(
+   select e.com_name ,r.rating
+   from EMP_MEMBER e, REVIEW r
+   where e.id=r.id
+)GROUP BY com_name
+order by avg(rating) desc
+
+
+
 --constraint myboard_fk FOREIGN KEY(id) REFERENCES member(id)
