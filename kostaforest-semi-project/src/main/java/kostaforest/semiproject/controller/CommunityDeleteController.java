@@ -18,9 +18,10 @@ public class CommunityDeleteController implements Controller {
 		CommunityBoardDAO.getInstance().deletePostByNo(no);
 		ArrayList<CommunityPostVO> list = CommunityBoardDAO.getInstance().findAllPostList(carNo);
 		
-		request.setAttribute("url", "communityList.jsp");
+		
 		request.setAttribute("carNo", carNo);
 		request.setAttribute("cmuList", list);
+		request.setAttribute("url", "communityList.jsp");
 		return "layout.jsp";
 	}
 

@@ -4,7 +4,7 @@
 <h3>
 	<i class='fas fa-user-edit' style='font-size: 24px'></i>커뮤니티 작성
 </h3>
-<form method="post" action="CommunityWriteController.do" id="Write">
+<form method="post" action="CommunityWriteController.do?carNo=${carNo}" id="Write">
 	<table class="table">
 		<tr>
 			<td><select id="carNo" name="carNo" class="title_line">

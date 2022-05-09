@@ -16,11 +16,11 @@ public class CommunityWriteController implements Controller {
 		HttpSession session = request.getSession();
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		int carNo = Integer.parseInt(request.getParameter("carNo"));
+		String carNo = request.getParameter("carNo");
 		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
 		CommunityPostVO cvo = new CommunityPostVO();
 		CategoryVO cavo = new CategoryVO();
-		cavo.setCarNo(carNo);
+		cavo.setCarNo(Integer.parseInt(carNo));
 		cvo.setTitle(title);
 		cvo.setContent(content);
 		cvo.setCvo(cavo);
