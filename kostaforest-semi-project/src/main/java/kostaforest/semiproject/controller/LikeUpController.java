@@ -20,11 +20,12 @@ public class LikeUpController implements Controller {
 		ArrayList<String> LikeDownList = (ArrayList<String>)session.getAttribute("LikeDownList");
 		String carNo = request.getParameter("carNo");
 		String no = request.getParameter("no");
-		LikeDownList.remove(no);
+		
 		
 		if(!LikeNoList.contains(no)) {
 			CommunityBoardDAO.getInstance().likeUpdate(no);
 			LikeNoList.add(no);			
+			LikeDownList.remove(no);
 			System.out.println(LikeDownList.toString());
 			System.out.println(LikeNoList.toString());
 		}

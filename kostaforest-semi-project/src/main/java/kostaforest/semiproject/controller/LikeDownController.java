@@ -20,12 +20,12 @@ public class LikeDownController implements Controller {
 		ArrayList<String> LikeNoList = (ArrayList<String>)session.getAttribute("LikeNoList");
 		ArrayList<String> LikeDownList = (ArrayList<String>)session.getAttribute("LikeDownList");
 	
-		LikeNoList.remove(no);
+		
 		
 		if(!LikeDownList.contains(no)) {
 			CommunityBoardDAO.getInstance().likeDown(no);
 			LikeDownList.add(no);
-			LikeNoList.remove(new Integer(no));
+			LikeNoList.remove(no);
 			System.out.println(LikeDownList);
 			System.out.println(LikeNoList);
 		}
