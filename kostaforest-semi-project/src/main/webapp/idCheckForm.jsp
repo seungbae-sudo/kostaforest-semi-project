@@ -49,7 +49,8 @@
 		}//else
 	}//function
     function setid() {
-	
+	opener.document.getElementById("id").value = document.getElementById("memberId").value;
+	window.close();
 	}
     function wClose() {
         window.close();
