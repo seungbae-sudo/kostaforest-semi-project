@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-		<form method="post" id="register" action="MemberRagisterController.do" style="max-width: 500px; margin: auto">
+		<form method="post" id="register" action="MemberRagisterController.do" style="max-width: 500px; margin: auto" onsubmit="return checkRegForm()">
 			<h2>회원가입</h2>
 
 			<br> <select id="group" name="memberGroup" onchange="">
@@ -14,9 +14,10 @@
 
 			<div class="input-container">
 				<i class="fa fa-user icon icon-reg"></i> 
-				<input class="input-field" type="text" placeholder="아이디" name="id" id="id">
-					<input type="button" value="ID 중복확인" onclick="idCheck()">
+				<input class="input-field" type="text" placeholder="아이디" name="id" id="memberId" onkeyup="checkId()">
+					
 			</div>
+			<span id="checkResult"></span><br>
 
 			<div class="input-container">
 				<i class="fa fa-key icon icon-reg"></i> <input class="input-field"
@@ -35,13 +36,33 @@
 
 			<button type="submit" class="btn">Register</button>
 		</form>
-			<script>
-			var windowObj;
-			function idCheck(){
-			windowObj = window.open("idCheckForm.jsp","idwin","width=400 height=350");
-			windowObj.document.getElementById("memberId").value = document.getElementById('id').value;
-
-
-		}
-
-				</script>
+			<script type="text/javascript">
+			let checkIdFlag=false;
+			function checkRegForm() {
+				if(checkIdFlag==false){
+					alert("아이디 중복확인하세요");
+					return false;// onsubmit 에 return false를 하면 전송되지 않는다 
+				}
+			}
+			function checkId() {
+				checkIdFlag=false;
+				let memberId=document.getElementById("memberId").value;
+				let checkResult=document.getElementById("checkResult");
+				if(memberId.length<4){
+					checkResult.innerHTML="<font color=red>아이디를 4자이상 입력하세요</font>";
+				}else{// 입력한 아이디가 4자 이상이 될 때 ajax 방식으로 서버에 요청 
+					let xhr=new XMLHttpRequest();
+					xhr.onload=function(){
+						//alert(xhr.responseText);
+						if(xhr.responseText=="ok"){
+							checkResult.innerHTML="<font color=green>아이디 사용가능</font>";
+							checkIdFlag=true;
+						}else{
+							checkResult.innerHTML="<font color=red>아이디 중복이므로 사용불가</font>";
+						}					
+					}//callback
+					xhr.open("get", "CheckIdController.do?id="+memberId);
+					xhr.send();
+				}//else
+			}//function
+			</script>
