@@ -432,7 +432,22 @@ li {
 	padding: 20px;
 }
 
+/*employmentWriteFrom*/
+.emp-mail-form input{
+	width: 360px;
+    height: 40px;
+    padding-left: 10px;
+}
 
+.emp-mail-click a{
+	font-size: 20px;
+    background: #343a40;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+    
 .footer{
 	margin-top: 100px;
 }

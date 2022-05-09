@@ -43,7 +43,7 @@ public class EmploymentBoardDAO {
 		try {
 			con = dataSource.getConnection();
 
-			StringBuilder sql = new StringBuilder(" SELECT emp_no, title, hits ,emp_group ");
+			StringBuilder sql = new StringBuilder(" SELECT emp_no, title, hits ,emp_group,emp_mail ");
 			sql.append("FROM EMPLOYMENT ");
 			sql.append("ORDER BY emp_no DESC");
 			pstmt = con.prepareStatement(sql.toString());
@@ -73,7 +73,7 @@ public class EmploymentBoardDAO {
 
 			StringBuilder sql = new StringBuilder();
 			sql.append(
-					"SELECT e.emp_no,e.title,e.emp_group, e.content, e.hits,to_char(e.time_posted,'YYYY.MM.DD') as time_posted, m.com_name ,m.id");
+					"SELECT e.emp_no,e.title,e.emp_group,e.emp_mail, e.content, e.hits,to_char(e.time_posted,'YYYY.MM.DD') as time_posted, m.com_name ,m.id");
 			sql.append(" FROM EMPLOYMENT e , EMP_MEMBER m ");
 			sql.append(" WHERE e.id = m.id AND e.emp_no=? ");
 			pstmt = con.prepareStatement(sql.toString());
@@ -87,6 +87,7 @@ public class EmploymentBoardDAO {
 				empPostVO.setBoardNo(rs.getInt("emp_no"));
 				empPostVO.setTitle(rs.getString("title"));
 				empPostVO.setEmpGroup(rs.getString("emp_group"));
+				empPostVO.setEmpMail(rs.getString("emp_mail"));
 				empPostVO.setContent(rs.getString("content"));
 				empPostVO.setHits(rs.getInt("hits"));
 				empPostVO.setTimePosted(rs.getString("time_posted"));
@@ -107,12 +108,13 @@ public class EmploymentBoardDAO {
 			con = dataSource.getConnection();
 			StringBuilder sql = new StringBuilder(
 					"INSERT INTO EMPLOYMENT(emp_no,title,emp_group,emp_mail,content,time_posted,id) ");
-			sql.append("values(employment_seq.nextval,?,?,?,sysdate,?)");
+			sql.append("values(employment_seq.nextval,?,?,?,?,sysdate,?)");
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, empPostVO.getTitle());
 			pstmt.setString(2, empPostVO.getEmpGroup());
-			pstmt.setString(3, empPostVO.getContent());
-			pstmt.setString(4, empPostVO.getMvo().getId());
+			pstmt.setString(3, empPostVO.getEmpMail());
+			pstmt.setString(4, empPostVO.getContent());
+			pstmt.setString(5, empPostVO.getMvo().getId());
 			pstmt.executeUpdate();
 		} finally {
 			closeAll(pstmt, con);
@@ -125,12 +127,13 @@ public class EmploymentBoardDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con = dataSource.getConnection();
-			String sql = "UPDATE EMPLOYMENT SET title=?,content=?,emp_group=? WHERE emp_no=?";
+			String sql = "UPDATE EMPLOYMENT SET title=?,content=?,emp_group=? ,emp_mail=? WHERE emp_no=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, empPostVO.getTitle());
 			pstmt.setString(2, empPostVO.getContent());
 			pstmt.setString(3, empPostVO.getEmpGroup());
-			pstmt.setInt(4, empPostVO.getBoardNo());
+			pstmt.setString(4, empPostVO.getEmpMail());
+			pstmt.setInt(5, empPostVO.getBoardNo());
 			pstmt.executeUpdate();
 		} finally {
 			closeAll(pstmt, con);
