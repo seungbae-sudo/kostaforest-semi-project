@@ -113,9 +113,16 @@ CREATE SEQUENCE review_seq;
 
 DROP TABLE REVIEW
 
+DROP TABLE EMPLOYMENT
+DROP sequence employment_seq
+
+CREATE SEQUENCE employment_seq;
+
 CREATE TABLE EMPLOYMENT(
 	emp_no NUMBER PRIMARY KEY,
 	tltle VARCHAR2(100) NOT NULL,
+	em_group VARCHAR2(100) NOT NULL,
+	emp_mail VARCHAR2(100) NOT NULL,
 	content CLOB NOT NULL,
 	time_posted DATE NOT NULL,
 	hits NUMBER DEFAULT 0,
@@ -144,7 +151,7 @@ SELECT * FROM EMPLOYMENT
 
 SELECT * FROM REVIEW
 
-CREATE SEQUENCE employment_seq;
+
 
 
 --constraint myboard_fk FOREIGN KEY(id) REFERENCES member(id)

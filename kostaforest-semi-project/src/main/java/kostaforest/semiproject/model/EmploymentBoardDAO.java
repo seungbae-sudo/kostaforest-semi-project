@@ -106,7 +106,7 @@ public class EmploymentBoardDAO {
 		try {
 			con = dataSource.getConnection();
 			StringBuilder sql = new StringBuilder(
-					"INSERT INTO EMPLOYMENT(emp_no,title,emp_group,content,time_posted,id) ");
+					"INSERT INTO EMPLOYMENT(emp_no,title,emp_group,emp_mail,content,time_posted,id) ");
 			sql.append("values(employment_seq.nextval,?,?,?,sysdate,?)");
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, empPostVO.getTitle());
