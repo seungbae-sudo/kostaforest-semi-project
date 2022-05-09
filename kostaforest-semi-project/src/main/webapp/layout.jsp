@@ -259,7 +259,7 @@ ul.info li {
 }
 
 .comment-write {
-	width: 89%;
+	width: 85%;
 	height: 90px;
 	margin-right: 10px;
 	border-radius: 20px;

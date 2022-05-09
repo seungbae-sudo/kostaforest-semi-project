@@ -1,12 +1,9 @@
 package kostaforest.semiproject.controller;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kostaforest.semiproject.model.CommunityBoardDAO;
-import kostaforest.semiproject.model.CommunityPostVO;
 
 public class CommunitySearchController implements Controller {
 
@@ -14,8 +11,7 @@ public class CommunitySearchController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String pageNo = request.getParameter("pageNo");
 		String title = request.getParameter("title");
-		ArrayList<CommunityPostVO> list = CommunityBoardDAO.getInstance().findAllListByTitle(title);
-		request.setAttribute("cmuList", list);
+		request.setAttribute("cmuList", CommunityBoardDAO.getInstance().findAllListByTitle(title));
 		request.setAttribute("pageNo", pageNo);
 		request.setAttribute("url", "communitySearchList.jsp");
 		request.setAttribute("title", title);

@@ -31,6 +31,7 @@
 				<form method="post" action="MemberRagisterFormController.do">
 				<button type="submit">회원가입</button>
 				</form>
+				</div>
 			</c:when>  
 			<c:otherwise>
 			<div class="reg-form-after">

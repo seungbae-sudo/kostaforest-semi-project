@@ -4,8 +4,7 @@
 	pageEncoding="UTF-8"%>
 	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 		
-		<table class="table">
-			<h2 class="title">		
+		<h2 class="title">		
 					<c:if test="${carNo==1}">
 					<i class="fas fa-coffee"></i> 회사 이야기 
 					</c:if>
@@ -15,6 +14,9 @@
 					<c:if test="${carNo==3 }">
 					<i class="fas fa-cloud"></i>주식 이야기 
 					</c:if>
+					</h2>
+					
+		<table class="table">		
 					<%-- <form action="CommunityPostListController.do" method="get">
 				
 						<select id ="carNo" name="carNo" onchange="submit(this.form)" >
@@ -28,7 +30,9 @@
 					</form> --%>
 					<c:choose>
 						<c:when test="${sessionScope.mvo.memberGroup eq '직장인' }">
-							<form action="CommunityWriteFormController.do?no=${carNo}&pageNo=${pagination.nowPage}" method="post">
+							<form action="CommunityWriteFormController.do" method="post">
+								<input type="hidden" name="no" value="${carNo}">
+								<input type="hidden" name="pageNo" value="${pagination.nowPage}">
 								<button type="submit" class="write">글쓰기</button>
 							</form>
 						</c:when>
@@ -38,7 +42,7 @@
 					<button type="submit" class="write">글쓰기 ${carNo }</button>
 					</form>
 				</c:if> --%>
-			</h2>
+			
 				
 			<tbody>
 			<c:choose>
@@ -46,7 +50,7 @@
 			
 					<c:forEach items="${cmuList}" var="list">
 						<tr>
-							<td class="col-sm-10"><a href="CommunityPostDetailController.do?no=${list.boardNo }&carNo=${carNo}&pageNo=${pagination.nowPage}">${list.title }</a></td>
+							<td class="col-sm-9"><a href="CommunityPostDetailController.do?no=${list.boardNo }&carNo=${carNo}&pageNo=${pagination.nowPage}">${list.title }</a></td>
 							<td class="col-sm-1"><i class='far fa-eye icon'></i> ${list.hits } </td>
 							<td class="col-sm-1"><i class='far fa-heart icon'></i>${list.likeNo } </td>
 							
@@ -56,7 +60,7 @@
 					<c:otherwise>
 						<c:forEach items="${cmuList}" var="list">
 						<tr>
-							<td class="col-sm-10">${list.title }</td>
+							<td class="col-sm-9">${list.title }</td>
 							<td class="col-sm-1"><i class='far fa-eye icon'></i> ${list.hits } </td>
 							<td class="col-sm-1"><i class='far fa-heart icon'></i>${list.likeNo } </td>
 							
