@@ -61,7 +61,7 @@ public class EmploymentPostDetailController implements Controller {
 			System.out.println("viewCookie확인 로직 : 쿠키 value : " + value);
 		}
 		
-		request.setAttribute("url","EmploymentDetailContent.jsp");
+		request.setAttribute("url","employmentDetailContent.jsp");
 		return "layout.jsp";
 	}
 
