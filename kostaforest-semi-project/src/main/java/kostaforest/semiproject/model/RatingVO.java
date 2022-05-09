@@ -3,14 +3,14 @@ package kostaforest.semiproject.model;
 public class RatingVO {
 	private int reNo;
 	private String comName;
-	private int rating;
+	private float rating;
 	private MemberVO mvo;
 	private ReviewPostVO rvo;
 	public RatingVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public RatingVO(int reNo, String comName, int rating, MemberVO mvo, ReviewPostVO rvo) {
+	public RatingVO(int reNo, String comName, float rating, MemberVO mvo, ReviewPostVO rvo) {
 		super();
 		this.reNo = reNo;
 		this.comName = comName;
@@ -30,10 +30,10 @@ public class RatingVO {
 	public void setComName(String comName) {
 		this.comName = comName;
 	}
-	public int getRating() {
+	public float getRating() {
 		return rating;
 	}
-	public void setRating(int rating) {
+	public void setRating(float rating) {
 		this.rating = rating;
 	}
 	public MemberVO getMvo() {

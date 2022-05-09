@@ -5,7 +5,7 @@ public class ReviewPostVO {
 	private String title;
 	private String content;
 	private String timePosted;
-	private int rating;
+	private float rating;
 	private int hits;
 	private MemberVO mvo;
 
@@ -14,7 +14,8 @@ public class ReviewPostVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ReviewPostVO(int reNo, String title, String content, String timePosted, int rating, int hits, MemberVO mvo) {
+	public ReviewPostVO(int reNo, String title, String content, String timePosted, float rating, int hits,
+			MemberVO mvo) {
 		super();
 		this.reNo = reNo;
 		this.title = title;
@@ -57,11 +58,11 @@ public class ReviewPostVO {
 		this.timePosted = timePosted;
 	}
 
-	public int getRating() {
+	public float getRating() {
 		return rating;
 	}
 
-	public void setRating(int rating) {
+	public void setRating(float rating) {
 		this.rating = rating;
 	}
 
@@ -86,5 +87,7 @@ public class ReviewPostVO {
 		return "ReviewPostVO [reNo=" + reNo + ", title=" + title + ", content=" + content + ", timePosted=" + timePosted
 				+ ", rating=" + rating + ", hits=" + hits + ", mvo=" + mvo + "]";
 	}
+
+	
 
 }

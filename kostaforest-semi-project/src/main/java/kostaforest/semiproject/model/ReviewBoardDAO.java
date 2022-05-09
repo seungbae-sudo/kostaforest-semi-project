@@ -40,7 +40,7 @@ public class ReviewBoardDAO {
 			String sql="INSERT INTO REVIEW(re_no,title,rating, content,time_posted,id) VALUES(review_seq.nextval,?,?,?,sysdate,? ) " ;
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1,rvo.getTitle());
-			pstmt.setInt(2, rvo.getRating());
+			pstmt.setFloat(2, rvo.getRating());
 			pstmt.setString(3, rvo.getContent());
 			pstmt.setString(4, rvo.getMvo().getId());
 			pstmt.executeUpdate();
@@ -144,7 +144,7 @@ public class ReviewBoardDAO {
 			String sql="UPDATE REVIEW SET title=?, rating=? ,content=? WHERE re_no=? ";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, rvo.getTitle());
-			pstmt.setInt(2, rvo.getRating());
+			pstmt.setFloat(2, rvo.getRating());
 			pstmt.setString(3, rvo.getContent());
 			pstmt.setInt(4, rvo.getReNo());
 			pstmt.executeUpdate();
@@ -176,7 +176,7 @@ public class ReviewBoardDAO {
 				mvo.setComName(rs.getString("com_name"));
 				RatingVO rtvo=new RatingVO();
 				rtvo.setMvo(mvo);
-				rtvo.setRating(rs.getInt("round(avg(rating),2)"));
+				rtvo.setRating(rs.getFloat("round(avg(rating),2)"));
 				list.add(rtvo);
 			}
 		}finally {
