@@ -25,6 +25,11 @@
 					<td><textarea rows="10" class="form-control" name="content"
 							placeholder="본문내용" required="required">${empPostVO.content }</textarea></td>
 				</tr>
+				<tr>
+					<td>
+						<input type="text" name="employmentEmail" placeholder="지원받을 이메일 주소를 입력해주세요 ">
+					</td>
+				</tr>
 			</table>
 			
 
