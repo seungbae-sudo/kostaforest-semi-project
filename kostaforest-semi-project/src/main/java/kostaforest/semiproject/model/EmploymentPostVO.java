@@ -11,7 +11,7 @@ public class EmploymentPostVO {
 	private int likeNo;
 	private int hits;
 	private MemberVO mvo;
-//	private CategoryVO cvo;
+
 
 	public EmploymentPostVO() {
 		super();
@@ -28,7 +28,7 @@ public class EmploymentPostVO {
 	}
 
 	public EmploymentPostVO(int boardNo, String title, String empGroup, String content, String timePosted, int likeNo,
-			int hits, MemberVO mvo, CategoryVO cvo) {
+			int hits, MemberVO mvo, String empMail) {
 		super();
 		this.boardNo = boardNo;
 		this.title = title;
@@ -39,7 +39,7 @@ public class EmploymentPostVO {
 		this.likeNo = likeNo;
 		this.hits = hits;
 		this.mvo = mvo;
-//		this.cvo = cvo;
+
 	}
 
 	public int getBoardNo() {
@@ -58,11 +58,11 @@ public class EmploymentPostVO {
 		this.title = title;
 	}
 
-	public String getEmpEmail() {
+	public String getEmpMail() {
 		return empMail;
 	}
 
-	public void setEmpEmail(String empEmail) {
+	public void setEmpMail(String empEmail) {
 		this.empMail = empEmail;
 	}
 

@@ -43,7 +43,7 @@ public class EmploymentBoardDAO {
 		try {
 			con = dataSource.getConnection();
 
-			StringBuilder sql = new StringBuilder(" SELECT emp_no, title, hits ,emp_group ");
+			StringBuilder sql = new StringBuilder(" SELECT emp_no, title, hits ,emp_group,emp_mail ");
 			sql.append("FROM EMPLOYMENT ");
 			sql.append("ORDER BY emp_no DESC");
 			pstmt = con.prepareStatement(sql.toString());
@@ -87,7 +87,7 @@ public class EmploymentBoardDAO {
 				empPostVO.setBoardNo(rs.getInt("emp_no"));
 				empPostVO.setTitle(rs.getString("title"));
 				empPostVO.setEmpGroup(rs.getString("emp_group"));
-				empPostVO.setEmpEmail(rs.getString("emp_mail"));
+				empPostVO.setEmpMail(rs.getString("emp_mail"));
 				empPostVO.setContent(rs.getString("content"));
 				empPostVO.setHits(rs.getInt("hits"));
 				empPostVO.setTimePosted(rs.getString("time_posted"));
@@ -112,7 +112,7 @@ public class EmploymentBoardDAO {
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, empPostVO.getTitle());
 			pstmt.setString(2, empPostVO.getEmpGroup());
-			pstmt.setString(3, empPostVO.getEmpEmail());
+			pstmt.setString(3, empPostVO.getEmpMail());
 			pstmt.setString(4, empPostVO.getContent());
 			pstmt.setString(5, empPostVO.getMvo().getId());
 			pstmt.executeUpdate();
@@ -132,7 +132,7 @@ public class EmploymentBoardDAO {
 			pstmt.setString(1, empPostVO.getTitle());
 			pstmt.setString(2, empPostVO.getContent());
 			pstmt.setString(3, empPostVO.getEmpGroup());
-			pstmt.setString(4, empPostVO.getEmpEmail());
+			pstmt.setString(4, empPostVO.getEmpMail());
 			pstmt.setInt(5, empPostVO.getBoardNo());
 			pstmt.executeUpdate();
 		} finally {

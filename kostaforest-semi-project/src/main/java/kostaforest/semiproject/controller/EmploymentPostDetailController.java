@@ -1,14 +1,9 @@
 package kostaforest.semiproject.controller;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import kostaforest.semiproject.model.CommunityBoardDAO;
-import kostaforest.semiproject.model.CommunityPostVO;
 import kostaforest.semiproject.model.EmploymentBoardDAO;
 import kostaforest.semiproject.model.EmploymentPostVO;
 

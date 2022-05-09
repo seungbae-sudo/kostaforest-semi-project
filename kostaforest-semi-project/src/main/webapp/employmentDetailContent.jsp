@@ -20,8 +20,8 @@
 					<form  id="deleteForm" action="EmploymentDeletePostController.do" method="post">
 						<input type="hidden" name="no" value="${empPostVO.boardNo}">
 					</form>
-					<div>
-						<%-- <a href="mailto:${empPostVO.empMail}">지원하기</a> --%>
+					<div class="emp-mail-click">
+						<a href="mailto:${empPostVO.empMail}">지원하기</a>
 					</div>
 					
 					

@@ -22,7 +22,7 @@ public class EmploymentUpdatePostController implements Controller {
 		empPostVO.setTitle(title);
 		empPostVO.setContent(content);
 		empPostVO.setEmpGroup(empGroup);
-		empPostVO.setEmpEmail(empMail);
+		empPostVO.setEmpMail(empMail);
 		EmploymentBoardDAO.getInstance().updatePost(empPostVO);
 
 		return "redirect:EmploymentListController.do";
