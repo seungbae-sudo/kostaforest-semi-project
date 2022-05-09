@@ -447,10 +447,20 @@ li {
     border-radius: 5px;
 }
 
-    
 .footer{
 	margin-top: 100px;
 }
+
+
+/*pagination 버튼*/
+.page-item.active .page-link{
+	background-color: #343a40!important;
+    border-color: #343a40!important;
+    margin-right: 5px;
+}
+    
+    
+
 </style>
 </head>
 <body>

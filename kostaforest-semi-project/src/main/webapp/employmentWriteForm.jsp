@@ -26,7 +26,7 @@
 				</tr>
 				<tr>
 					<td class="emp-mail-form">
-						<input type="text" name="employmentEmail" placeholder="지원받을 이메일 주소를 입력해주세요 ">
+						<input type="text" name="employmentEmail" placeholder="지원받을 이메일 주소를 입력해주세요 " required="required">
 					</td>
 				</tr>
 			</table>
