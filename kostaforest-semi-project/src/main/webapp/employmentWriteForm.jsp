@@ -22,9 +22,17 @@
 				</tr>
 				<tr>
 					<td><textarea rows="10" class="form-control" name="content"
-							placeholder="지원받을 귀사의 사이트 링크를 꼭 기재해 주세요!" required="required"></textarea></td>
+							placeholder="본문내용" required="required"></textarea></td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="employmentEmail" placeholder="지원받을 이메일 주소를 입력해주세요 ">
+					</td>
 				</tr>
 			</table>
+			
+				
+		
 
 
 			<div class="text-center">

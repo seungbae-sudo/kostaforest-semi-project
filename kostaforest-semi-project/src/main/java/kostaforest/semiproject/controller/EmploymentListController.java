@@ -14,7 +14,7 @@ public class EmploymentListController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ArrayList<EmploymentPostVO> list=EmploymentBoardDAO.getInstance().findPostList();
 		request.setAttribute("empList", list);
-		request.setAttribute("url", "showList2.jsp");
+		request.setAttribute("url", "employmenList.jsp");
 		return "layout.jsp";
 	}
 

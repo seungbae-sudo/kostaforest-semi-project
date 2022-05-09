@@ -5,6 +5,7 @@ public class EmploymentPostVO {
 	private int boardNo;
 	private String title;
 	private String empGroup;
+	private String empEmail;
 	private String content;
 	private String timePosted;
 	private int likeNo;
@@ -17,11 +18,12 @@ public class EmploymentPostVO {
 		// TODO Auto-generated constructor stub
 	}
  
-	public EmploymentPostVO(String title, String empGroup, String content, MemberVO mvo) {
+	public EmploymentPostVO(String title, String empGroup, String content,String empEmail, MemberVO mvo) {
 		super();
 		this.title = title;
 		this.empGroup = empGroup;
 		this.content = content;
+		this.empEmail = empEmail;
 		this.mvo = mvo;
 	}
 
@@ -32,6 +34,7 @@ public class EmploymentPostVO {
 		this.title = title;
 		this.empGroup = empGroup;
 		this.content = content;
+		this.empEmail = empEmail;
 		this.timePosted = timePosted;
 		this.likeNo = likeNo;
 		this.hits = hits;
@@ -53,6 +56,14 @@ public class EmploymentPostVO {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getEmpEmail() {
+		return empEmail;
+	}
+
+	public void setEmpEmail(String empEmail) {
+		this.empEmail = empEmail;
 	}
 
 	public String getEmpGroup() {
@@ -105,26 +116,13 @@ public class EmploymentPostVO {
 
 	@Override
 	public String toString() {
-		return "EmploymentPostVO [boardNo=" + boardNo + ", title=" + title + ", empGroup=" + empGroup + ", content="
-				+ content + ", timePosted=" + timePosted + ", likeNo=" + likeNo + ", hits=" + hits + ", mvo=" + mvo
-				+ "]";
+		return "EmploymentPostVO [boardNo=" + boardNo + ", title=" + title + ", empGroup=" + empGroup + ", empEmail="
+				+ empEmail + ", content=" + content + ", timePosted=" + timePosted + ", likeNo=" + likeNo + ", hits="
+				+ hits + ", mvo=" + mvo + "]";
 	}
 
-//	public CategoryVO getCvo() {
-//		return cvo;
-//	}
 
-//	public void setCvo(CategoryVO cvo) {
-//		this.cvo = cvo;
-//	}
 
-//	@Override
-//	public String toString() {
-//		return "EmploymentPostVO [boardNo=" + boardNo + ", title=" + title + ", empGroup=" + empGroup + ", content="
-//				+ content + ", timePosted=" + timePosted + ", likeNo=" + likeNo + ", hits=" + hits + ", mvo=" + mvo
-//				+ ", cvo=" + cvo + "]";
-//	}
-	
 	
 
 }

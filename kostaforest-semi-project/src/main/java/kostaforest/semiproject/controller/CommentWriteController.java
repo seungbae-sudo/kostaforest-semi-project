@@ -16,7 +16,6 @@ public class CommentWriteController implements Controller {
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
 		String boardNo = request.getParameter("boardNo");
-		String comName = request.getParameter("conName");
 		String comContent = request.getParameter("com_content");
 		CommunityPostVO cmuvo = CommunityBoardDAO.getInstance().findPostByNo(boardNo);
 		cmuvo.setBoardNo(Integer.parseInt(boardNo));
@@ -26,7 +25,8 @@ public class CommentWriteController implements Controller {
 		covo.setCmuvo(cmuvo);
 		covo.setMvo(mvo);			
 		CommunityBoardDAO.getInstance().comment(covo);
-		return "redirect:CommunityPostDetailController.do?no="+boardNo;
+		request.setAttribute("no", boardNo);
+		return "redirect:CommunityPostDetailController.do";
 	}
 
 }
