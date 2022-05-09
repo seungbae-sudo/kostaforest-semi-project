@@ -28,6 +28,8 @@ public class LoginController implements Controller {
 			//조회수를 위한 게시판 별 ArrayList 생성
 			session.setAttribute("CommunityBoardNoList", new ArrayList<String>());
 			session.setAttribute("ReviewBoardNoList", new ArrayList<String>());
+			session.setAttribute("LikeNoList", new ArrayList<String>());
+			session.setAttribute("LikeDownList", new ArrayList<String>());
 		}
 		return viewName;
 	}

@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kostaforest.semiproject.model.CategoryDAO;
-import kostaforest.semiproject.model.CategoryVO;
 import kostaforest.semiproject.model.CommunityBoardDAO;
 import kostaforest.semiproject.model.CommunityPostVO;
 

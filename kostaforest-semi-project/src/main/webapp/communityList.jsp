@@ -7,13 +7,13 @@
 		<table class="table">
 			<h2 class="title">		
 					<c:if test="${carNo==1}">
-					<i class="fas fa-coffee"></i> 회사 이야기
+					<i class="fas fa-coffee"></i> 회사 이야기 
 					</c:if>
 					<c:if test="${carNo==2 }">
-					<i class="fas fa-car"></i>취미생활 이야기
+					<i class="fas fa-car"></i>취미생활 이야기 
 					</c:if>
 					<c:if test="${carNo==3 }">
-					<i class="fas fa-cloud"></i>주식 이야기
+					<i class="fas fa-cloud"></i>주식 이야기 
 					</c:if>
 					<%-- <form action="CommunityPostListController.do" method="get">
 				
@@ -26,11 +26,18 @@
 						    <option value="3" <c:if test="${carNo==3}"> selected </c:if>>주식 이야기</option>
 						</select>
 					</form> --%>
-				<c:if test="${sessionScope.mvo.memberGroup eq '직장인' }">
-					<form action="CommunityWriteFormController.do" method="get">
-					<button class="write">글쓰기</button>
+					<c:choose>
+						<c:when test="${sessionScope.mvo.memberGroup eq '직장인' }">
+							<form action="CommunityWriteFormController.do?no=${carNo}" method="post">
+								<button type="submit" class="write">글쓰기</button>
+							</form>
+						</c:when>
+					</c:choose>
+				<%-- <c:if test="${sessionScope.mvo.memberGroup eq '직장인' }">
+					<form action="CommunityWriteFormController.do?no=${carNo}" method="post">
+					<button type="submit" class="write">글쓰기 ${carNo }</button>
 					</form>
-				</c:if>
+				</c:if> --%>
 			</h2>
 				
 			<tbody>
@@ -41,7 +48,7 @@
 						<tr>
 							<td class="col-sm-10"><a href="CommunityPostDetailController.do?no=${list.boardNo }&carNo=${carNo}">${list.title }</a></td>
 							<td class="col-sm-1"><i class='far fa-eye icon'></i> ${list.hits } </td>
-							<td class="col-sm-1"><a href ="LikeUpController.do?no=${list.boardNo }&carNo=${carNo}"><i class='far fa-heart icon'></i></a>${list.likeNo } </td>
+							<td class="col-sm-1"><i class='far fa-heart icon'></i>${list.likeNo } </td>
 							
 						</tr>
 					</c:forEach>		
