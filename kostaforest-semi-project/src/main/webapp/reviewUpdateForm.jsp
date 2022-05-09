@@ -29,12 +29,12 @@
 					</td>
 				</tr>
 			</table>
+			</form>
 			
 			<div class="text-center">
 				<button type="button" class="btn btn-success" onclick="check()">수정</button>
 				<button type="reset" class="btn btn-success">취소</button>
 			</div>
-			</form>
 			
 			<script type="text/javascript">	
 			function check() {

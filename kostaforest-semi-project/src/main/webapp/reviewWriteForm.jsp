@@ -28,13 +28,13 @@
 							placeholder="본문내용" required="required"></textarea></td>
 				</tr>
 			</table>
-
-			<div class="text-center">
+	
+		</form>
+		
+		<div class="text-center">
 				<button type="button" class="btn btn-success" onclick="check()">확인</button>
 				<button type="reset" class="btn btn-success">취소</button>
 			</div>
-	
-		</form>
 		
 		<script type="text/javascript">	
 			function check() {
