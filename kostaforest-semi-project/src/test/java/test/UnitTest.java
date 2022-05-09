@@ -39,16 +39,16 @@ public class UnitTest {
 			dao.updatePost(empPostVO);
 			System.out.println(dao.findPostByNo("10"));
 //			*/
-			
+			System.out.println(dao.findPostByNo("1"));
 			//회원가입 
 			
-			MemberVO mvo = new MemberVO();
-			mvo.setId("daum");
-			mvo.setPassword("a");
-			mvo.setComName("카카오");
-			mvo.setMemberGroup("기업");
-			mdao.register(mvo);
-			System.out.println(mvo);
+//			MemberVO mvo = new MemberVO();
+//			mvo.setId("daum");
+//			mvo.setPassword("a");
+//			mvo.setComName("카카오");
+//			mvo.setMemberGroup("기업");
+//			mdao.register(mvo);
+//			System.out.println(mvo);
 			
 			
 		} catch (SQLException e) {
