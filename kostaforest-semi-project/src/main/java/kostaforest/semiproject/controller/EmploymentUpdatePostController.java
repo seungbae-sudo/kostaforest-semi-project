@@ -15,12 +15,14 @@ public class EmploymentUpdatePostController implements Controller {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String empGroup = request.getParameter("empGroup");
+		String empMail=request.getParameter("employmentEmail");
 
 		EmploymentPostVO empPostVO = new EmploymentPostVO();
 		empPostVO.setBoardNo(Integer.parseInt(no));
 		empPostVO.setTitle(title);
 		empPostVO.setContent(content);
 		empPostVO.setEmpGroup(empGroup);
+		empPostVO.setEmpEmail(empMail);
 		EmploymentBoardDAO.getInstance().updatePost(empPostVO);
 
 		return "redirect:EmploymentListController.do";

@@ -16,13 +16,13 @@ public class EmploymentWriteController implements Controller {
 		String title=request.getParameter("title");
 		String content=request.getParameter("content");
 		String empGroup=request.getParameter("empGroup");
-		String empEmail=request.getParameter("employmentEmail");
+		String empMail=request.getParameter("employmentEmail");
 		
 		
 		
 		HttpSession session=request.getSession(false);
 		MemberVO mvo= (MemberVO) session.getAttribute("mvo");
-		EmploymentPostVO empPostVO=new EmploymentPostVO(title,empGroup,content,empEmail,mvo);
+		EmploymentPostVO empPostVO=new EmploymentPostVO(title,empGroup,content,empMail,mvo);
 		EmploymentBoardDAO.getInstance().posting(empPostVO);
 		return "redirect:EmploymentListController.do";
 	}

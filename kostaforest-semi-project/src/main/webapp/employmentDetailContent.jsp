@@ -20,6 +20,11 @@
 					<form  id="deleteForm" action="EmploymentDeletePostController.do" method="post">
 						<input type="hidden" name="no" value="${empPostVO.boardNo}">
 					</form>
+					<div>
+						<%-- <a href="mailto:${empPostVO.empMail}">지원하기</a> --%>
+					</div>
+					
+					
 					<button type="button" onclick="updatePostFrom()">수정</button> 	
 					<button type="button" onclick="deletePost()">삭제</button> 
 			</div>

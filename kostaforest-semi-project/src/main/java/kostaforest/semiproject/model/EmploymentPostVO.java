@@ -5,7 +5,7 @@ public class EmploymentPostVO {
 	private int boardNo;
 	private String title;
 	private String empGroup;
-	private String empEmail;
+	private String empMail;
 	private String content;
 	private String timePosted;
 	private int likeNo;
@@ -18,12 +18,12 @@ public class EmploymentPostVO {
 		// TODO Auto-generated constructor stub
 	}
  
-	public EmploymentPostVO(String title, String empGroup, String content,String empEmail, MemberVO mvo) {
+	public EmploymentPostVO(String title, String empGroup, String content,String empMail, MemberVO mvo) {
 		super();
 		this.title = title;
 		this.empGroup = empGroup;
 		this.content = content;
-		this.empEmail = empEmail;
+		this.empMail = empMail;
 		this.mvo = mvo;
 	}
 
@@ -34,7 +34,7 @@ public class EmploymentPostVO {
 		this.title = title;
 		this.empGroup = empGroup;
 		this.content = content;
-		this.empEmail = empEmail;
+		this.empMail = empMail;
 		this.timePosted = timePosted;
 		this.likeNo = likeNo;
 		this.hits = hits;
@@ -59,11 +59,11 @@ public class EmploymentPostVO {
 	}
 
 	public String getEmpEmail() {
-		return empEmail;
+		return empMail;
 	}
 
 	public void setEmpEmail(String empEmail) {
-		this.empEmail = empEmail;
+		this.empMail = empEmail;
 	}
 
 	public String getEmpGroup() {
@@ -116,8 +116,8 @@ public class EmploymentPostVO {
 
 	@Override
 	public String toString() {
-		return "EmploymentPostVO [boardNo=" + boardNo + ", title=" + title + ", empGroup=" + empGroup + ", empEmail="
-				+ empEmail + ", content=" + content + ", timePosted=" + timePosted + ", likeNo=" + likeNo + ", hits="
+		return "EmploymentPostVO [boardNo=" + boardNo + ", title=" + title + ", empGroup=" + empGroup + ", empMail="
+				+ empMail + ", content=" + content + ", timePosted=" + timePosted + ", likeNo=" + likeNo + ", hits="
 				+ hits + ", mvo=" + mvo + "]";
 	}
 

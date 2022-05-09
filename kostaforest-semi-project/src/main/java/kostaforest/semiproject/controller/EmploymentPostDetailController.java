@@ -23,8 +23,6 @@ public class EmploymentPostDetailController implements Controller {
 		request.setAttribute("empPostVO", empPostVO);
 		
 		//쿠키를 사용한 조회수 증가 
-		
-		
 		Cookie viewCookie=null;
 		Cookie[] cookies=request.getCookies();
 		
