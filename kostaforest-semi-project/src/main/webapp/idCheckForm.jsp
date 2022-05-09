@@ -10,7 +10,7 @@
 <input type="button" value="확인"  onclick="setid()"/>
 <input type="button" value="닫기" onclick="wClose()"/>
 </form>
-
+	
 <%-- memberId id text 입력양식에 keyup 이벤트를 이용해서 
 아이디 중복확인을 ajax 방식으로 처리할 수 있다  --%>
 <script type="text/javascript">

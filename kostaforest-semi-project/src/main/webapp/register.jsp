@@ -36,8 +36,12 @@
 			<button type="submit" class="btn">Register</button>
 		</form>
 			<script>
-				function idCheck(){
-			window.open("idCheckForm.jsp","idwin","width=400 height=350")
+			var windowObj;
+			function idCheck(){
+			windowObj = window.open("idCheckForm.jsp","idwin","width=400 height=350");
+			windowObj.document.getElementById("memberId").value = document.getElementById('id').value;
+
+
 		}
 
 				</script>
