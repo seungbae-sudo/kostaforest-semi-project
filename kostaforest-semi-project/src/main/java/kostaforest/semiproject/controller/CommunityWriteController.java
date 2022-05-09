@@ -26,9 +26,7 @@ public class CommunityWriteController implements Controller {
 		cvo.setCvo(cavo);
 		cvo.setMvo(mvo);;
 		CommunityBoardDAO.getInstance().posting(cvo);
-		request.setAttribute("carNo", carNo);
-		
-		return "redirect:CommunityListDetailController.do";
+		return "redirect:CommunityListDetailController.do?carNo="+carNo;
 	}
 
 }

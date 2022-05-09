@@ -26,8 +26,6 @@ public class LikeDownController implements Controller {
 			CommunityBoardDAO.getInstance().likeDown(no);
 			LikeDownList.add(no);
 			LikeNoList.remove(no);
-			System.out.println(LikeDownList);
-			System.out.println(LikeNoList);
 		}
 		
 		ArrayList<CommentVO> list =  CommunityBoardDAO.getInstance().findByBoardNoAllCommentList(no);
