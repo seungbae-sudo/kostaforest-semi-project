@@ -34,7 +34,7 @@ public class EmploymentBoardDAO {
 	}
 
 	// 리스트 보여주기
-	public ArrayList<EmploymentPostVO> findPostList() throws SQLException {
+	public ArrayList<EmploymentPostVO> findPostList(Pagination pagination) throws SQLException {
 		ArrayList<EmploymentPostVO> list = new ArrayList<EmploymentPostVO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -42,11 +42,15 @@ public class EmploymentBoardDAO {
 
 		try {
 			con = dataSource.getConnection();
-
-			StringBuilder sql = new StringBuilder(" SELECT emp_no, title, hits ,emp_group,emp_mail ");
+			StringBuilder sql = new StringBuilder("SELECT emp_no,title,emp_group,hits ");
+			sql.append("FROM( ");
+			sql.append("SELECT ROW_NUMBER() OVER(ORDER BY emp_no DESC) as rnum ,emp_no, title, hits ,emp_group,emp_mail ");
 			sql.append("FROM EMPLOYMENT ");
-			sql.append("ORDER BY emp_no DESC");
+			sql.append(") WHERE rnum BETWEEN ? AND ?");
 			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setInt(1, pagination.getStartRowNumber());
+	        pstmt.setInt(2, pagination.getEndRowNumber());
+			
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				EmploymentPostVO empPostVO = new EmploymentPostVO();
@@ -170,4 +174,26 @@ public class EmploymentBoardDAO {
 			closeAll(pstmt, con);
 		}
 	}
+	
+	//게시물의 총 수를 구한다
+	public int getTotalPostCount() throws SQLException {
+		int totalPostCount=0;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=dataSource.getConnection();
+			String sql="SELECT COUNT(*) FROM EMPLOYMENT";
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				totalPostCount=rs.getInt(1);
+			}
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		return totalPostCount;
+	}
+	
+	
 }
