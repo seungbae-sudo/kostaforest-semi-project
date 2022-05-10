@@ -17,17 +17,6 @@
 		</h2>
 					
 		<table class="table">		
-					<%-- <form action="CommunityPostListController.do" method="get">
-				
-						<select id ="carNo" name="carNo" onchange="submit(this.form)" >
-							<!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
-							<option value="">게시판을 선택해주세요.</option>
-							
-						    <option value="1"  <c:if test="${carNo==1}"> selected </c:if> >회사 이야기</option>
-						    <option value="2" <c:if test="${carNo==2}"> selected </c:if>>취미 생활 이야기</option>
-						    <option value="3" <c:if test="${carNo==3}"> selected </c:if>>주식 이야기</option>
-						</select>
-					</form> --%>
 					<c:choose>
 						<c:when test="${sessionScope.mvo.memberGroup eq '직장인' }">
 							<form action="CommunityWriteFormController.do" method="post">
@@ -37,13 +26,7 @@
 							</form>
 						</c:when>
 					</c:choose>
-				<%-- <c:if test="${sessionScope.mvo.memberGroup eq '직장인' }">
-					<form action="CommunityWriteFormController.do?no=${carNo}" method="post">
-					<button type="submit" class="write">글쓰기 ${carNo }</button>
-					</form>
-				</c:if> --%>
 			
-				
 			<tbody>
 			<c:choose>
 			<c:when test="${sessionScope.mvo.memberGroup eq '직장인' }">
@@ -62,11 +45,9 @@
 						<tr>
 							<td class="col-sm-9">${list.title }</td>
 							<td class="col-sm-1"><i class='far fa-eye icon'></i> ${list.hits } </td>
-							<td class="col-sm-1"><i class='far fa-heart icon'></i>${list.likeNo } </td>
-							
+							<td class="col-sm-1"><i class='far fa-heart icon'></i>${list.likeNo } </td>							
 						</tr>
-					</c:forEach>		
-					
+					</c:forEach>							
 					</c:otherwise>
 				</c:choose>					
 				</tbody>
