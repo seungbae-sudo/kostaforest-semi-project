@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<form action="CommunitySearchController.do" method="get" class="search-form">
+<form action="CommunitySearchController.do" method="get" class="search-form" id="Search">
 
 	<input type="hidden" name="pageNo" value="1">
-	<input type="search" id ="title" name="title" class="search" placeholder="검색어를 입력하세요">
+	<input type="text" id ="title" name="title" class="search" placeholder="검색어를 입력하세요">
 	<button type="button" onclick="checkLogin()">
 		<img src="images/search.png">
 	</button>
@@ -143,5 +143,7 @@
 			alert("로그인이 필요한 서비스 입니다.");
 			document.getElementById("title").value ="";
 		}
+			document.getElementById("Search").submit();
+		
 	}
 </script>
