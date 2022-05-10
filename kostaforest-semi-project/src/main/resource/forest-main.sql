@@ -153,5 +153,49 @@ SELECT * FROM REVIEW
 
 
 
+--내꺼 
+SELECT r.re_no, m.com_name, r.title, r.hits, r.time_posted
+FROM REVIEW r, EMP_MEMBER m 
+WHERE  r.id=m.id
+ORDER BY r.re_no DESC
+
+--강사님꺼
+SELECT rnum,no,title,time_posted,hits
+FROM(
+	SELECT ROW_NUMBER() OVER(ORDER BY no DESC)as rnum, no,title,TO_CHAR(time_posted,'YYYY.MM.DD') AS time_posted,hits,id
+	FROM board
+)
+WHERE rnum BETWEEN 1 AND 5
+
+--TEST
+--step1
+SELECT ROW_NUMBER() OVER(ORDER BY re_no DESC)as rnum, re_no,title ,hits
+FROM review
+
+--step2
+SELECT rnum, re_no, title, hits
+FROM(
+	SELECT ROW_NUMBER() OVER(ORDER BY re_no DESC)as rnum, re_no,title ,hits
+	FROM review
+)
+WHERE rnum BETWEEN 1 AND 5
+
+--step3
+SELECT r.rnum, r.re_no, m.com_name, r.title, r.hits
+FROM(
+	SELECT ROW_NUMBER() OVER(ORDER BY re_no DESC)as rnum, re_no,title,hits,id
+	FROM REVIEW
+)r, EMP_MEMBER m
+WHERE r.id=m.id AND rnum BETWEEN 1 AND 5
+
+
+--강사님 oracel sql
+
+SELECT b.rnum,b.no,b.title,b.time_posted,b.hits,m.name
+FROM(
+	SELECT ROW_NUMBER() OVER(ORDER BY no DESC)as rnum, no,title,TO_CHAR(time_posted,'YYYY.MM.DD') AS time_posted,hits,id
+	FROM board
+) b, member m 
+WHERE b.id=m.id AND rnum BETWEEN 1 AND 5
 
 --constraint myboard_fk FOREIGN KEY(id) REFERENCES member(id)
