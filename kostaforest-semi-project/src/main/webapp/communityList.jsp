@@ -14,7 +14,7 @@
 					<c:if test="${carNo==3 }">
 					<i class="fas fa-cloud"></i>주식 이야기 
 					</c:if>
-					</h2>
+		</h2>
 					
 		<table class="table">		
 					<%-- <form action="CommunityPostListController.do" method="get">
