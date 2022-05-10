@@ -9,13 +9,16 @@ import kostaforest.semiproject.model.EmploymentPostVO;
 
 public class EmploymentPostDetailController implements Controller {
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		String no=request.getParameter("no");
 		EmploymentPostVO empPostVO = EmploymentBoardDAO.getInstance().findPostByNo(no);
 		request.setAttribute("empPostVO", empPostVO);
+		
+		//해당 포스팅이 포함된 리스트 페이지로 으로 돌아가는 페이지넘버를 view로 넘긴다
+		String nowPage=request.getParameter("nowPage");
+		request.setAttribute("nowPage", nowPage);
 		
 		//쿠키를 사용한 조회수 증가 
 		Cookie viewCookie=null;
@@ -53,6 +56,8 @@ public class EmploymentPostDetailController implements Controller {
 			String value=viewCookie.getValue();
 			System.out.println("viewCookie확인 로직 : 쿠키 value : " + value);
 		}
+		
+		
 		
 		request.setAttribute("url","employmentDetailContent.jsp");
 		return "layout.jsp";

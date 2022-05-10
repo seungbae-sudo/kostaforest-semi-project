@@ -7,6 +7,7 @@
 			<li>작성자 회사 : ${empPostVO.mvo.comName }</li>
 			<li>작성일 : ${empPostVO.timePosted }</li>
 			<li>조회수 : ${empPostVO.hits }</li>
+			<li><a href="EmploymentListController.do?pageNo=${nowPage}">목록<i class='fas fa-list'></i></a></li>
 		</ul>
 		<div class="content">
 			<pre>${empPostVO.content }</pre>
@@ -20,15 +21,17 @@
 					<form  id="deleteForm" action="EmploymentDeletePostController.do" method="post">
 						<input type="hidden" name="no" value="${empPostVO.boardNo}">
 					</form>
-					<div class="emp-mail-click">
-						<a href="mailto:${empPostVO.empMail}">지원하기</a>
+					
+					
+					<div>
+						<button type="button" onclick="updatePostFrom()">수정</button> 	
+						<button type="button" onclick="deletePost()">삭제</button> 
 					</div>
-					
-					
-					<button type="button" onclick="updatePostFrom()">수정</button> 	
-					<button type="button" onclick="deletePost()">삭제</button> 
 			</div>
 		</c:if>	
+			<div class="emp-mail-click">
+				<a href="mailto:${empPostVO.empMail}">지원하기</a>
+			</div>
 		
 		<script>
 				function updatePostFrom(){

@@ -447,10 +447,20 @@ li {
     border-radius: 5px;
 }
 
-    
 .footer{
 	margin-top: 100px;
 }
+
+
+/*pagination 버튼*/
+.page-item.active .page-link{
+	background-color: #343a40!important;
+    border-color: #343a40!important;
+    margin-right: 5px;
+}
+    
+    
+
 </style>
 </head>
 <body>
@@ -462,7 +472,8 @@ li {
 	</div>
 
 	<div class="jumbotron text-center footer" style="margin-bottom: 0">
-		<p>Footer</p>
+		<img alt="logo" style="width:20%" src="images/코스타1.png">
+		<p>238기 세미프로젝트 1조 <b>열쩡! 열쩡!</b> </p>
 	</div>
 
 
