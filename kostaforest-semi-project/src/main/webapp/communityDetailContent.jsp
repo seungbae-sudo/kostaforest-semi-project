@@ -29,14 +29,10 @@
 	</form>
 	<form action="CommunityUpdateFormController.do" method="post"
 		id="UpdateForm">
-<<<<<<< HEAD
+
 		<input type="hidden" name="no" value="${cvo.boardNo}">
 		<input type="hidden" name="carNo" value="${carNo}">
 		<input type="hidden" name="pageNo" value="${pageNo}">
-=======
-		<input type="hidden" name="no" value="${cvo.boardNo}"> <input
-			type="hidden" name="pageNo" value="${pageNo}">
->>>>>>> refs/heads/lsj-0510
 
 	</form>
 	<div class="text-center space-top">
