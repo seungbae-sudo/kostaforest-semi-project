@@ -91,7 +91,7 @@ INSERT INTO BOARD_COMMENT(comment_no, comment_content, time_posted,id,board_no)
                            
                          
 select * from BOARD_COMMENT
-
+z
 -- 게시판별 댓글 리스트
 SELECT co.comment_no,co.comment_content, co.time_posted
 FROM BOARD_COMMENT co , CMU_BOARD cmu

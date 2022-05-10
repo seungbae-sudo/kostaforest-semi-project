@@ -60,11 +60,6 @@
 			</span>
 		</h4>
 
-
-					<%-- <form action="CommunityListDetailController.do?carNo=${carNo}" method="get">
-				<button type="submit">목록</button>
-			</form> --%>
-		
 		<form action="CommentWriteController.do" method="post"
 			class="comment-form" id="ComPostForm">
 			<div>

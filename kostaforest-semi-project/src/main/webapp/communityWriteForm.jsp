@@ -9,27 +9,10 @@
 	<table class="table">
 		<tr>
 			<td><select id="carNo" name="carNo" class="title_line">
-					<!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
-					<!-- <option value="">게시판을 선택해주세요.</option> -->
-					<%-- <c:forEach items="${caList}" var="list"> --%>
 								
 							<option value="1"  <c:if test="${carNo==1}"> selected </c:if> >회사 이야기</option>
 						    <option value="2" <c:if test="${carNo==2}"> selected </c:if>>취미 생활 이야기</option>
-						    <option value="3" <c:if test="${carNo==3}"> selected </c:if>>주식 이야기</option>
-								
-					<%-- 		</c:forEach> --%>
-					
-				<%-- 	<c:choose>
-						<c:when test="${carNo==1 }">
-						<option value="1" selected >회사 이야기</option>
-						</c:when>
-						<c:when test="${carNo==2 }">
-						<option value="2"  selected >취미생활 이야기</option>
-						</c:when>
-						<c:when test="${carNo==3 }">
-						<option value="3"  selected >주식	이야기</option>
-						</c:when>
-					</c:choose> --%>
+						    <option value="3" <c:if test="${carNo==3}"> selected </c:if>>주식 이야기</option>						
 
 			</select></td>
 	

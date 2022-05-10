@@ -49,38 +49,4 @@
 			console.log('moveRegiter');
 			window.location.href = 'MemberRagisterFormController.do';
 		}
-		
-		
-		
-		
-		/* ajax example
-		function loginSubmit(){
-			console.log('loginSubmit');
-			console.log($('input[name=id]').val());
-			console.log($('input[name=password]').val());
-				
-			var prams = {
-					"id":$('input[name=id]').val(),
-					"password":$('input[name=password]').val()
-			}
-			
-			console.log('prams'); 
-			console.log(prams); 
-			console.log(JSON.stringify(prams));
-			
-            $.ajax({
-                type : "POST",            // HTTP method type(GET, POST) 형식이다.
-                url : "LoginController.do",      // 컨트롤러에서 대기중인 URL 주소이다.
-                data : JSON.stringify(prams),            // Json 형식의 데이터이다.
-                success : function(result){ // 비동기통신의 성공일경우 success콜백으로 들어옵니다. 'res'는 응답받은 데이터이다.
-                	alert("12");
-                },
-                error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
-                    alert("통신 실패.")
-                }
-            });
-		}
-		*/
-		
-		
 	</script>
