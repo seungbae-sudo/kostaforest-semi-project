@@ -16,6 +16,10 @@ public class ReviewPostDetailController implements Controller {
 		//로그인 유지기간동안 읽은 글에 대한 조회수 재증가 방지를 위한 코드 
 		String no=request.getParameter("no");
 		
+		//목록 누르면 해당 page list로 돌아가기
+		String nowPage=request.getParameter("nowPage");
+		request.setAttribute("nowPage", nowPage);
+		
 		HttpSession session=request.getSession(false);
 		  
 		  @SuppressWarnings("unchecked") 

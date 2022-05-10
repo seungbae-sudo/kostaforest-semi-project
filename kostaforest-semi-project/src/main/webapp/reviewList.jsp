@@ -13,7 +13,7 @@
 				</c:if>
 			</h2>
 			
-			<hr> <hr>
+			<hr>
 			<div style='margin-left:30%';>
 				<h3><i class="fa fa-trophy" style="font-size:24px"></i>기업별 리뷰 평균 평점</h3><br>
 				<c:forEach items="${ratingList}" var="ratingList">
@@ -29,7 +29,7 @@
 						<c:forEach items="${revList}" var="list">
 						<tr>
 							<%-- <td class="col-sm-1"></i>${list.reNo}</td> --%>
-							<td class="col-sm-8"><a href="ReviewPostDetailController.do?no=${list.reNo}">${list.title}</a></td>
+							<td class="col-sm-8"><a href="ReviewPostDetailController.do?no=${list.reNo}&nowPage=${pagination.nowPage}">${list.title}</a></td>
 							<td class="col-sm-1"><i class='far fa-eye icon'></i>${list.hits}</td>
 						</tr>
 						</c:forEach>

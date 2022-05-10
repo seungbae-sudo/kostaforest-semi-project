@@ -8,6 +8,7 @@
 			<li>작성자 회사 : ${rvo.mvo.comName}</li>
 			<li>작성일 : ${rvo.timePosted}</li>
 			<li>조회수 : ${rvo.hits}</li>
+			<li><i class='fas fa-list'></i><a href="ReviewPostListController.do?pageNo=${nowPage}">목록</a></li>
 		</ul>
 		
 		
@@ -30,7 +31,7 @@
 					<input type="hidden" name="no" value="${rvo.reNo}">
 				</form>
 				
-				 <button type="button"onclick="updatePost()">수정</button>
+				 <button type="button"onclick="updatePost()" >수정</button>
 				<button type="button" onclick="deletePost()">삭제</button>
 				
 			</td>
