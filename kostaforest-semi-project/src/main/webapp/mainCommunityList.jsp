@@ -5,7 +5,7 @@
 
 	<input type="hidden" name="pageNo" value="1">
 	<input type="text" id ="title" name="title" class="search" placeholder="검색어를 입력하세요">
-	<button type="button" onclick="checkLogin()">
+	<button type="button" onclick="checkLogin2()">
 		<img src="images/search.png">
 	</button>
 </form>
@@ -138,7 +138,7 @@
 </c:otherwise>
 </c:choose>
 <script type="text/javascript">
-	function checkLogin() {
+	function checkLogin2() {
 		if(${sessionScope.mvo==null}){
 			alert("로그인이 필요한 서비스 입니다.");
 			document.getElementById("title").value ="";
