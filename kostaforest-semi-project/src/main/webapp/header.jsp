@@ -17,10 +17,10 @@
 		</button>
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="ReviewPostListController.do">회사 리뷰</a></li>
+				<li class="nav-item"><a class="nav-link" href="ReviewPostListController.do" onclick="checkLogin()">회사 리뷰</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="EmploymentListController.do">채용 공고</a></li>
-				<li class="nav-item"><a class="nav-link" href="FAQController.do">문의 게시판</a></li>
+				<li class="nav-item"><a class="nav-link" href="FAQController.do" >문의 게시판</a></li>
 			</ul>
 			<c:choose>
 			<c:when test="${sessionScope.mvo==null }">  
@@ -47,3 +47,10 @@
 			</c:choose>
 		</div>
 	</nav>
+	
+	<script type="text/javascript">
+	function checkLogin() {
+		if(${sessionScope.mvo==null})
+			alert("로그인이 필요한 서비스 입니다");
+	}
+</script>
