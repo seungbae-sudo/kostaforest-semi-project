@@ -201,7 +201,6 @@ i {
 }
 
 .more {
-   color: green;
    position: absolute;
    float: right;
    line-height: 1.5px;
@@ -457,9 +456,51 @@ li {
 	background-color: #343a40!important;
     border-color: #343a40!important;
     margin-right: 5px;
+    margin-left: 5px;
 }
     
-    
+   /* review ranking*/
+   .ranking{
+   	width: 140px;
+    text-align: center;
+    height: 130px;
+    box-shadow: 2px 4px 6px lightgrey;
+    line-height: 3;
+    padding: 19px;
+    border-radius: 10%;
+    margin: 0 30px 30px;
+   }
+   
+  .ranking-wrap{
+  	background: whitesmoke;
+    width: 100%;
+    height: 260px;
+    padding: 18px;
+  }
+       
+ .ranking-wrap h3.ranking-title{
+ 	padding: 10px 30px;
+    width: 400px;
+    border: 1px solid #20452b;
+    border-radius: 20px;
+    margin-left: 30%;
+ }  
+ 
+ .ranking-box{
+ 	display: flex;
+    margin-left: 170px;
+ }
+ 
+ .ranking{
+ 	width: 180px;
+    text-align: center;
+    height: 130px;
+    box-shadow: 2px 4px 6px lightgrey;
+    line-height: 3;
+    padding: 19px;
+    border-radius: 10%;
+    margin: 0 30px 0px;
+ }
 
 </style>
 </head>

@@ -14,13 +14,16 @@
 			</h2>
 			
 			<hr> <hr>
-			<div style='margin-left:30%';>
-				<h3><i class="fa fa-trophy" style="font-size:24px"></i>기업별 리뷰 평균 평점</h3><br>
-				<c:forEach items="${ratingList}" var="ratingList">
-					<h3>${ratingList.mvo.comName}	</h3>
-					
-					<span>평균 평점 : ${ratingList.rating}</span>
-				</c:forEach>
+			<div class="ranking-wrap">
+				<h3 class="ranking-title"><i class="fa fa-trophy" style="font-size:24px"></i>기업별 리뷰 평균 평점</h3><br>
+				<div class="ranking-box">
+					<c:forEach items="${ratingList}" var="ratingList">
+						<div class="ranking">
+							<h3>${ratingList.mvo.comName}	</h3>
+							<span>평균 평점 : ${ratingList.rating}</span>
+						</div>
+					</c:forEach>
+				</div>
 			</div>
 			
 			<br><br>
