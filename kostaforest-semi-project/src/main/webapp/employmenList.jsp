@@ -35,7 +35,7 @@
 <ul class="pagination justify-content-center">
 	<c:if test="${pagination.previousPageGroup}">
 		<li class="page-item"><a class="page-link"
-			href="EmploymentListController.do?pageNo=${pagination.startPageOfPageGroup-1}">Previous</a></li>
+			href="EmploymentPostListController.do?pageNo=${pagination.startPageOfPageGroup-1}">Previous</a></li>
 	</c:if>
 	<c:forEach begin="${pagination.startPageOfPageGroup}"
 		end="${pagination.endPageOfPageGroup}" var="page">
@@ -43,17 +43,17 @@
 			<%--현재 페이지이면 --%>
 			<c:when test="${page==pagination.nowPage}">
 				<li class="page-item active"><a class="page-link"
-					href="EmploymentListController.do?pageNo=${page}">${page}</a></li>
+					href="EmploymentPostListController.do?pageNo=${page}">${page}</a></li>
 			</c:when>
 			<c:otherwise>
 				<li class="page-item"><a class="page-link"
-					href="EmploymentListController.do?pageNo=${page}">${page}</a></li>
+					href="EmploymentPostListController.do?pageNo=${page}">${page}</a></li>
 			</c:otherwise>
 		</c:choose>
 	</c:forEach>
 	<c:if test="${pagination.nextPageGroup}">
 		<li class="page-item"><a class="page-link"
-			href="EmploymentListController.do?pageNo=${pagination.endPageOfPageGroup+1}">Next</a></li>
+			href="EmploymentPostListController.do?pageNo=${pagination.endPageOfPageGroup+1}">Next</a></li>
 	</c:if>
 </ul>
 

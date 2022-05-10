@@ -28,7 +28,7 @@ public class CheckLoginInterceptor {
 		
 		
 
-		permitAllList.add("EmploymentListController");
+		permitAllList.add("EmploymentPostListController");
 		permitAllList.add("EmploymentPostDetailController");
 		
 		permitAllList.add("MainHomtListController");

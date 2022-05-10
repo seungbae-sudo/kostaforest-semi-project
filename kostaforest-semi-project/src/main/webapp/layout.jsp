@@ -20,7 +20,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
 
 <style>
-
+.space-top{
+	margin-top:30px;
+}
 /*평점 별모양 css*/
 .badge{
 	line-height:30px;
@@ -43,7 +45,7 @@
 }
 
 .title_line {
-	width: 80%;
+	width: 100%;
 	height: 35px;
 }
 
@@ -61,7 +63,7 @@
 	padding-top: 20px;
 	padding-bottom: 30px;
 }
-
+`
 .boardlist th, .boardlist td {
 	text-align: center;
 }
@@ -77,8 +79,6 @@
 }
 
 .input-container {
-	display: -ms-flexbox; /* IE10 */
-	display: flex;
 	width: 100%;
 	margin-bottom: 15px;
 }
@@ -289,7 +289,6 @@ ul.info li {
 	padding: 15px 20px;
 	border: none;
 	cursor: pointer;
-	width: 100%;
 	opacity: 0.8;
 }
 
@@ -298,8 +297,11 @@ ul.info li {
 }
 
 #group {
-	width: 100%;
-	height: 45px;
+	margin-left: 50PX;
+    width: 45%;
+    height: 45px;
+    padding: 10px;
+    border-radius: 8px;
 }
 
 .icon-reg {
@@ -347,6 +349,15 @@ ul.info li {
 	background-color: #e9e9e9;
 	border-radius: 30px;
 	transition: .5s;
+}
+
+.register-btn {
+	width: 43%;
+    margin-left: 59px;
+}
+.register-btn:hover{
+opacity: 0.7;
+color: #fff;
 }
 
 .social-icons {
@@ -407,6 +418,15 @@ ul.info li {
 
 #register {
 	left: 450px;
+	max-width: 562px; 
+	margin-left: 370px;
+}
+#register h2{
+	margin-left: 20%;
+}
+#register div.input-container input{
+	width:250px;
+	margin-right: 20px;
 }
 
 * {
@@ -438,11 +458,15 @@ li {
     padding-left: 10px;
 }
 
+.emp-wrap{
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
 .emp-mail-click a{
 	font-size: 20px;
-    background: #343a40;
+    background: #343a40!important;
     color: #fff;
-    padding: 5px 10px;
+    padding: 15px 40px;
     border-radius: 5px;
 }
 
@@ -450,6 +474,11 @@ li {
 	margin-top: 100px;
 }
 
+
+.emp-email{
+	width: 28%;
+    padding: 6px;
+}
 
 /*pagination 버튼*/
 .page-item.active .page-link{
@@ -501,6 +530,20 @@ li {
     border-radius: 10%;
     margin: 0 30px 0px;
  }
+  #grade-td{
+  	padding:  0!important;
+  }
+
+ #grade-td span{
+ 	width: 75%;
+ 	display: inline-block;;
+ 	
+ }
+ 
+ #grade-td select{
+ 	width: 22%;
+ }
+
 
 </style>
 </head>

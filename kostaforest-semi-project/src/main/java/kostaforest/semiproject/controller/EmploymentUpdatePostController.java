@@ -25,7 +25,7 @@ public class EmploymentUpdatePostController implements Controller {
 		empPostVO.setEmpMail(empMail);
 		EmploymentBoardDAO.getInstance().updatePost(empPostVO);
 
-		return "redirect:EmploymentListController.do";
+		return "redirect:EmploymentPostListController.do";
 	}
 
 }

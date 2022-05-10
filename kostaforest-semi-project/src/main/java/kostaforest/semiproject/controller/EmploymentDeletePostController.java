@@ -11,7 +11,7 @@ public class EmploymentDeletePostController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String no=request.getParameter("no");
 		EmploymentBoardDAO.getInstance().deletePostByNo(no);		
-		return "redirect:EmploymentListController.do";
+		return "redirect:EmploymentPostListController.do";
 	}
 
 }

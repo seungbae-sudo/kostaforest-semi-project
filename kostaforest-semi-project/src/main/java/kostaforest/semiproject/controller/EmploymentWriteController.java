@@ -24,7 +24,7 @@ public class EmploymentWriteController implements Controller {
 		MemberVO mvo= (MemberVO) session.getAttribute("mvo");
 		EmploymentPostVO empPostVO=new EmploymentPostVO(title,empGroup,content,empMail,mvo);
 		EmploymentBoardDAO.getInstance().posting(empPostVO);
-		return "redirect:EmploymentListController.do";
+		return "redirect:EmploymentPostListController.do";
 	}
 
 }

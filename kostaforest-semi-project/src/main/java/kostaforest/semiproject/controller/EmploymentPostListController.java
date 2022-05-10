@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import kostaforest.semiproject.model.EmploymentBoardDAO;
 import kostaforest.semiproject.model.Pagination;
 
-public class EmploymentListController implements Controller {
+public class EmploymentPostListController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
