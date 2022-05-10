@@ -4,8 +4,8 @@
 <form action="CommunitySearchController.do" method="get" class="search-form">
 
 	<input type="hidden" name="pageNo" value="1">
-	<input type="search" name="title" class="search" placeholder="검색어를 입력하세요">
-	<button type="submit">
+	<input type="search" id ="title" name="title" class="search" placeholder="검색어를 입력하세요">
+	<button type="button" onclick="checkLogin()">
 		<img src="images/search.png">
 	</button>
 </form>
@@ -132,11 +132,16 @@
 		</tr>
 		</c:forEach>			
 		</tbody>
-		</table>
-		
+		</table>		
 	</div>
-
 </div>
 </c:otherwise>
-
 </c:choose>
+<script type="text/javascript">
+	function checkLogin() {
+		if(${sessionScope.mvo==null}){
+			alert("로그인이 필요한 서비스 입니다.");
+			document.getElementById("title").value ="";
+		}
+	}
+</script>
