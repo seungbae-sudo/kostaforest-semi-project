@@ -11,10 +11,12 @@ public class CommunityUpdateFormController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String pageNo = request.getParameter("pageNo");
+		String carNo = request.getParameter("carNo");
 		String no = request.getParameter("no");
 		request.setAttribute("caList", CategoryDAO.getInstance().list());
 		request.setAttribute("cvo", CommunityBoardDAO.getInstance().findPostByNo(no));
 		request.setAttribute("pageNo", pageNo);
+		request.setAttribute("carNo", carNo);
 		request.setAttribute("url", "communityUpdateForm.jsp");
 		return "layout.jsp";
 	}

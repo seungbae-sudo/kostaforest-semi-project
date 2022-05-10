@@ -12,9 +12,9 @@
 					<select id = "carNo" name="carNo" class="title_line">
 							<!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
 							<option value="">게시판을 선택해주세요.</option>
-							<c:forEach items="${caList}" var="list">
-								<option value="${list.carNo }">${list.carName }</option>
-							</c:forEach>
+							<option value="1"  <c:if test="${carNo==1}"> selected </c:if> >회사 이야기</option>
+						    <option value="2" <c:if test="${carNo==2}"> selected </c:if>>취미 생활 이야기</option>
+						    <option value="3" <c:if test="${carNo==3}"> selected </c:if>>주식 이야기</option>
 
 					</select> 
 					</td>

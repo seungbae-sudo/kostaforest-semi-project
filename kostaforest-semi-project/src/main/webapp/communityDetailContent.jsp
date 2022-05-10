@@ -28,6 +28,7 @@
 	<form action="CommunityUpdateFormController.do" method="post"
 		id="UpdateForm">
 		<input type="hidden" name="no" value="${cvo.boardNo}">
+		<input type="hidden" name="carNo" value="${carNo}">
 		<input type="hidden" name="pageNo" value="${pageNo}">
 
 	</form>
