@@ -9,25 +9,24 @@
  <a href="mailto:kostaforest@gmail.com" style='color:#fff;'> <button type="button" class="btn btn-secondary" style='width:20%;'>이메일문의</button></a>
   </p>
   </div>
-    <c:forEach items="${faqList }" var="list">
+    
   <div id="accordion">
+  <c:forEach items="${faqList }" var="list">
     <div class="card">
       <div class="card-header">
         <a class="card-link" data-toggle="collapse" href="#collapse${list.faqNo}">
          	Q. ${list.ask}
         </a>
       </div>
-      <div id="collapse${list.faqNo}" class="collapse show" data-parent="#accordion">
+      <div id="collapse${list.faqNo}" class="collapse" data-parent="#accordion">
         <div class="card-body">
           A. ${list.answer}
         </div>
       </div>
-    </div>
-
-
-    
-
+    </div> 
+ </c:forEach>
 </div><%--아코디언 --%>
     
-    </c:forEach>
+   
 </form>
+

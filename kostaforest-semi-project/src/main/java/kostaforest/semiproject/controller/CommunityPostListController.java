@@ -22,7 +22,7 @@ public class CommunityPostListController implements Controller {
 		}
 		request.setAttribute("pagination", pagination);
 		request.setAttribute("carNo", carNo);
-		request.setAttribute("cmuList", CommunityBoardDAO.getInstance().findAllPostList2(pagination, carNo));	
+		request.setAttribute("cmuList", CommunityBoardDAO.getInstance().findAllPostList(pagination, carNo));	
 		request.setAttribute("caList", CategoryDAO.getInstance().list());
 		request.setAttribute("url", "communityList.jsp");
 		return "layout.jsp";

@@ -8,7 +8,6 @@ public class EmploymentPostVO {
 	private String empMail;
 	private String content;
 	private String timePosted;
-	private int likeNo;
 	private int hits;
 	private MemberVO mvo;
 
@@ -27,7 +26,7 @@ public class EmploymentPostVO {
 		this.mvo = mvo;
 	}
 
-	public EmploymentPostVO(int boardNo, String title, String empGroup, String content, String timePosted, int likeNo,
+	public EmploymentPostVO(int boardNo, String title, String empGroup, String content, String timePosted,
 			int hits, MemberVO mvo, String empMail) {
 		super();
 		this.boardNo = boardNo;
@@ -36,7 +35,6 @@ public class EmploymentPostVO {
 		this.content = content;
 		this.empMail = empMail;
 		this.timePosted = timePosted;
-		this.likeNo = likeNo;
 		this.hits = hits;
 		this.mvo = mvo;
 
@@ -90,14 +88,6 @@ public class EmploymentPostVO {
 		this.timePosted = timePosted;
 	}
 
-	public int getLikeNo() {
-		return likeNo;
-	}
-
-	public void setLikeNo(int likeNo) {
-		this.likeNo = likeNo;
-	}
-
 	public int getHits() {
 		return hits;
 	}
@@ -117,12 +107,8 @@ public class EmploymentPostVO {
 	@Override
 	public String toString() {
 		return "EmploymentPostVO [boardNo=" + boardNo + ", title=" + title + ", empGroup=" + empGroup + ", empMail="
-				+ empMail + ", content=" + content + ", timePosted=" + timePosted + ", likeNo=" + likeNo + ", hits="
-				+ hits + ", mvo=" + mvo + "]";
+				+ empMail + ", content=" + content + ", timePosted=" + timePosted + ", hits=" + hits + ", mvo=" + mvo
+				+ "]";
 	}
-
-
-
-	
 
 }

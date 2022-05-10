@@ -49,32 +49,22 @@ public class CommunityBoardDAO {
 			closeAll(pstmt, con);
 		}
 	}
-	public ArrayList<CommunityPostVO> findAllPostList(String carNo) throws SQLException{
-		ArrayList<CommunityPostVO> list = new ArrayList<CommunityPostVO>();
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs= null;
-		try {
-			con = dataSource.getConnection();
-			String sql = "SELECT board_no, title,like_no,hits FROM CMU_BOARD WHERE car_no= ? ORDER by board_no DESC";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, carNo);
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				CommunityPostVO cvo = new CommunityPostVO();
-				cvo.setBoardNo(rs.getInt("board_no"));
-				cvo.setTitle(rs.getString("title"));
-				cvo.setLikeNo(rs.getInt("like_no"));
-				cvo.setHits(rs.getInt("hits"));
-				list.add(cvo);
-			}
-		}finally {
-			closeAll(rs, pstmt, con);
-		}
-		return list;
-	}
+	/*
+	 * public ArrayList<CommunityPostVO> findAllPostList(String carNo) throws
+	 * SQLException{ ArrayList<CommunityPostVO> list = new
+	 * ArrayList<CommunityPostVO>(); Connection con = null; PreparedStatement pstmt
+	 * = null; ResultSet rs= null; try { con = dataSource.getConnection(); String
+	 * sql =
+	 * "SELECT board_no, title,like_no,hits FROM CMU_BOARD WHERE car_no= ? ORDER by board_no DESC"
+	 * ; pstmt = con.prepareStatement(sql); pstmt.setString(1, carNo); rs =
+	 * pstmt.executeQuery(); while(rs.next()) { CommunityPostVO cvo = new
+	 * CommunityPostVO(); cvo.setBoardNo(rs.getInt("board_no"));
+	 * cvo.setTitle(rs.getString("title")); cvo.setLikeNo(rs.getInt("like_no"));
+	 * cvo.setHits(rs.getInt("hits")); list.add(cvo); } }finally { closeAll(rs,
+	 * pstmt, con); } return list; }
+	 */
 	
-	public ArrayList<CommunityPostVO> findAllPostList2(Pagination p, String carNo) throws SQLException{
+	public ArrayList<CommunityPostVO> findAllPostList(Pagination p, String carNo) throws SQLException{
 		ArrayList<CommunityPostVO> list = new ArrayList<CommunityPostVO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
