@@ -9,7 +9,6 @@ import kostaforest.semiproject.model.EmploymentPostVO;
 
 public class EmploymentPostDetailController implements Controller {
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
