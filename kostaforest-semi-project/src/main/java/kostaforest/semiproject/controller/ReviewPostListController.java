@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import kostaforest.semiproject.model.Pagination;
 import kostaforest.semiproject.model.RatingVO;
 import kostaforest.semiproject.model.ReviewBoardDAO;
-import kostaforest.semiproject.model.ReviewPostVO;
 
 public class ReviewPostListController implements Controller {
 

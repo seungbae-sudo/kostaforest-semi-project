@@ -8,7 +8,7 @@
 			<li>작성자 회사 : ${rvo.mvo.comName}</li>
 			<li>작성일 : ${rvo.timePosted}</li>
 			<li>조회수 : ${rvo.hits}</li>
-			<li><i class='fas fa-list'></i><a href="ReviewPostListController.do?pageNo=${nowPage}">목록</a></li>
+			<li><a href="ReviewPostListController.do?pageNo=${nowPage}"><i class='fas fa-list'></i>목록</a></li>
 		</ul>
 		
 		
@@ -18,7 +18,7 @@
 		
 		
 		<div class="content">
-			<pre><font size="4">${rvo.content}</pre>
+			<pre>${rvo.content}</pre>
 		</div>
 	
 		<c:if test="${sessionScope.mvo.id eq rvo.mvo.id }">

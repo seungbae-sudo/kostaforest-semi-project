@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kostaforest.semiproject.model.ReviewBoardDAO;
-import kostaforest.semiproject.model.ReviewPostVO;
 
 public class ReviewPostUpdateFormController implements Controller {
 

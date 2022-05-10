@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-		<h3><i class='fas fa-eraser' style='font-size:24px'></i></i>리뷰 수정</h3>
+		<h3><i class='fas fa-eraser' style='font-size:24px'></i>리뷰 수정</h3>
 		<form method="post" action="ReviewPostUpdateController.do" id="Update">
 			<table class="table">
 			<tr>

@@ -7,7 +7,7 @@
 			<li>작성자 회사 : ${empPostVO.mvo.comName }</li>
 			<li>작성일 : ${empPostVO.timePosted }</li>
 			<li>조회수 : ${empPostVO.hits }</li>
-			<li><a href="EmploymentListController.do?pageNo=${nowPage}">목록<i class='fas fa-list'></i></a></li>
+			<li><a href="EmploymentListController.do?pageNo=${nowPage}"><i class='fas fa-list'></i>목록</a></li>
 		</ul>
 		<div class="content">
 			<pre>${empPostVO.content }</pre>

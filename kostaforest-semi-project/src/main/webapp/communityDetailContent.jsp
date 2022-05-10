@@ -9,7 +9,7 @@
 	<li>작성자 회사 : ${cvo.mvo.comName }</li>
 	<li>작성일 : ${cvo.timePosted }</li>
 	<li>조회수 : ${cvo.hits }</li>
-	<li><a href="CommunityPostListController.do?carNo=${carNo}&pageNo=${pageNo}">목록</a></li>
+	<li><a href="CommunityPostListController.do?carNo=${carNo}&pageNo=${pageNo}"><i class='fas fa-list'></i>목록</a></li>
 </ul>
 <div class="content">
 	<pre>${cvo.content }</pre>
