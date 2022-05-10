@@ -142,8 +142,11 @@
 		if(${sessionScope.mvo==null}){
 			alert("로그인이 필요한 서비스 입니다.");
 			document.getElementById("title").value ="";
-		}
+		}else if(${sessionScope.mvo.memberGroup eq '기업'}){
+			alert("기업은 검색할 수 없습니다.");
+			document.getElementById("title").value ="";
+		}else{
 			document.getElementById("Search").submit();
-		
+		}
 	}
 </script>
