@@ -26,7 +26,7 @@
 				</tr>
 				<tr>
 					<td class="emp-mail-form">
-						<input type="text" name="employmentEmail" placeholder="지원받을 이메일 주소를 입력해주세요 " required="required">
+						<input type="text" id="employmentEmail" name="employmentEmail" placeholder="지원받을 이메일 주소를 입력해주세요 " required="required">
 					</td>
 				</tr>
 			</table>
@@ -46,9 +46,15 @@
 				alert("조건을 선택해주세요");
 				return;
 			}else{
-				document.getElementById("Write").submit();
+				if(document.getElementById("employmentEmail").value==""){
+					alert("지원 받을 이메일을 입력해 주세요")
+				}else{
+					document.getElementById("Write").submit();
+				}
+				
 			}
 			
 			
 		}
+		
 	</script>
