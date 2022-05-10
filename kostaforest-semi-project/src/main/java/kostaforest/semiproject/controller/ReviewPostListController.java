@@ -28,7 +28,7 @@ public class ReviewPostListController implements Controller {
 		ArrayList<RatingVO> ratingList=ReviewBoardDAO.getInstance().findRatingByNo();
 		request.setAttribute("ratingList", ratingList);
 
-		request.setAttribute("url","showList3.jsp");
+		request.setAttribute("url","reviewList.jsp");
 		return "layout.jsp";
 	}
 
