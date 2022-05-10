@@ -161,17 +161,15 @@ public class ReviewBoardDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs= null;
-		
 		try {
 			con=dataSource.getConnection();
 			StringBuilder sql=new StringBuilder();
+			sql.append("select*from( ");
 			sql.append("select com_name, round(avg(rating),2) ");
-			sql.append(" from( ");
-			sql.append(" select e.com_name ,r.rating ");
-			sql.append(" from EMP_MEMBER e, REVIEW r ");
-			sql.append(" where e.id=r.id ");
-			sql.append(" )GROUP BY com_name ");
-			sql.append(" order by avg(rating) desc ");
+			sql.append("from(select e.com_name ,r.rating ");
+			sql.append("from EMP_MEMBER e, REVIEW r where e.id=r.id ");
+			sql.append(")GROUP BY com_name order by avg(rating) desc)  ");
+			sql.append("WHERE ROWNUM <=3 ");
 			pstmt = con.prepareStatement(sql.toString());
 			rs=pstmt.executeQuery();
 			while(rs.next()) {

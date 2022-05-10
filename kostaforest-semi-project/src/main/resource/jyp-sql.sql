@@ -12,3 +12,24 @@ FROM EMPLOYMENT
 ) WHERE rnum BETWEEN 1 AND 5
 
 
+SELECT 가격
+FROM 
+ (
+  SELECT 가격
+  FROM 테이블
+  ORDER BY 가격 DESC
+ )
+WHERE  <= 10
+
+select*
+from
+(
+select com_name, round(avg(rating),2) 
+from( 
+			select e.com_name ,r.rating
+			from EMP_MEMBER e, REVIEW r
+			where e.id=r.id 
+	)GROUP BY com_name 
+order by avg(rating) desc
+)
+WHERE ROWNUM <=3
