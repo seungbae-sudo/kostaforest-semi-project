@@ -3,12 +3,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-		
+		<h2 class="title">				
+			'${requestScope.title }'검색결과
+		</h2>
 		<table class="table">
-			<h2 class="title">		
-					
-					'${requestScope.title }'검색결과
-					
+			
 					<%-- <form action="CommunityPostListController.do" method="get">
 				
 						<select id ="carNo" name="carNo" onchange="submit(this.form)" >
@@ -25,7 +24,7 @@
 					<button class="write">글쓰기</button>
 					</form>
 				</c:if>
-			</h2>
+			
 				
 			<tbody>
 			<c:choose>
