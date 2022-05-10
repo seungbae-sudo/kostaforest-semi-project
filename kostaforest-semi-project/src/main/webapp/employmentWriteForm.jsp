@@ -26,15 +26,11 @@
 				</tr>
 				<tr>
 					<td class="emp-mail-form">
-						<input type="text"  class="emp-email" name="employmentEmail" placeholder="지원받을 이메일 주소를 입력해주세요 " required="required">
+						<input type="text"  class="emp-email" id="employmentEmail" name="employmentEmail" placeholder="지원받을 이메일 주소를 입력해주세요 " required="required">
 					</td>
 				</tr>
 			</table>
 			
-				
-		
-
-
 			<div class="text-center">
 				<button type="button" class="btn btn-success" onclick="WriteCheck()">확인</button>
 				<button type="reset" class="btn btn-success">취소</button>
