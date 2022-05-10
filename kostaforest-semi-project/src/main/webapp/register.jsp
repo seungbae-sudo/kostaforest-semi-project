@@ -56,19 +56,10 @@
 		let checkPw = document.getElementById("checkPw");
 		if (pw.length < 8) {
 			checkPw.innerHTML = "<font color=red>비밀번호를 8자이상 입력하세요</font>";
-<<<<<<< HEAD
 			checkPwResult.innerHTML = "<font color=red>비밀번호를 일치시켜 주세요 </font>";
 		}  else {// 입력한 비밀번호가 8자 이상이 될 때 ajax 방식으로 서버에 요청 
 			checkPw.innerHTML = "<font color=green>비밀번호가 8자리 이상입니다</font>";		
 		 if(pw==pw2) {
-=======
-
-		} else {// 입력한 비밀번호가 8자 이상이 될 때 ajax 방식으로 서버에 요청 
-			checkPw.innerHTML = "<font color=green>비밀번호가 8자리 이상입니다</font>";
-			if (pw != pw2) {
-				checkPwResult.innerHTML = "<font color=red>비밀번호를 일치시켜 주세요 </font>";
-			} else {
->>>>>>> refs/heads/lsj-0510
 				checkPwResult.innerHTML = "<font color=green>동일한 비밀번호 입니다.</font>";
 			}//else 
 		}//else 
