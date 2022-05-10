@@ -14,9 +14,6 @@ public class CommunityDeleteController implements Controller {
 		String carNo = request.getParameter("carNo");
 		CommunityBoardDAO.getInstance().deleteByBoardNoComment(no);
 		CommunityBoardDAO.getInstance().deletePostByNo(no);
-		
-		request.setAttribute("url", "communityList.jsp");
-		request.setAttribute("carNo", carNo);
 		return "redirect:CommunityPostListController.do?carNo="+carNo+"&pageNo="+pageNo;
 	}
 
