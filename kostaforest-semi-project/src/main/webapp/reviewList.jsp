@@ -33,7 +33,7 @@
 			<tr>
 				<%-- <td class="col-sm-1"></i>${list.reNo}</td> --%>
 				<td class="col-sm-8"><a
-					href="ReviewPostDetailController.do?no=${list.reNo}&nowPage=${pagination.nowPage}">${list.title}</a></td>
+					href="ReviewPostDetailController.do?no=${list.reNo}&nowPage=${pagination.nowPage}">[ <b>${list.mvo.comName} </b> ] ${list.title}</a></td>
 				<td class="col-sm-1"><i class='far fa-eye icon'></i>${list.hits}</td>
 			</tr>
 		</c:forEach>

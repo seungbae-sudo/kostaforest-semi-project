@@ -73,6 +73,7 @@ public class ReviewBoardDAO {
 				rvo.setReNo(rs.getInt("re_no"));
 				rvo.setTitle(rs.getString("title"));
 				rvo.setHits(rs.getInt("hits"));
+				rvo.setMvo(mvo);
 				list.add(rvo);
 			}
 		} finally {

@@ -6,11 +6,13 @@ import kostaforest.semiproject.model.EmploymentBoardDAO;
 import kostaforest.semiproject.model.MemberDAO;
 import kostaforest.semiproject.model.MemberVO;
 import kostaforest.semiproject.model.Pagination;
+import kostaforest.semiproject.model.ReviewBoardDAO;
 
 public class UnitTest {
 
 	public static void main(String[] args) {
 		EmploymentBoardDAO dao = EmploymentBoardDAO.getInstance();
+		ReviewBoardDAO Rdao = ReviewBoardDAO.getInstance();
 		MemberDAO mdao = MemberDAO.getInstance();
 		/*
 		Pagination p=new Pagination(48,9);
@@ -62,8 +64,10 @@ public class UnitTest {
 //			mvo.setMemberGroup("기업");
 //			mdao.register(mvo);
 //			System.out.println(mvo);
-			System.out.println(dao.findPostList(new Pagination(10,2)));
+			//System.out.println(dao.findPostList(new Pagination(10,2)));
 			
+			Pagination p=new Pagination(22,1);
+			System.out.println(Rdao.findPostList(p));
 
 		} catch (SQLException e) {
 

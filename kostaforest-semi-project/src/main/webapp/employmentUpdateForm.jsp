@@ -29,18 +29,18 @@
 					placeholder="본문내용" required="required">${empPostVO.content }</textarea></td>
 		</tr>
 		<tr>
-			<td><input type="text" name="employmentEmail"
+			<td><input type="text"  class="emp-email"  name="employmentEmail"
 				placeholder="지원받을 이메일 주소를 입력해주세요 "></td>
 		</tr>
 	</table>
 
-
-	<div class="text-center">
-		<button type="button" class="btn btn-success" onclick="updateCheck()">수정</button>
-		<button type="reset" class="btn btn-success">취소</button>
-	</div>
-
 </form>
+
+<div class="text-center">
+	<button type="button" onclick="updateCheck()" class="btn btn-success">수정</button>
+	<button type="reset" class="btn btn-success">취소</button>
+</div>
+
 
 <script type="text/javascript">
 	function updateCheck() {

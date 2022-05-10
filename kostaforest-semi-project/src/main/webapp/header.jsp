@@ -19,7 +19,7 @@
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="ReviewPostListController.do" onclick="checkLogin()">회사 리뷰</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="EmploymentListController.do">채용 공고</a></li>
+					href="EmploymentPostListController.do">채용 공고</a></li>
 				<li class="nav-item"><a class="nav-link" href="FAQController.do" >문의 게시판</a></li>
 			</ul>
 			<c:choose>

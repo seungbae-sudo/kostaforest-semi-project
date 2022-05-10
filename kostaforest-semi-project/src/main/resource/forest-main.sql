@@ -189,6 +189,14 @@ FROM(
 WHERE r.id=m.id AND rnum BETWEEN 1 AND 5
 
 
+
+SELECT r.re_no, m.com_name, r.title, r.hits
+FROM(  
+	SELECT ROW_NUMBER() OVER(ORDER BY re_no DESC)as rnum, re_no,title,hits,id 
+	FROM REVIEW 
+	)r, EMP_MEMBER m 
+WHERE r.id=m.id AND rnum BETWEEN 1 AND 5
+
 --강사님 oracel sql
 
 SELECT b.rnum,b.no,b.title,b.time_posted,b.hits,m.name

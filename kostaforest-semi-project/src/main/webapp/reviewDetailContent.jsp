@@ -2,7 +2,12 @@
 	pageEncoding="UTF-8"%>
 	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-		<h3 class="title-detail">${rvo.title}</h3>
+
+		<div class="rating">
+			<h2><i class='fab fa-telegram-plane' style='font-size:36px'></i>기업 평점   <span class="rating-result">${rvo.rating}</span> </h2>
+		</div>
+		
+		<h3 class="title-detail">[ <b>${rvo.mvo.comName}</b> ] ${rvo.title}</h3>
 		<hr>
 		<ul class="info">
 			<li>작성자 회사 : ${rvo.mvo.comName}</li>
@@ -12,9 +17,7 @@
 		</ul>
 		
 		
-		<div class="rating">
-			<h2>회사 평가점수  <span class="badge badge-secondary">${rvo.rating}</span> 점</h2>
-		</div>
+		
 		
 		
 		<div class="content">
@@ -30,9 +33,11 @@
 				<form id="updateForm" action="ReviewPostUpdateFormController.do" method="post">			<%--삭제를 위한 form  : post방식--%>
 					<input type="hidden" name="no" value="${rvo.reNo}">
 				</form>
-				
-				 <button type="button"onclick="updatePost()" >수정</button>
-				<button type="button" onclick="deletePost()">삭제</button>
+				<div class="text-center space-top">
+				<button type="button" class="btn btn-success" onclick="updatePost()">수정</button>
+				<button type="button"  class="btn btn-success" onclick="deletePost()">삭제</button>
+				</div>
+				 
 				
 			</td>
 		</tr>
