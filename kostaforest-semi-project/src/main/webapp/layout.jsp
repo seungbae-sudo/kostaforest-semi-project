@@ -18,8 +18,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 	
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
+
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+}
 .space-top{
 	margin-top:30px;
 }
@@ -239,8 +245,13 @@ li {
     height: 700px;
     width: 100%;
     overflow: scroll;
+    font-size: 18px;
+      -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
 }
-
+.content::-webkit-scrollbar {
+    display: none;
+}
 
 ul.info {
 	display: flex;
