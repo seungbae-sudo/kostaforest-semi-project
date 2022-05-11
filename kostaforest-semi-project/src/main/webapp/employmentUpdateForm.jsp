@@ -29,13 +29,12 @@
 					placeholder="본문내용" required="required">${empPostVO.content }</textarea></td>
 		</tr>
 		<tr>
-			<td><input type="text"  class="emp-email"  name="employmentEmail"
+			<td><input type="text"  class="emp-email"  name="employmentEmail" value="${empPostVO.empMail}"
 				placeholder="지원받을 이메일 주소를 입력해주세요 "></td>
 		</tr>
 	</table>
 
 </form>
-
 <div class="text-center">
 	<button type="button" onclick="updateCheck()" class="btn btn-success">수정</button>
 	<button type="reset" class="btn btn-success">취소</button>
