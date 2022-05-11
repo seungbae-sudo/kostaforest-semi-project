@@ -245,7 +245,7 @@ li {
     height: 700px;
     width: 100%;
     overflow: scroll;
-    font-size: 18px;
+    font-size: 19px;
       -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none;
 }
