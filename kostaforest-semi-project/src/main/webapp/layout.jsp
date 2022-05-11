@@ -234,11 +234,13 @@ li {
 
 .content {
 	border: 1px solid lightgray;
-	border-radius: 10px;
-	padding: 10px;
-	height: 400px;
-	width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    height: 700px;
+    width: 100%;
+    overflow: scroll;
 }
+
 
 ul.info {
 	display: flex;
@@ -544,6 +546,11 @@ li {
  	width: 22%;
  }
 
+
+.active -scroll{
+  position: fixed;
+  top: 0px;
+}
 
 </style>
 </head>
