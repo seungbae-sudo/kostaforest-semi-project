@@ -19,7 +19,7 @@
 		<table class="table">		
 					<c:choose>
 						<c:when test="${sessionScope.mvo.memberGroup eq '직장인' }">
-							<form action="CommunityWriteFormController.do" method="post">
+							<form action="CommunityWriteFormController.do" method="get">
 								<input type="hidden" name="no" value="${carNo}">
 								<input type="hidden" name="pageNo" value="${pagination.nowPage}">
 								<button type="submit" class="write">글쓰기</button>
