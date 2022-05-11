@@ -25,10 +25,8 @@
 
 *{
 	font-family: 'Noto Sans KR', sans-serif;
-}
-.space-top{
-	margin-top:30px;
-}
+}  
+        
 /*평점 별모양 css*/
 .badge{
 	line-height:30px;
