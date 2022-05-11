@@ -81,7 +81,7 @@
 				type="hidden" name="pageNo" value="${pageNo}"> <input
 				type="text" id="com_content" name="com_content"
 				class="comment-write" placeholder="댓글을 입력하세요">
-			<button class="comment-write-ok" type="button" onclick="compost()">${pageNo}작성</button>
+			<button class="comment-write-ok" type="button" onclick="compost()">작성</button>
 		</div>
 	</form>
 
