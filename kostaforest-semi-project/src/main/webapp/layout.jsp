@@ -50,7 +50,8 @@
 
 .title_line {
 	width: 100%;
-	height: 35px;
+	height: 45px;
+	padding: 6px;
 }
 
 .btn-success {
@@ -127,6 +128,7 @@ i {
    flex: auto;
    display: flex;
    flex-direction: row-reverse;
+   align-items: center;
 }
 
 .reg-form button {
@@ -240,7 +242,7 @@ li {
 	border: 1px solid lightgray;
     border-radius: 10px;
     padding: 10px;
-    height: 700px;
+    height: 500px;
     width: 100%;
     overflow: scroll;
     font-size: 19px;
@@ -286,7 +288,9 @@ ul.info li {
 	margin-top: 30px;
 }
 
-
+.text-center.space-top{
+	margin-top: 30px;
+}
 
 
 /* FAQ */
@@ -388,7 +392,7 @@ color: #fff;
 }
 
 .input-field {
-	width: 1000px;
+	width: 275px;
 	height: 70px;
 	background: #f7f7f7;
 	padding: 10px;
@@ -397,6 +401,7 @@ color: #fff;
 	border-bottom: none;
 	border-left: none;
 	border-right: none;
+	margin-bottom: 9px;
 }
 
 
@@ -547,20 +552,33 @@ li {
 
  #grade-td span{
  	width: 75%;
- 	display: inline-block;;
- 	
- }
+    display: inline-block;
+    text-align: right;
+    padding-right: 30px;
+    font-size: 18px;
+    margin: 0.75rem;
+}
+
  
  #grade-td select{
- 	width: 22%;
+ 	width: 20%;
+ 	padding: 6px;
  }
-
-
+title_line_update{
+ 	width: 200px;
+    height: 35px;
+    padding-left: 10px;
+}
+   
 .active -scroll{
   position: fixed;
   top: 0px;
 }
 
+.register-update-ok{
+	width: 50%;
+    margin-left: 56px;
+}
 </style>
 </head>
 <body>

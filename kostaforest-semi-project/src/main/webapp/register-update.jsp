@@ -21,5 +21,5 @@
 					class="input-field" type="text" placeholder="회사명" name="comName" value="${sessionScope.mvo.comName}">
 			</div>
 
-			<button type="submit" class="btn">UPDATE</button>
+			<button class="btn register-update-ok"type="submit">수정 완료</button>
 		</form>

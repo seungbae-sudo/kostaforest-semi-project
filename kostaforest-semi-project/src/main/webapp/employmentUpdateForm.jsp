@@ -10,7 +10,7 @@
 	<table class="table">
 		<tr>
 			<td id="grade-td"><span> ${empPostVO.empGroup}</span> <select
-				id="UpdateEmpGroup" name="empGroup" class="title_line grade">
+				id="UpdateEmpGroup" name="empGroup" class="title_line_update grade">
 					<!-- onchange이벤트 : select option value가 변경될 떄 발생되는 이벤트  -->
 					<option value="">조건</option>
 					<option value="정규직">정규직</option>
@@ -29,16 +29,16 @@
 					placeholder="본문내용" required="required">${empPostVO.content }</textarea></td>
 		</tr>
 		<tr>
-			<td><input type="text"  class="emp-email"  name="employmentEmail" value="${empPostVO.empMail}"
-				placeholder="지원받을 이메일 주소를 입력해주세요 "></td>
+			<td><input type="text" class="emp-email" name="employmentEmail"
+				value="${empPostVO.empMail}" placeholder="지원받을 이메일 주소를 입력해주세요 "></td>
 		</tr>
 	</table>
-
+	<div class="text-center">
+		<button type="button" onclick="updateCheck()" class="btn btn-success">수정</button>
+		<button type="reset" class="btn btn-success">취소</button>
+	</div>
 </form>
-<div class="text-center">
-	<button type="button" onclick="updateCheck()" class="btn btn-success">수정</button>
-	<button type="reset" class="btn btn-success">취소</button>
-</div>
+
 
 
 <script type="text/javascript">
