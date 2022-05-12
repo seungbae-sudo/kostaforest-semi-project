@@ -3,7 +3,6 @@ package kostaforest.semiproject.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kostaforest.semiproject.model.CategoryDAO;
 import kostaforest.semiproject.model.CommunityBoardDAO;
 import kostaforest.semiproject.model.Pagination;
 
@@ -23,7 +22,6 @@ public class CommunityPostListController implements Controller {
 		request.setAttribute("pagination", pagination);
 		request.setAttribute("carNo", carNo);
 		request.setAttribute("cmuList", CommunityBoardDAO.getInstance().findAllPostList(pagination, carNo));	
-		request.setAttribute("caList", CategoryDAO.getInstance().list());
 		request.setAttribute("url", "communityList.jsp");
 		return "layout.jsp";
 	}

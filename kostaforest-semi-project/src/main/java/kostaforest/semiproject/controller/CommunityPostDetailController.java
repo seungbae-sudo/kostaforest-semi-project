@@ -28,7 +28,7 @@ public class CommunityPostDetailController implements Controller {
 			request.setAttribute("no", no);
 			request.setAttribute("pageNo", pageNo);
 			request.setAttribute("carNo", carNo);
-			request.setAttribute("url", "communityDetailContent.jsp");		
+			request.setAttribute("url", "communityDetailContent.jsp");
 			return "layout.jsp";
 	}
 
